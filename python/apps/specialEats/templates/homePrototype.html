@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div>
+        <header>
+            <div class="menu">
+                <div><img class="headerLogo" src="{{ url_for('static', filename='images/specialEats_white.png') }}"></div>
+                <div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
+                <div class="navigate">
+                    <div class="navText">Deliver to</div>
+                    <div class="navText">Port Harcourt</div>
+                </div>
+                <div>
+                    <form action="#" class="search" method="get">
+                        <select name="food" class="selector">
+                            <option selected>All</option>
+                            <option value="swallow">Swallow</option>
+                            <option value="rice">Rice</option>
+                            <option value="beans">Beans</option>
+                            <option value="noodles">Noodles</option>
+                            <option value="pasta">Pasta</option>
+                        </select>
+                        <input type="search" name="search" class="searchForm" autocomplete="off" placeholder="Search Special Eats">
+                        <button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
+                    </form>
+                </div>
+            </div>
+            <div class="menu_2">
+                <input type="checkbox" id="menuCheck">
+                <label for="menuCheck" class="menucheck">
+                    <div class="hBuggerContainer">
+                        <div class="hBugger"></div>
+                    </div>
+                </label>
+                <div class="subMenu_2">
+                    <img class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
+                    <select name="language" id="language" class="lang">
+                        <option value="English">EN</option>
+                        <option value="Hausa">HAUSA</option>
+                        <option value="Igbo">IGBO</option>
+                        <option value="Yoruba">YORUBA</option>
+                    </select>
+                    <div class="menu_2Signin"><a href="#">Hello, sign in</a></div>
+                    <div class="cartContainer"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></div>
+                </div>
+                <div class="navContainer">
+                    <div class="userReg">
+                        <div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
+                        <a href="#">Hello, sign in</a>
+                    </div>
+                    <nav>
+                        <div><h4>App Map</h4></div>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Today's Deals</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                        <div><h4>Help & Settings</h4></div>
+                        <ul>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">Nigeria</a></li>
+                            <li><a href="#">Customer Service</a></li>
+                        </ul>
+                    </nav>
+                    <div class="signIn"><a href="#">Sign in</a></div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="hero">
+                <div><img class="heroNoodle" src="{{ url_for('static', filename='images/noodle.png') }}" alt="noogle_sample"></div>
+                <div class="heroText"><h1>Delicious Food Is Waiting For You</h1></div>
+                <div>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="heroButton">Order</label>
+                    <div class="access">
+                        <div class="innerAccess">
+                            <div><a href="#">Sign in</a>to create an account</div>
+                            <div><a href="#">Login</a>to an already existing account</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="herotext">Our team of professional and registered cheffs offer luxerious home service</div>
+                <div>
+                    <input type="checkbox" id="check-2">
+                    <label for="check-2" class="heroButton-2">Book a Section</label>
+                    <div id="section" class="access">
+                        <form id="sectionForm" class="sectionForm" action="#" method="post">
+                            <div><img class="formLogo" src="{{ url_for('static', filename='images/specialEats_1.png') }}"></div>
+                            <div><h3>Kindly fill in your contact information</h3></div>
+                            <div class="formText">First Name</div>
+                            <div><input class="sectionform" type="text" name="first-name" autocomplete="off" autofocus required placeholder="First Name"></div>
+                            <div class="formText">Last Name</div>
+                            <div><input class="sectionform" type="text" name="last-name" autocomplete="off" required placeholder="Last Name"></div>
+                            <div class="formText">State of Origin</div>
+                            <div><input class="sectionform" type="text" name="soo" autocomplete="off" required placeholder="State of Origin"></div> 
+                            <div class="formText">E-Mail</div>
+                            <div><input class="sectionform" type="text" name="e-mail" autocomplete="off" placeholder="E-Mail" required></div>
+                            <div class="formText">Phone</div>
+                            <div><input class="sectionform" type="text" name="phone" autocomplete="off" placeholder="Phone (+234)" required></div>
+                            <div><input class="button" type="submit" value="Submit"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="frequentOrder">
+                <div class="frqHeader"><h1>Top List</h1></div>
+                <div>Our most frquent orders</div>
+                <div class="frqContainer">
+                    <div class="frqItem">
+                        <img src="{{ url_for('static', filename='images/jollof.PNG') }}" alt="jollof_rice">
+                        <div class="rating">
+                            <img src="{{ url_for('static', filename='images/star.png') }}" alt="star">
+                            <div class="ratingText">9.1</div>
+                        </div>
+                        <div class="frqH">Jollof Rice</div>
+                        <div class="frqText">Dark plate with grilled goat meat</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sideNote">Another Masterpiece</div>
+        </main>
+    </div>
+
+{% endblock %}

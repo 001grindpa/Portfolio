@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.sideNote {
+    color: green;
+    font-size: smaller;
+    text-align: right;
+    margin: 5px;
+}
+header {
+    background-color: darkslategray;
+    padding-bottom: 2px;
+}
+.menu {
+    background-color: rgb(18, 34, 70);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: medium;
+}
+.menu_2 {
+    background-color: darkslategray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+.menu_2Signin a:hover {
+    text-decoration: underline;
+}
+.subMenu_2 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: white;
+}
+.signIn {
+    margin-top: 20px;
+    padding: 7px;
+    width: 80px;
+    border-radius: 10px;
+}
+.signIn:hover {
+    color: green;
+}
+.headerLogo {
+    width: 60px;
+}
+#menuCheck {
+    display: none;
+}
+.menucheck {
+    display: inline-block;
+}
+.navigate {
+    color: white;
+    margin-left: -7px;
+}
+.navigate .navText:nth-child(1) {
+    font-size: smaller;
+}
+.navImage {
+    width: 15px;
+}
+.navimage {
+    margin-top: 10px;
+}
+.google {
+    width: 18px;
+    height: 17px;
+}
+.cart {
+    margin-top: 8px;
+    width: 40px;
+    cursor: pointer;
+}
+.unknownUser {
+    width: 40px;
+}
+.hBuggerContainer {
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    padding: 8px;
+    padding-left: 12px;
+    padding-top: 10px;
+    border-radius: 7px;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1;
+}
+.hBuggerContainer:hover {
+    background-color: rgba(0, 0, 200, 0.2);
+}
+.hBugger {
+    background-color: white;
+    height: 3px;
+    width: 15px;
+    top: 2px;
+    position: relative;
+}
+.hBugger::before {
+    content: "";
+    position: absolute;
+    background-color: inherit;
+    top: 5px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.hBugger::after {
+    content: "";
+    position: absolute;
+    background-color: inherit;
+    top: 10px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.navContainer {
+    position: absolute;
+    background-color: white;
+    top: 114px;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    left: -315px;
+    transition: 0.3s;
+    padding-left: 15px;
+}
+#menuCheck:checked ~ .navContainer {
+    left: 0;
+}
+nav ul {
+    list-style: none;
+    display: grid;
+    gap: 20px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+    padding: 7px;
+    border-radius: 7px;
+    font-size: medium;
+}
+nav ul a:hover {
+    background-color: rgba(18, 34, 70, 0.342);
+}
+.userReg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: green;
+    font-size: larger;
+    font-weight: bold;
+    margin-left: -15px;
+    padding-left: 15px;
+    color: white;
+    padding: 15px;
+}
+h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+h3 {
+    color:rgb(18, 34, 70);
+    margin-top: -13px;
+}
+.searchButton {
+    padding: 6px;
+    background-color: green;
+    border: 2px solid green;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+.searchButton:hover {
+    background-color: rgb(2, 65, 2);
+    border: 2px solid rgb(2, 65, 2);
+}
+.searchForm {
+    padding: 9px;
+    outline: none;
+}
+.search {
+    display: flex;
+    align-items: center;
+    /* outline: 2px solid green; */
+    border-radius: 7px;
+}
+.selector {
+    padding: 9px;
+    width: 55px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    outline: none;
+}
+.hero {
+    text-align: center;
+    overflow: hidden;
+}
+.heroNoodle {
+    width: 450px;
+    margin-top: -100px;
+    margin-bottom: -130px;
+}
+.heroText {
+    width: 40%;
+    margin: auto;
+}
+.heroButton {
+    width: 300px;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 30px;
+    color: white;
+    background-color: green;
+    border: 2px solid green;
+    font-weight: bolder;
+    cursor: pointer;
+    display: inline-block;
+}
+.heroButton:hover {
+    background-color: rgb(2, 65, 2);
+    border: 2px solid rgb(2, 65, 2);
+}
+#check {
+    display: none;
+}
+.access {
+    position: absolute;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.616);
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    padding-top: 300px;
+    display: none;
+    z-index: 500;
+}
+.innerAccess {
+    background-color: rgb(18, 34, 70);
+    display: grid;
+    gap: 25px;
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+}
+.innerAccess a {
+    text-decoration: underline;
+}
+#check:checked ~ .access{
+    display: block;
+}
+.herotext {
+    width: 50%;
+    margin: auto;
+    font-weight: bold;
+}
+.heroButton-2 {
+    background-color: orange;
+    border: none;
+    padding: 10px;
+    width: 170px;
+    margin-top: 15px;
+    display: inline-block;
+    border-radius: 15px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.heroButton-2:hover {
+    background-color: rgb(156, 107, 16);
+}
+#check-2:checked ~ .access{
+    display: block;
+}
+#check-2 {
+    display: none;
+}
+.sectionForm {
+    display: grid;
+    gap: 10px;
+    background-color: orange;
+    width: 250px;
+    padding: 30px;
+    margin: auto;
+    border-radius: 15px;
+}
+.sectionform {
+    padding: 10px;
+    border-radius: 15px;
+}
+.button {
+    padding: 8px;
+    width: 100px;
+    border-radius: 15px;
+    background-color: rgb(18, 34, 70);
+    opacity: 0.8;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.button:hover {
+    opacity: 1;
+}
+.formLogo {
+    width: 100px;
+}
+.formText {
+    text-align: left;
+    margin-left: 35px;
+    font-size: small;
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+.frequentOrder {
+    margin-top: 4rem;
+    text-align: center;
+    display: grid;
+    gap: 5px;
+}
+.frqHeader {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+/* .frqContainer {
+    outline: 1px solid green;
+} */
+.frqItem img {
+    width: 200px;
+}
+.frqItem {
+    width: 200px;
+    margin: auto;
+    margin-top: 15px;
+    height: 250px;
+    position: relative;
+}
+.frqItem::after {
+    position: absolute;
+    content: "";
+    top: 35px;
+    right: 0;
+    height: 105%;
+    width: 100%;
+    background-color: rgba(18, 34, 70, 0.185);
+    z-index: -1;
+    border-radius: 40px;
+}
+.frqH {
+    font-weight: bold;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: left;
+}
+.frqText {
+    font-size: small;
+    margin: 3px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: left;
+}
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 25px;
+    padding-bottom: 3px;
+}
+.rating img {
+    width: 25px;
+}

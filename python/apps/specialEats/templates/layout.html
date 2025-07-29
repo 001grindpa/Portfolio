@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <meta property="og:title" content="Special Eats">
+        <meta property="og:description" content="Come Eat">
+        <link href="{{ url_for('static', filename='styles/specialEats.css') }}" rel="stylesheet">
+        <title>Special Eats</title>
+        <style>
+            body {
+                background-image: url("{{ url_for('static', filename='images/fries_blur.png') }}");
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+            }
+            .cartContainer {
+                position: relative;
+                margin-bottom: -5px;
+            }
+            .cartContainer::after {
+                content: "0";
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                background-color: red;
+                border-radius: 50%;
+                top: 5px;
+                left: 0;
+                font-size: small;
+                text-align: center;
+                padding-top: 3px;
+                padding-right: 1.1px;
+            }
+        </style>
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
