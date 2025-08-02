@@ -6,10 +6,12 @@
         <header>
             <div class="menu">
                 <div><img class="headerLogo" src="{{ url_for('static', filename='images/specialEats_white.png') }}"></div>
-                <div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
-                <div class="navigate">
-                    <div class="navText">Deliver to</div>
-                    <div class="navText">Port Harcourt</div>
+                <div class="location">
+                    <div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
+                    <div class="navigate">
+                        <div class="navText">Deliver to</div>
+                        <div class="navText">Port Harcourt</div>
+                    </div>
                 </div>
                 <div>
                     <form action="#" class="search" method="get">
@@ -25,6 +27,17 @@
                         <button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
                     </form>
                 </div>
+                <div class="menu_2Signin_2"><a href="#">Hello, sign in</a></div>
+                <div class="flag_lang">
+                    <img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
+                    <select name="language" id="language" class="lang_2">
+                        <option value="English">EN</option>
+                        <option value="Hausa">HAUSA</option>
+                        <option value="Igbo">IGBO</option>
+                        <option value="Yoruba">YORUBA</option>
+                    </select>
+                </div>
+                <div class="cartContainerTwo"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></div>
             </div>
             <div class="menu_2">
                 <input type="checkbox" id="menuCheck">
@@ -33,9 +46,28 @@
                         <div class="hBugger"></div>
                     </div>
                 </label>
+                <nav class="menu2nav">
+                    <div class="appMap">
+                        <h4>App Map</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Today's Deals</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="divide"></div>
+                    <div class="help">
+                        <h4>Help & Settings</h4>
+                        <ul>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">Nigeria</a></li>
+                            <li><a href="#">Customer Service</a></li>
+                        </ul>
+                    </div>
+                </nav>
                 <div class="subMenu_2">
-                    <img class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
-                    <select name="language" id="language" class="lang">
+                    <img id="flag_1" class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
+                    <select name="language" id="language" class="lang_1">
                         <option value="English">EN</option>
                         <option value="Hausa">HAUSA</option>
                         <option value="Igbo">IGBO</option>
@@ -69,9 +101,9 @@
         </header>
         <main>
             <div class="hero">
-                <div><img class="heroNoodle" src="{{ url_for('static', filename='images/noodle.png') }}" alt="noogle_sample"></div>
-                <div class="heroText"><h1>Delicious Food Is Waiting For You</h1></div>
-                <div>
+                <div class="Hnoodle"><img class="heroNoodle" src="{{ url_for('static', filename='images/noodle.png') }}" alt="noogle_sample"></div>
+                <div class="heroText textOne"><h1>Delicious Food Is Waiting For You</h1></div>
+                <div class="heroOrder">
                     <input type="checkbox" id="check">
                     <label for="check" class="heroButton">Order</label>
                     <div class="access">
@@ -81,8 +113,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="herotext">Our team of professional and registered cheffs offer luxerious home service</div>
-                <div>
+                <div class="herotext textTwo">Our team of professional and registered cheffs offer luxerious home service</div>
+                <div class="Hbook">
                     <input type="checkbox" id="check-2">
                     <label for="check-2" class="heroButton-2">Book a Section</label>
                     <div id="section" class="access">
@@ -106,9 +138,9 @@
             </div>
             <div class="frequentOrder">
                 <div class="frqHeader"><h1>Top List</h1></div>
-                <div>Our most frquent orders</div>
+                <div>Our most frequent orders</div>
                 <div class="frqContainer">
-                    <div class="frqItem">
+                    <div class="frqItem frqOne">
                         <img src="{{ url_for('static', filename='images/jollof.PNG') }}" alt="jollof_rice">
                         <div class="rating">
                             <img src="{{ url_for('static', filename='images/star.png') }}" alt="star">
@@ -116,6 +148,46 @@
                         </div>
                         <div class="frqH">Jollof Rice</div>
                         <div class="frqText">Dark plate with grilled goat meat</div>
+                    </div>
+                    <div class="frqItemOfor">
+                        <img src="{{ url_for('static', filename='images/ofor.png') }}" alt="afang_soup">
+                        <div class="rating">
+                            <img src="{{ url_for('static', filename='images/star.png') }}" alt="star">
+                            <div class="ratingText">9.4</div>
+                        </div>
+                        <div class="frqH">Ofor Soup</div>
+                        <div class="frqText">Stainless white bowl with assorted meats.</div>
+                    </div>
+                    <div class="frqItem frqTwo">
+                        <img src="{{ url_for('static', filename='images/spagg.png') }}" alt="chow_mein">
+                        <div class="rating">
+                            <img src="{{ url_for('static', filename='images/star.png') }}" alt="star">
+                            <div class="ratingText">8.5</div>
+                        </div>
+                        <div class="frqH">Chow mein</div>
+                        <div class="frqText">Stir-fry of chow mein noodles in a leaf-shaped wooden plate.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="shoutOut">
+                <div class="sImage"><img class="shoutOutC" src="{{ url_for('static', filename='images/chim-chim.png') }}" alt="chim-chim"></div>
+                <div class="shoutOutH"><h1>Best Ingredients For Chim-chim</h1></div>
+                <div class="shoutOutT">Our golden-brown chim-chim is crafted from the finest ingredients; expertly fried to a crunchy perfection that keeps you coming back for more. Each bite delivers a savory kick with a hint of warmth and softness inside, making it the ultimate snack for work, hangouts, or just pure munch-time satisfaction.</div>
+            </div>
+            <div class="footer">
+                <div><h2>Our Services</h2></div>
+                <div class="footerT">
+                    <div class="innerF">
+                        <img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
+                        <a href="#">Online booking</a>
+                    </div>
+                    <div class="innerF">
+                        <img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
+                        <a href="#">Catering service</a>
+                    </div>
+                    <div class="innerF">
+                        <img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
+                        <a href="#">Membership</a>
                     </div>
                 </div>
             </div>

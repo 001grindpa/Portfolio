@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Roboto", "Poppins", sans-serif;
 }
 
 .sideNote {
     color: green;
     font-size: smaller;
     text-align: right;
-    margin: 5px;
+    background-color: lightgray;
 }
 header {
     background-color: darkslategray;
@@ -17,9 +19,17 @@ header {
 .menu {
     background-color: rgb(18, 34, 70);
     display: flex;
+    justify-content: space-between;
     gap: 10px;
     align-items: center;
     font-size: medium;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.location {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 .menu_2 {
     background-color: darkslategray;
@@ -186,12 +196,13 @@ h3 {
 .searchForm {
     padding: 9px;
     outline: none;
+    width: 100%;
 }
 .search {
     display: flex;
     align-items: center;
-    /* outline: 2px solid green; */
-    border-radius: 7px;
+    border-radius: 10px;
+    border: 2px solid white;
 }
 .selector {
     padding: 9px;
@@ -203,6 +214,13 @@ h3 {
 .hero {
     text-align: center;
     overflow: hidden;
+    display: grid;
+    grid-template-areas: 
+    "heroOne"
+    "heroTwo"
+    "heroThree"
+    "heroFour"
+    "heroFive";
 }
 .heroNoodle {
     width: 450px;
@@ -333,9 +351,17 @@ h3 {
     margin: auto;
     text-align: center;
 }
-/* .frqContainer {
-    outline: 1px solid green;
-} */
+.frqContainer {
+    display: grid;
+    gap: 20px;
+    height: 950px;
+    padding-bottom: 20px;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    "frqOne"
+    "frqTwo"
+    "frqThree";
+}
 .frqItem img {
     width: 200px;
 }
@@ -356,6 +382,29 @@ h3 {
     background-color: rgba(18, 34, 70, 0.185);
     z-index: -1;
     border-radius: 40px;
+}
+.frqItemOfor {
+    width: 270px;
+    margin: auto;
+    margin-top: 30px;
+    height: 300px;
+    position: relative;
+}
+.frqItemOfor::after {
+    position: absolute;
+    content: "";
+    top: 35px;
+    right: 0;
+    height: 105%;
+    width: 100%;
+    background-color: rgba(18, 34, 70, 0.185);
+    z-index: -1;
+    border-radius: 40px;
+}
+.frqItemOfor img {
+    margin-top: -40px;
+    width: 230px;
+    margin-bottom: -28px;
 }
 .frqH {
     font-weight: bold;
@@ -379,4 +428,260 @@ h3 {
 }
 .rating img {
     width: 25px;
+}
+.shoutOut {
+    display: grid;
+    justify-content: center;
+    grid-template-areas: 
+    "fOne"
+    "fTwo"
+    "fThree";
+}
+.shoutOutH {
+    /* font-size: Large; */
+    text-align: center;
+}
+.shoutOutC {
+    margin-top: -25px;
+    width: 400px;
+    margin-bottom: -40px;
+}
+.shoutOutT {
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    font-weight: bold;
+}
+.footer {
+    display: grid;
+    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    background-image: linear-gradient(gray, lightgray);
+}
+h2 {
+    text-align: center;
+}
+.footerT {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    font-weight: bold;
+    flex-flow: row wrap;
+}
+.footerT a:hover {
+    background-color: rgba(250, 250, 250, 0.4);
+}
+.footerT img {
+    width: 30px;
+}
+.innerF {
+    display: flex;
+    align-items: center;
+}
+
+/* grid-area assignment for hero section */
+.hero .Hnoodle {
+    grid-area: heroOne;
+}
+.hero .textOne {
+    grid-area: heroTwo;
+}
+.hero .heroOrder {
+    grid-area: heroThree;
+}
+.hero .textTwo {
+    grid-area: heroFour
+} 
+.hero .Hbook {
+    grid-area: heroFive;
+}
+
+/* grid-area assignment for freqent order section */
+.frqContainer .frqOne {
+    grid-area: frqOne;
+}
+.frqContainer .frqItemOfor {
+    grid-area: frqTwo;
+}
+.frqContainer .frqTwo {
+    grid-area: frqThree;
+}
+
+/* grid-area assignment for shout-out section */
+.shoutOut .sImage {
+    grid-area: fOne;
+}
+.shoutOut .shoutOutH {
+    grid-area: fTwo;
+}
+.shoutOut .shoutOutT {
+    grid-area: fThree;
+}
+
+.cartContainerTwo {
+    display: none;
+    position: relative;
+}
+.cartContainerTwo::after {
+    content: "0";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    top: 5px;
+    left: 0;
+    font-size: small;
+    text-align: center;
+    padding-top: 3px;
+    padding-right: 1.1px;
+}
+.menu_2Signin_2 a:hover {
+    text-decoration: underline;
+}
+.menu_2Signin_2 {
+    display: none;
+    color: white;
+}
+.flag_lang {
+    display: flex;
+    gap: 8px;
+}
+#flag_2 {
+    width: 18px;
+    height: 17px;
+    display: none;
+}
+.lang_2 {
+    display: none;
+}
+.appMap {
+    display: flex;
+    gap: 10px;
+}
+.help {
+    display: flex;
+    gap: 10px;
+}
+.menu2nav {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+.appMap ul {
+    display: flex;
+    align-items: center;
+}
+.help ul {
+    display: flex;
+    align-items: center;
+}
+.appMap h4 {
+    color: rgb(18, 34, 70);
+}
+.help h4 {
+    color: rgb(18, 34, 70);
+}
+
+/* menu reaangement */
+@media(min-width: 550px) {
+    .cartContainer {
+        display: none;
+    }
+    .cartContainerTwo {
+        display: block;
+    }
+}
+@media(min-width: 700px) {
+    .menu_2Signin {
+        display: none;
+    }
+    .menu_2Signin_2 {
+        display: block;
+    }
+    .frqContainer {
+        height: 750px;
+        gap: 0;
+        grid-template-areas: 
+        'frqTwo frqTwo'
+        'frqOne frqThree';
+    }
+}
+@media(min-width: 1000px) {
+    .lang_1 {
+        display: none;
+    }
+    .lang_2 {
+        display: block;
+    }
+    #flag_1 {
+        display: none;
+    }
+    #flag_2 {
+        display: block;
+    }
+    .menu2nav {
+        display: flex;
+    }
+    .hBuggerContainer {
+        display: none;
+    }
+    .divide {
+        height: 50px;
+        width: 1px;
+        background-color: rgb(18, 34, 70);
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .hero {
+        margin-top: 40px;
+        grid-template-areas: 
+        "heroTwo heroOne"
+        "heroThree heroOne"
+        "heroFour heroOne"
+        "heroFive heroOne";
+    }
+    .hero .Hnoodle {
+        grid-area: heroOne;
+        padding-right: 40%;
+    }
+    .hero .textOne {
+        grid-area: heroTwo;
+        padding-left: 30%;
+    }
+    .hero .heroOrder {
+        grid-area: heroThree;
+        padding-left: 30%;
+    }
+    .hero .textTwo {
+        grid-area: heroFour;
+        padding-left: 30%;
+    } 
+    .hero .Hbook {
+        grid-area: heroFive;
+        padding-left: 30%;
+    }
+    .frqContainer {
+        grid-template-areas: 
+        'frqOne frqTwo frqThree';
+        height: 350px;
+    }
+    .shoutOut {
+        margin-top: 30px;
+        grid-template-areas: 
+        "fOne fTwo"
+        "fOne fThree";
+    }
+    .shoutOut .shoutOutH {
+        padding-top: 100px;
+        grid-area: fTwo;
+    }
+    .shoutOut .shoutOutT {
+        margin-top: -180px;
+        grid-area: fThree;
+    }
 }
