@@ -257,7 +257,7 @@ h3 {
     display: none;
 }
 .access {
-    position: absolute;
+    position: fixed;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.616);
     top: 0;
@@ -282,6 +282,21 @@ h3 {
     text-decoration: underline;
 }
 #check:checked ~ .access{
+    display: block;
+}
+#section {
+    position: fixed;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.616);
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 300px;
+    display: none;
+    z-index: 500;
+}
+#check-2:checked ~ #section {
     display: block;
 }
 .herotext {
