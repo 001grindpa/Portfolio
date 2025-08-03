@@ -40,3 +40,5 @@ def prototype():
 #     session.get("username") = None
 #     session.get("password") = None
 #     return redirect("/login")
+if __name__ == '__main__':
+    app.run(debug=True, use_reloader=True, reloader_type='watchdog')
