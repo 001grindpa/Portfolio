@@ -21,13 +21,13 @@ def homepage():
 def prototype():
     return render_template("landing.html", langs=languages)
 
-# @app.route("/signup", methods=["GET", "POST"])
-# def signup():
-#     if request.method == "POST":
-#         session["username"] = request.form.get("username")
-#         session["password"] = request.form.get("password")
-#         return redirect("/")
-#     return render_template("signup.html")
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        session["username"] = request.form.get("username")
+        session["password"] = request.form.get("password")
+        return redirect("/")
+    return render_template("signup.html")
 
 # @app.route("/login", methods=["GET", "POST"])
 # def login():

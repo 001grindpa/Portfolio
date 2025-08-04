@@ -27,7 +27,7 @@
                         <button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
                     </form>
                 </div>
-                <div class="menu_2Signin_2"><a href="#">Hello, sign in</a></div>
+                <div class="menu_2Signin_2"><a href="/signup">Hello, sign in</a></div>
                 <div class="flag_lang">
                     <img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
                     <select name="language" id="languages_2" class="lang_2">
@@ -71,13 +71,13 @@
                         <option id="lang" value="{{ lang }}">{{ lang }}</option>
           				{% endfor %}
                     </select>
-                    <div class="menu_2Signin"><a href="#">Hello, sign in</a></div>
+                    <div class="menu_2Signin"><a href="/signup">Hello, sign in</a></div>
                     <div class="cartContainer"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></div>
                 </div>
                 <div class="navContainer">
                     <div class="userReg">
                         <div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
-                        <a href="#">Hello, sign in</a>
+                        <a href="/signup">Hello, sign in</a>
                     </div>
                     <nav>
                         <div><h4>App Map</h4></div>
@@ -93,7 +93,7 @@
                             <li><a href="#">Customer Service</a></li>
                         </ul>
                     </nav>
-                    <div class="signIn"><a href="#">Sign in</a></div>
+                    <div class="signIn"><a href="/signup">Sign in</a></div>
                 </div>
             </div>
         </header>
@@ -106,7 +106,7 @@
                     <label for="check" class="heroButton">Order</label>
                     <div class="access">
                         <div class="innerAccess">
-                            <div><a href="#">Sign in</a>to create an account</div>
+                            <div><a href="/signup">Sign in</a>to create an account</div>
                             <div><a href="#">Login</a>to an already existing account</div>
                         </div>
                     </div>
