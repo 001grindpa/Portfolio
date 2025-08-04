@@ -9,7 +9,12 @@ document.addEventListener('DOMContentLoaded', function(){
     let section_background = document.querySelector('#section');
     let innerOrder = document.querySelector('.innerAccess');
     let innerSection = document.querySelector('.sectionForm');
-
+	let uk_flag = document.querySelector('#flag_1');
+	let languages = document.querySelector('#languages');
+	let uk_flag_2 = document.querySelector('#flag_2');
+	let languages = document.querySelector('#languages_2');
+			
+		
     // hero section pop-up configuration
 
 	main.addEventListener('click', function(){
@@ -44,5 +49,16 @@ document.addEventListener('DOMContentLoaded', function(){
     });
     innerSection.addEventListener('click', function(event){
         event.stopPropagation();
-    })
+    });
+
+    // flag configuration
+
+    languages.addEventListener('change', function(event){
+		if (languages.value == 'English'){
+			uk_flag.src = 'static/images/uk.png';
+		}
+		else {
+			uk_flag.src = 'static/images/ng.png';
+		}
+    });
 })

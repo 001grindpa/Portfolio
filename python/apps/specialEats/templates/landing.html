@@ -13,7 +13,7 @@
                         <div class="navText">Port Harcourt</div>
                     </div>
                 </div>
-                <div>
+                <div class="searchContainer">
                     <form action="#" class="search" method="get">
                         <select name="food" class="selector">
                             <option selected>All</option>
@@ -30,11 +30,10 @@
                 <div class="menu_2Signin_2"><a href="#">Hello, sign in</a></div>
                 <div class="flag_lang">
                     <img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
-                    <select name="language" id="language" class="lang_2">
-                        <option value="English">EN</option>
-                        <option value="Hausa">HAUSA</option>
-                        <option value="Igbo">IGBO</option>
-                        <option value="Yoruba">YORUBA</option>
+                    <select name="language" id="languages_2" class="lang_2">
+                        {% for lang in langs %}
+                         <option id="lang_2" value="{{ lang }}">{{ lang }}</option>
+           				{% endfor %}
                     </select>
                 </div>
                 <div class="cartContainerTwo"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></div>
@@ -67,11 +66,10 @@
                 </nav>
                 <div class="subMenu_2">
                     <img id="flag_1" class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
-                    <select name="language" id="language" class="lang_1">
-                        <option value="English">EN</option>
-                        <option value="Hausa">HAUSA</option>
-                        <option value="Igbo">IGBO</option>
-                        <option value="Yoruba">YORUBA</option>
+                    <select name="language" id="languages" class="lang_1">
+						{% for lang in langs %}
+                        <option id="lang" value="{{ lang }}">{{ lang }}</option>
+          				{% endfor %}
                     </select>
                     <div class="menu_2Signin"><a href="#">Hello, sign in</a></div>
                     <div class="cartContainer"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></div>

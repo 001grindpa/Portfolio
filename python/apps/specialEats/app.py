@@ -9,15 +9,17 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+languages = ["English", "Hausa", "Igbo", "Yoruba"]
+
 @app.route("/")
 def homepage():
     if not session.get("username") and not session.get("password"):
-        return redirect("/home")
+        return redirect("/landing")
     return render_template("home.html")
 
-@app.route("/home")
+@app.route("/landing")
 def prototype():
-    return render_template("homePrototype.html")
+    return render_template("landing.html", langs=languages)
 
 # @app.route("/signup", methods=["GET", "POST"])
 # def signup():

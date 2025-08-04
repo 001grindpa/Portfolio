@@ -19,7 +19,7 @@ header {
 .menu {
     background-color: rgb(18, 34, 70);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
     align-items: center;
     font-size: medium;
@@ -30,6 +30,9 @@ header {
     display: flex;
     gap: 10px;
     align-items: center;
+}
+.searchContainer {
+	flex: 3 0 auto;
 }
 .menu_2 {
     background-color: darkslategray;
@@ -212,7 +215,6 @@ h3 {
 }
 .selector {
     padding: 9px;
-    width: 55px;
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
     outline: none;
@@ -274,29 +276,16 @@ h3 {
     gap: 25px;
     width: 300px;
     margin: auto;
+    margin-top: 40%;
     padding: 15px;
     border-radius: 15px;
     color: white;
+    z-index: 502;
 }
 .innerAccess a {
     text-decoration: underline;
 }
 #check:checked ~ .access{
-    display: block;
-}
-#section {
-    position: fixed;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.616);
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 100%;
-    padding-top: 300px;
-    display: none;
-    z-index: 500;
-}
-#check-2:checked ~ #section {
     display: block;
 }
 .herotext {
@@ -319,7 +308,19 @@ h3 {
 .heroButton-2:hover {
     background-color: rgb(156, 107, 16);
 }
-#check-2:checked ~ .access{
+#section {
+	position: fixed;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.616);
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 100px;
+    display: none;
+    z-index: 500;
+}
+#check-2:checked ~ #section{
     display: block;
 }
 #check-2 {
@@ -608,7 +609,7 @@ h2 {
     color: rgb(18, 34, 70);
 }
 
-/* menu reaangement */
+/* menu rearangement */
 @media(min-width: 550px) {
     .cartContainer {
         display: none;
