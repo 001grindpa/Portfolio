@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	let uk_flag = document.querySelector('#flag_1');
 	let languages = document.querySelector('#languages');
 	let uk_flag_2 = document.querySelector('#flag_2');
-	let languages = document.querySelector('#languages_2');
+	let languages_2 = document.querySelector('#languages_2');
 			
 		
     // hero section pop-up configuration
