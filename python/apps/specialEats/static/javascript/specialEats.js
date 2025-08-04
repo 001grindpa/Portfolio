@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	let uk_flag = document.querySelector('#flag_1');
 	let languages = document.querySelector('#languages');
 	let uk_flag_2 = document.querySelector('#flag_2');
-	let languages = document.querySelector('#languages_2');
+	let languages_2 = document.querySelector('#languages_2');
 			
 		
     // hero section pop-up configuration
@@ -20,14 +20,17 @@ document.addEventListener('DOMContentLoaded', function(){
 	main.addEventListener('click', function(){
 		hambugger.checked = false;
 	});
+	
     background.addEventListener('click', function(event){
         order_now.checked = false;
         order_now.dispatchEvent(new Event('change'));
     });
+    
     section_background.addEventListener('click', function(event){
         section.checked = false;
         section.dispatchEvent(new Event('change'));
     });
+    
     order_now.addEventListener('change', function(){
         if (order_now.checked) {
             body.style.overflow = 'hidden';
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
             body.style.overflow = 'auto';
         }
     });
+    
     section.addEventListener('change', function(event){
         if (section.checked) {
             body.style.overflow = 'hidden';
@@ -44,9 +48,11 @@ document.addEventListener('DOMContentLoaded', function(){
             body.style.overflow = 'auto';
         }
     });
+    
     innerOrder.addEventListener('click', function(event){
         event.stopPropagation();
     });
+    
     innerSection.addEventListener('click', function(event){
         event.stopPropagation();
     });
@@ -59,6 +65,15 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 		else {
 			uk_flag.src = 'static/images/ng.png';
+		}
+    });
+
+    languages_2.addEventListener('change', function(event){
+		if (languages_2.value == 'English'){
+			uk_flag_2.src = 'static/images/uk.png';
+		}
+		else {
+			uk_flag_2.src = 'static/images/ng.png';
 		}
     });
 })
