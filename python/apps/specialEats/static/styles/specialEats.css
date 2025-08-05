@@ -717,3 +717,90 @@ h2 {
     color: white;
     text-align: center;
 }
+.signupContainer {
+	padding: 50px;
+	text-align: center;
+}
+.signupForm {
+	background-color: white;
+	display: grid;
+	gap: 10px;
+	width: 250px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: auto;
+	border-radius: 15px;
+	box-shadow: 5px 5px 7px -2px black;
+}
+.signupIntro {
+	font-size: small;
+	text-align: center;
+	margin: auto;
+	width: 80%;
+	color: darkslategray;
+}
+.signupInput {
+	padding: 5px;
+	border-radius: 10px;
+	outline: none;
+	border: 1px solid darkslategray;
+}
+.signupcheck {
+	display: grid;
+	cursor: pointer;
+	align-items: center;
+	width: 150px;
+	height: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: darkslategray;
+	border-radius: 30px;
+	text-align: center;
+	color: white;
+	font-size: small;
+}
+.confirmContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.submitBlur {
+	display: none;
+	padding-top: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+	backdrop-filter: blur(4px);
+}
+.submitContainer {
+	width: 100%;
+	background-color: darkslategray;
+	padding: 10px;
+}
+.submitContainer-2 {
+	display: grid;
+	gap: 10px;
+	width: 350px;
+	margin: auto;
+	color: white;
+}
+#signupCheck {
+	display: none;
+}
+#signupCheck:checked + .submitBlur {
+	display: block;
+}
+.signupButton {
+	background-color: orange;
+	padding: 5px;
+	padding-left: 50px;
+	padding-right: 50px;
+	border-radius: 20px;
+	border: 1px solid none;
+	color: white;
+	cursor: pointer;
+}
