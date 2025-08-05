@@ -705,6 +705,9 @@ h2 {
         margin-top: -180px;
         grid-area: fThree;
     }
+    .navContainer {
+        display: none;
+    }
 }
 
 /* sign up page UI styling */
@@ -726,12 +729,16 @@ h2 {
 	display: grid;
 	gap: 10px;
 	width: 250px;
-	padding: 10px;
+	padding: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
 	margin: auto;
 	border-radius: 15px;
 	box-shadow: 5px 5px 7px -2px black;
+}
+.signupForm img {
+    width: 70px;
+    margin: auto;
 }
 .signupIntro {
 	font-size: small;
@@ -739,6 +746,16 @@ h2 {
 	margin: auto;
 	width: 80%;
 	color: darkslategray;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+.signupText {
+    font-size: small;
+    color: darkslategray;
+    font-weight: bold;
+    text-align: left;
+    width: 80px;
+    margin-left: 45px;
 }
 .signupInput {
 	padding: 5px;
@@ -755,10 +772,20 @@ h2 {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	background-color: darkslategray;
+    opacity: 0.8;
 	border-radius: 30px;
 	text-align: center;
 	color: white;
 	font-size: small;
+    box-shadow: 0 5px black;
+    position: relative;
+}
+.signupcheck:hover {
+    opacity: 1;
+}
+#signupCheck:checked + .signupcheck {
+    top: 4px;
+    box-shadow: none;
 }
 .confirmContainer {
 	display: flex;
@@ -791,11 +818,12 @@ h2 {
 #signupCheck {
 	display: none;
 }
-#signupCheck:checked + .submitBlur {
+#signupCheck:checked ~ .submitBlur {
 	display: block;
 }
 .signupButton {
 	background-color: orange;
+    opacity: 0.8;
 	padding: 5px;
 	padding-left: 50px;
 	padding-right: 50px;
@@ -804,3 +832,31 @@ h2 {
 	color: white;
 	cursor: pointer;
 }
+.signupButton:hover {
+    opacity: 1;
+}
+.bottomInfo {
+    font-size: small;
+    color: darkslategray;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px;
+}
+.bottomInfo a {
+    font-size: small;
+}
+.bottomInfo a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+.innerPassword {
+    display: flex;
+    width: 245px;
+    margin-left: auto;
+}
+.innerPassword img {
+    width: 25px;
+}
+/* .password {
+    outline: 1px solid black;
+} */

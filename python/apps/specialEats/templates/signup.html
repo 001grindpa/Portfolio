@@ -9,26 +9,47 @@
         </header>
         <main>
             <div class="signupContainer">
-                <form class="signupForm" action="#">
-                	<div class="signupIntro">Sign up for an account to start enjoying our delicious meals</div>
-                    <input autofocus class="signupInput" type="text" name="username" placeholder="create a username..." autocomplete="off">
-					<input class="signupInput" type="text" name="first_name" placeholder="enter your first name..." autocomplete="off">
-                    <input class="signupInput" type="text" name="last_name" placeholder="enter your last name..." autocomplete="off">
-                    <input class="signupInput" type="text" name="d_o_b" placeholder="enter your date of birth..." autocomplete="off">  
-					<input class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"> 
+                <form class="signupForm" action="#" method="post">
+                	<img src="{{ url_for('static', filename='images/specialEats_black.png') }}" alt="special Eats logo">
+                    <div class="signupIntro">Sign up for an account to start enjoying our delicious meals</div>
+                    <div>
+                        <div class="signupText">Username</div>
+                        <input autofocus class="signupInput" type="text" name="username" placeholder="create a username..." autocomplete="off">
+                    </div> 
+                    <div>
+                        <div class="signupText">First Name</div>
+                        <input class="signupInput" type="text" name="first_name" placeholder="enter your first name..." autocomplete="off">
+                    </div> 
+                    <div>
+                        <div class="signupText">Last Name</div>
+                        <input class="signupInput" type="text" name="last_name" placeholder="enter your last name..." autocomplete="off">
+                    </div> 
+                    <div>
+                        <div class="signupText">Date of Birth</div>
+                        <input class="signupInput" type="text" name="d_o_b" placeholder="enter your date of birth..." autocomplete="off">
+                    </div> 
+					<div>
+                        <div class="signupText">Password</div>
+                        <div class="innerPassword">
+                            <img src="{{ url_for('static', filename='images/refresh.png') }}" alt="generate">
+                            <div class="password"><input class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
+                            <img src="{{ url_for('static', filename='images/view.png') }}" alt="view">
+                        </div>
+                    </div>
                     <div class="confirmContainer">
-                    	<label for="signupCheck" class="signupcheck">Confirm<label>
 					    <input type="checkbox" id="signupCheck">
-						<div class="submitBlur">
+						<label for="signupCheck" class="signupcheck">Confirm</label>
+                        <div class="submitBlur">
 							<div class="submitContainer">
 		                    	<div class="submitContainer-2">
 									<div>Before proceeding with account creation, please confirm your created password</div>
 									<input class="signupInput" type="text" placeholder="confirm password" autocomplete="off" name="password_2">
 									<div><input class="signupButton" type="submit" value="Sign up"></div>
-		                    	<div>
-		                    <div>
+                                </div>
+		                    </div>
 						</div>
                     </div>
+                    <div class="bottomInfo">Already own an account?<a href="#">login</a></div>
                 </form>
             </div>
         </main>
