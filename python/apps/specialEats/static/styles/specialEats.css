@@ -260,12 +260,12 @@ h3 {
 .access {
     position: fixed;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.616);
+    background-color: rgba(0, 0, 0, 0.705);
     top: 0;
     right: 0;
     left: 0;
     height: 100%;
-    padding-top: 100px;
+    padding-top: 350px;
     display: none;
     z-index: 500;
 }
@@ -275,7 +275,6 @@ h3 {
     gap: 25px;
     width: 300px;
     margin: auto;
-    margin-top: 40%;
     padding: 15px;
     border-radius: 15px;
     color: white;
@@ -310,7 +309,7 @@ h3 {
 #section {
 	position: fixed;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.616);
+    background-color: rgba(0, 0, 0, 0.705);
     top: 0;
     right: 0;
     left: 0;
@@ -846,7 +845,7 @@ h2 {
     font-size: small;
 }
 .bottomInfo a:hover {
-    color: blue;
+    color: green;
     text-decoration: underline;
 }
 .innerPassword {
@@ -856,7 +855,11 @@ h2 {
 }
 .innerPassword img {
     width: 25px;
+    cursor: pointer;
 }
-/* .password {
-    outline: 1px solid black;
-} */
+#generate {
+    opacity: 0.4;
+}
+#generate:hover {
+    opacity: 1;
+}
