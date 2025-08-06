@@ -863,3 +863,8 @@ h2 {
 #generate:hover {
     opacity: 1;
 }
+.passwordFeed {
+	text-align: center;
+	color: red;
+	outline: 1px solid black;
+}

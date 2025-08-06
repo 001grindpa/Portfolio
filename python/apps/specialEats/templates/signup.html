@@ -9,7 +9,7 @@
         </header>
         <main>
             <div class="signupContainer">
-                <form class="signupForm" action="#" method="post">
+                <form class="signupForm" action="/signup" method="post">
                 	<img src="{{ url_for('static', filename='images/specialEats_black.png') }}" alt="special Eats logo">
                     <div class="signupIntro">Sign up for an account to start enjoying our delicious meals</div>
                     <div>
@@ -26,7 +26,7 @@
                     </div> 
                     <div>
                         <div class="signupText">Date of Birth</div>
-                        <input class="signupInput" type="text" name="d_o_b" placeholder="enter your date of birth..." autocomplete="off">
+                        <input class="signupInput" type="text" name="dob" placeholder="enter your date of birth..." autocomplete="off">
                     </div> 
 					<div>
                         <div class="signupText">Password</div>
@@ -49,6 +49,7 @@
 		                    </div>
 						</div>
                     </div>
+                    <div class="passwordFeed">{{ return }}</div>
                     <div class="bottomInfo">Already own an account?<a href="#">login</a></div>
                 </form>
             </div>
