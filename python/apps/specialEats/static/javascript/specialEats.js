@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	let languages = document.querySelector('#languages');
 	let uk_flag_2 = document.querySelector('#flag_2');
 	let languages_2 = document.querySelector('#languages_2');
+    let view = document.querySelector('#view');
+    let password = document.querySelector('#password');
 			
 		
     // hero section pop-up configuration
@@ -75,5 +77,19 @@ document.addEventListener('DOMContentLoaded', function(){
 		else {
 			uk_flag_2.src = 'static/images/ng.png';
 		}
+    });
+
+    // sign up page configuration
+
+    // password config
+    view.addEventListener('click', function(event){
+        if (password.type == 'password') {
+            password.type = 'text';
+            view.src = 'static/images/hide.png';
+        }
+        else {
+            password.type = 'password';
+            view.src = 'static/images/view.png';
+        }
     });
 })

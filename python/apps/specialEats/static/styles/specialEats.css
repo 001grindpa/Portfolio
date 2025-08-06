@@ -866,5 +866,5 @@ h2 {
 .passwordFeed {
 	text-align: center;
 	color: red;
-	outline: 1px solid black;
+    font-size: small;
 }

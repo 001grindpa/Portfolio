@@ -32,7 +32,7 @@
                         <div class="signupText">Password</div>
                         <div class="innerPassword">
                             <img id="generate" src="{{ url_for('static', filename='images/refresh.png') }}" alt="generate">
-                            <div class="password"><input class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
+                            <div class="password"><input id="password" class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
                             <img id="view" src="{{ url_for('static', filename='images/view.png') }}" alt="view">
                         </div>
                     </div>
@@ -49,7 +49,7 @@
 		                    </div>
 						</div>
                     </div>
-                    <div class="passwordFeed">{{ return }}</div>
+                    <div class="passwordFeed">{{ result }}</div>
                     <div class="bottomInfo">Already own an account?<a href="#">login</a></div>
                 </form>
             </div>
