@@ -1,5 +1,6 @@
 from flask import Flask, session, render_template, redirect, url_for, request
 from flask_session import Session
+from randomModules import password_sys, password_gen
 from cs50 import SQL
 db = SQL("sqlite:///specialEats.db")
 
@@ -13,7 +14,7 @@ languages = ["English", "Hausa", "Igbo", "Yoruba"]
 
 @app.route("/")
 def homepage():
-    if not session.get("username") and not session.get("password"):
+    if not session.get("password"):
         return redirect("/landing")
     return render_template("home.html")
 
@@ -25,8 +26,17 @@ def prototype():
 def signup():
     if request.method == "POST":
         session["username"] = request.form.get("username")
-        session["password"] = request.form.get("password")
-        return redirect("/")
+        password = request.form.get("password")
+        session["first_name"] = request.form.get("first_name")
+        session["last_name"] = request.form.get("last_name")
+        session["dob"] = request.form.get("dob")
+        result = password_sys(password)
+        if result == "valid_password":
+            session["password"] = password
+            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b) VALUES(?, ?, ?, ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"))
+            return redirect("/")
+        else:
+            return render_template("signup.html", result = result)
     return render_template("signup.html")
 
 # @app.route("/login", methods=["GET", "POST"])
