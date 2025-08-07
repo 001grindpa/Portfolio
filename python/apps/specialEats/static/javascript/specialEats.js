@@ -81,11 +81,14 @@ document.addEventListener('DOMContentLoaded', function(){
 				uk_flag_2.src = 'static/images/ng.png';
 			}
 	    });	
-	};
+	}
 	else if (document.body.id === 'signup') {
 		// sign up page configuration
+
 		let view = document.querySelector('#view');
 		let password = document.querySelector('#password_1');
+        let generate_p = document.querySelector('#generate_p');
+        let passwordFeed = document.querySelector('.passwordFeed');
 	
 	    // password config
 	    view.addEventListener('click', function(event){
@@ -98,6 +101,18 @@ document.addEventListener('DOMContentLoaded', function(){
 	            view.src = 'static/images/view.png';
 	        }
 	    });	
+        // password_feed
+        password.addEventListener('input', async function(){
+            let response = await fetch('/signup/returned?q=' + password.value);
+            let returned = await response.text();
+            passwordFeed.innerHTML = returned;
+        });
+        // generated password
+        generate_p.addEventListener('click', async function(){
+            let response_2 = await fetch('/signup/generated?gen=10');
+            let gen = await response_2.text();
+            password.value = gen;
+        })
 	};
 	
 })

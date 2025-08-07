@@ -729,7 +729,7 @@ h2 {
 	gap: 10px;
 	width: 250px;
 	padding: 20px;
-	padding-left: 20px;
+	padding-left: 13px;
 	padding-right: 20px;
 	margin: auto;
 	border-radius: 15px;
@@ -850,18 +850,39 @@ h2 {
 }
 .innerPassword {
     display: flex;
-    width: 245px;
+    width: 235px;
     margin-left: auto;
 }
 .innerPassword img {
     width: 25px;
     cursor: pointer;
 }
-#generate {
+#generate_p {
     opacity: 0.4;
 }
-#generate:hover {
+#generate_p:hover {
     opacity: 1;
+}
+.generateP {
+    margin-right: 6px;
+    position: relative;
+}
+.generateP::before {
+    position: absolute;
+    content: "Generate a password. Please write out your generated password";
+    top: 100px;
+    left: -100px;
+    width: 200px;
+    height: 100px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.568);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+.generateP:hover::before {
+    display: flex;
 }
 .passwordFeed {
 	text-align: center;

@@ -31,7 +31,7 @@
 					<div>
                         <div class="signupText">Password</div>
                         <div class="innerPassword">
-                            <img id="generate_p" src="{{ url_for('static', filename='images/refresh.png') }}" alt="generate">
+                            <div class="generateP"><img id="generate_p" src="{{ url_for('static', filename='images/refresh.png') }}" alt="generate"></div>
                             <div class="password"><input id="password_1" class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
                             <img id="view" src="{{ url_for('static', filename='images/view.png') }}" alt="view">
                         </div>
@@ -49,7 +49,7 @@
 		                    </div>
 						</div>
                     </div>
-                    <div class="passwordFeed">{{ result }}</div>
+                    <div class="passwordFeed"></div>
                     <div class="bottomInfo">Already own an account?<a href="#">login</a></div>
                 </form>
             </div>

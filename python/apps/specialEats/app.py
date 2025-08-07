@@ -38,6 +38,17 @@ def signup():
         else:
             return render_template("signup.html", result = result, page_id = "signup")
     return render_template("signup.html", page_id = "signup")
+@app.route("/signup/returned")
+def returned():
+    query = request.args.get("q")
+    result = password_sys(query)
+    return render_template("result.html", result = result)
+@app.route("/signup/generated")
+def generate():
+    query_2 = request.args.get("gen")
+    generated = password_gen(query_2)
+    return render_template("generated.html", generated=generated)
+    
 
 # @app.route("/login", methods=["GET", "POST"])
 # def login():
