@@ -16,11 +16,11 @@ languages = ["English", "Hausa", "Igbo", "Yoruba"]
 def homepage():
     if not session.get("password"):
         return redirect("/landing")
-    return render_template("home.html")
+    return render_template("home.html", page_id = "home")
 
 @app.route("/landing")
 def prototype():
-    return render_template("landing.html", langs=languages)
+    return render_template("landing.html", langs=languages, page_id = "landing")
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -36,8 +36,8 @@ def signup():
             db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b) VALUES(?, ?, ?, ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"))
             return redirect("/")
         else:
-            return render_template("signup.html", result = result)
-    return render_template("signup.html")
+            return render_template("signup.html", result = result, page_id = "signup")
+    return render_template("signup.html", page_id = "signup")
 
 # @app.route("/login", methods=["GET", "POST"])
 # def login():
