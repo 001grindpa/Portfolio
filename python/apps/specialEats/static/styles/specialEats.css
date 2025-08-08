@@ -865,13 +865,12 @@ h2 {
 }
 .generateP {
     margin-right: 6px;
-    position: relative;
 }
 .generateP::before {
-    position: absolute;
-    content: "Generate a password. Please write out your generated password";
-    top: 100px;
-    left: -100px;
+    position: fixed;
+    content: "Generate a password. Please write out and store your generated password";
+    top: 280px;
+    left: 60%;
     width: 200px;
     height: 100px;
     color: white;
@@ -888,4 +887,9 @@ h2 {
 	text-align: center;
 	color: red;
     font-size: small;
+}
+#confirmP {
+	color: red;
+	font-size: small;
+	text-align: center;
 }

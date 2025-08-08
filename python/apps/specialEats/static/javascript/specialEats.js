@@ -89,7 +89,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		let password = document.querySelector('#password_1');
         let generate_p = document.querySelector('#generate_p');
         let passwordFeed = document.querySelector('.passwordFeed');
-	
+		let signupForm = document.querySelector('.signupForm');
+		let password_2 = document.querySelector('#password_2');
+		let confirmP = document.querySelector('#confirmP');
+		let checkbox = document.querySelector('#signupCheck');
+		let confirm_container = document.querySelector('.submitContainer');
+		let blur = document.querySelector('.submitBlur');
+		let body = document.querySelector('body');
+		
 	    // password config
 	    view.addEventListener('click', function(event){
 	        if (password.type === 'password') {
@@ -112,6 +119,32 @@ document.addEventListener('DOMContentLoaded', function(){
             let response_2 = await fetch('/signup/generated?gen=10');
             let gen = await response_2.text();
             password.value = gen;
+        });
+        // password confirmation
+        signupForm.addEventListener('submit', function(event){
+        	if (password.value != password_2.value) {
+        		event.preventDefault();
+        		confirmP.innerHTML = 'Password mismatch';
+        	}
+        	else {
+        		confirmP.innerHTML = 'Valid match';
+        	}
+        });
+        // pop up configuration for sign up page
+        checkbox.addEventListener('change', function(event){
+        	if (checkbox.checked) {
+        		body.style.overflow = 'hidden';
+        	}
+        	else {
+        		body.style.overflow = 'auto';
+        	}
+        });
+        blur.addEventListener('click', function(event){
+        	checkbox.checked = false;
+        	checkbox.dispatchEvent(new Event('change'));
+        });
+        confirm_container.addEventListener('click', function(event){
+        	event.stopPropagation();
         })
 	};
 	
