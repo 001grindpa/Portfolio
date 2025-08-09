@@ -14,25 +14,25 @@
                     <div class="signupIntro">Sign up for an account to start enjoying our delicious meals</div>
                     <div>
                         <div class="signupText">Username</div>
-                        <input autofocus class="signupInput" type="text" name="username" placeholder="create a username..." autocomplete="off">
+                        <input required autofocus class="signupInput" type="text" name="username" placeholder="create a username..." autocomplete="off">
                     </div> 
                     <div>
                         <div class="signupText">First Name</div>
-                        <input class="signupInput" type="text" name="first_name" placeholder="enter your first name..." autocomplete="off">
+                        <input required class="signupInput" type="text" name="first_name" placeholder="enter your first name..." autocomplete="off">
                     </div> 
                     <div>
                         <div class="signupText">Last Name</div>
-                        <input class="signupInput" type="text" name="last_name" placeholder="enter your last name..." autocomplete="off">
+                        <input required class="signupInput" type="text" name="last_name" placeholder="enter your last name..." autocomplete="off">
                     </div> 
                     <div>
                         <div class="signupText">Date of Birth</div>
-                        <input class="signupInput" type="text" name="dob" placeholder="enter your date of birth..." autocomplete="off">
+                        <input required class="signupInput" type="text" name="dob" placeholder="enter your date of birth..." autocomplete="off">
                     </div> 
 					<div>
                         <div class="signupText">Password</div>
                         <div class="innerPassword">
                             <div class="generateP"><img id="generate_p" src="{{ url_for('static', filename='images/refresh.png') }}" alt="generate"></div>
-                            <div class="password"><input id="password_1" class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
+                            <div class="password"><input required id="password_1" class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
                             <img id="view" src="{{ url_for('static', filename='images/view.png') }}" alt="view">
                         </div>
                     </div>
@@ -43,8 +43,9 @@
 							<div class="submitContainer">
 		                    	<div class="submitContainer-2">
 									<div>Before proceeding with account creation, please confirm your created password</div>
-									<input class="signupInput" type="text" placeholder="confirm password" autocomplete="off" name="password_2">
+									<input id="password_2" class="signupInput" type="text" placeholder="confirm password" autocomplete="off" name="password_2">
 									<div><input class="signupButton" type="submit" value="Sign up"></div>
+									<div id="confirmP"></div>
                                 </div>
 		                    </div>
 						</div>
