@@ -26,11 +26,38 @@
                     </div> 
                     <div>
                         <div class="signupText">Date of Birth</div>
-                        <input required class="signupInput" type="text" name="dob" placeholder="enter your date of birth..." autocomplete="off">
+                        <div class="datePickerC">
+                            <input id="dob" required class="signupInput" type="text" name="dob" placeholder="mm/dd/yyyy" autocomplete="off">
+                            <div class="pickerImgC"><img src="{{ url_for('static', filename='images/cal.png') }}" alt="date_picker"></div>
+                        </div>
+                        <div class="datePicker">
+                            <div class="datePicker-H">
+                                <button class="prev">Prev</button>
+                                <select name="month" id="month">
+                                    {% for month in months %}
+                                    <option value="{{ month }}">{{ month }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div></div>
+                                <input class="year" type="number">
+                                <button class="next">Next</button>
+                            </div>
+                            <div class="days">
+                                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thur</span><span>Fri</span><span>Sat</span>
+                            </div>
+                            <div class="dates">
+                                <!--appended dates from js goes in here-->
+                            </div>
+                            <div class="datePicker-F">
+                                <button class="cancel">Cancel</button>
+                                <button class="apply">Apply</button>
+                            </div>
+                        </div>
                     </div> 
 					<div>
                         <div class="signupText">Password</div>
                         <div class="innerPassword">
+                            <div class="Pinfo"><img src="{{ url_for('static', filename='images/info.png') }}" alt="info"></div>
                             <div class="generateP"><img id="generate_p" src="{{ url_for('static', filename='images/refresh.png') }}" alt="generate"></div>
                             <div class="password"><input required id="password_1" class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
                             <img id="view" src="{{ url_for('static', filename='images/view.png') }}" alt="view">
@@ -51,7 +78,7 @@
 						</div>
                     </div>
                     <div class="passwordFeed"></div>
-                    <div class="bottomInfo">Already own an account?<a href="#">login</a></div>
+                    <div class="bottomInfo">Already own an account?<a href="/login">login</a></div>
                 </form>
             </div>
         </main>

@@ -1,0 +1,100 @@
+/* date picker style */
+
+.datePickerC {
+    display: flex;
+    width: fit-content;
+    margin-left: 68px;
+    gap: 5px;
+}
+.pickerImgC {
+    margin-top: 3px;
+}
+.datePickerC img {
+    width: 20px;
+    cursor: pointer;
+}
+.datePicker-H {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.prev, .next {
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    opacity: 0.6;
+}
+.prev:hover, .next:hover {
+    opacity: 1;
+}
+.year {
+    text-align: center;
+    width: 45px;
+    padding: 3px;
+}
+.datePicker-F {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+    margin: 10px;
+}
+.cancel, .apply {
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+}
+.cancel:hover, .apply:hover {
+    background-color: lightgrey;
+}
+.datePicker {
+    position: absolute;
+    background-image: linear-gradient(gray,darkslategray);
+    top: 230px;
+    right: 5%;
+    padding: 5px;
+    z-index: 5;
+    /* display: none; */
+}
+@media(min-width: 1500px) {
+    .datePicker {
+        right: 45%;
+    }
+}
+@media(min-width: 1000px) {
+    .datePicker {
+        right: 20%;
+    }
+}
+.days span {
+    background-color: darkslategray;
+    font-size: small;
+    font-weight: bold;
+    color: white;
+    padding: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.days, .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.dates button {
+    background-color: transparent;
+    color: white;
+    margin: 3px;
+    aspect-ratio: 1;
+}
+.dates button:hover {
+    background-color: black;
+    cursor: pointer;
+}
+.dates .today {
+    background-color: white;
+    color: black;
+}
+.dates .sDate {
+    background-color: lightgreen;
+    color: black;
+}

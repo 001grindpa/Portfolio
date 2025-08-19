@@ -11,6 +11,18 @@
     text-align: right;
     background-color: lightgray;
 }
+.errorpage {
+    background-color: orange;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+}
+.errorpage a {
+    color: darkslategray;
+}
 header {
     background-color: darkslategray;
     padding-bottom: 2px;
@@ -539,26 +551,6 @@ h2 {
 .shoutOut .shoutOutT {
     grid-area: fThree;
 }
-
-.cartContainerTwo {
-    display: none;
-    position: relative;
-}
-.cartContainerTwo::after {
-    content: "0";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    top: 5px;
-    left: 0;
-    font-size: small;
-    text-align: center;
-    padding-top: 3px;
-    padding-right: 1.1px;
-}
 .menu_2Signin_2 a:hover {
     text-decoration: underline;
 }
@@ -606,7 +598,15 @@ h2 {
 .help h4 {
     color: rgb(18, 34, 70);
 }
-
+.subMenu_2 .signIn {
+    display: none;
+    margin-top: -3px;
+    text-align: center;
+}
+.subMenu_2 .signIn:hover {
+    background-color: rgba(18, 34, 70, 0.342);
+    color: red;
+}
 /* menu rearangement */
 @media(min-width: 550px) {
     .cartContainer {
@@ -632,6 +632,9 @@ h2 {
     }
 }
 @media(min-width: 1000px) {
+    .subMenu_2 .signIn {
+        display: block;
+    }
     .lang_1 {
         display: none;
     }
@@ -722,12 +725,13 @@ h2 {
 .signupContainer {
 	padding: 50px;
 	text-align: center;
+    height: 100vh;
 }
 .signupForm {
 	background-color: white;
 	display: grid;
 	gap: 10px;
-	width: 250px;
+	width: 300px;
 	padding: 20px;
 	padding-left: 13px;
 	padding-right: 20px;
@@ -754,7 +758,7 @@ h2 {
     font-weight: bold;
     text-align: left;
     width: 80px;
-    margin-left: 45px;
+    margin-left: 70px;
 }
 .signupInput {
 	padding: 5px;
@@ -764,6 +768,7 @@ h2 {
 }
 .signupcheck {
 	display: grid;
+    margin-left: 4px;
 	cursor: pointer;
 	align-items: center;
 	width: 150px;
@@ -850,12 +855,35 @@ h2 {
 }
 .innerPassword {
     display: flex;
-    width: 235px;
-    margin-left: auto;
+    width: 270px;
+    margin-left: 15px;
 }
 .innerPassword img {
     width: 25px;
     cursor: pointer;
+}
+.Pinfo img {
+    margin-right: 4px;
+    width: 20px;
+    margin-top: 3px;
+    cursor: auto;
+}
+.Pinfo::before {
+    position: fixed;
+    content: "Please write out and store your generated password";
+    top: 280px;
+    right: 60%;
+    width: 200px;
+    height: 100px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.568);
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+.Pinfo:hover::before {
+    display: flex;
 }
 #generate_p {
     opacity: 0.4;
@@ -866,23 +894,6 @@ h2 {
 .generateP {
     margin-right: 6px;
 }
-.generateP::before {
-    position: fixed;
-    content: "Generate a password. Please write out and store your generated password";
-    top: 280px;
-    left: 60%;
-    width: 200px;
-    height: 100px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.568);
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    display: none;
-}
-.generateP:hover::before {
-    display: flex;
-}
 .passwordFeed {
 	text-align: center;
 	color: red;
@@ -892,4 +903,44 @@ h2 {
 	color: red;
 	font-size: small;
 	text-align: center;
+}
+
+/* styling for login page */
+
+.Lpassword {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 68px;
+    margin-top: -10px;
+}
+.Lpassword img {
+    width: 25px;
+}
+.Lpassword img {
+    cursor: pointer;
+}
+.loginC {
+    margin-top: 15px;
+}
+.loginC input {
+    background-color: green;
+    font-weight: bold;
+    padding: 7px;
+    color: white;
+    padding-left: 45px;
+    padding-right: 45px;
+    border-radius: 20px;
+    border: 1px solid green;
+    cursor: pointer;
+}
+.loginC input:hover {
+    background-color: rgb(1, 104, 1);
+}
+
+/* styling for homepage */
+#home {
+    height: 100vh;
 }

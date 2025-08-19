@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		let confirm_container = document.querySelector('.submitContainer');
 		let blur = document.querySelector('.submitBlur');
 		let body = document.querySelector('body');
+		let dob = document.querySelector('#dob');
 		
 	    // password config
 	    view.addEventListener('click', function(event){
@@ -134,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function(){
         checkbox.addEventListener('change', function(event){
         	if (checkbox.checked) {
         		body.style.overflow = 'hidden';
+				dob.disabled = false;
         	}
         	else {
         		body.style.overflow = 'auto';
@@ -146,6 +148,63 @@ document.addEventListener('DOMContentLoaded', function(){
         confirm_container.addEventListener('click', function(event){
         	event.stopPropagation();
         })
-	};
+	}
+	// login page configuration
+
+	else if (document.body.id === 'login') {
+		let view = document.querySelector("#view");
+		let password = document.querySelector("#password");
+
+		view.addEventListener("click", function(){
+			if (password.type === "password"){
+				password.type = "text";
+				view.src = "static/images/hide.png";
+			}
+			else {
+				password.type = "password";
+				view.src = "static/images/view.png";
+			}
+		});
+	}
+
+	//home page configuration
 	
+	else if (document.body.id === 'home'){
+		let hambugger = document.querySelector('#menuCheck');
+		let body = document.querySelector('body');
+		let main = document.querySelector('main');
+		let uk_flag = document.querySelector('#flag_1');
+		let languages = document.querySelector('#languages');
+		let uk_flag_2 = document.querySelector('#flag_2');
+		let languages_2 = document.querySelector('#languages_2');
+			
+	    // hero section pop-up configuration
+		if (main && hambugger) {
+			main.addEventListener('click', function(){
+				hambugger.checked = false;
+			});	
+		}
+	
+	    // flag configuration
+	
+	    languages.addEventListener('change', function(event){
+			if (languages.value == 'English'){
+				uk_flag.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag.src = 'static/images/ng.png';
+			}
+	    });
+	
+	    languages_2.addEventListener('change', function(event){
+			if (languages_2.value == 'English'){
+				uk_flag_2.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag_2.src = 'static/images/ng.png';
+			}
+	    });	
+
+		
+	}
 })

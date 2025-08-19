@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div>
+        <header>
+            <div class="sideNote">Another Masterpiece</div>
+            <div class="heading2">Hello, welcome</div>
+        </header>
+        <main>
+            <div class="signupContainer">
+                <form class="signupForm" action="/login" method="post">
+                	<img src="{{ url_for('static', filename='images/specialEats_black.png') }}" alt="special Eats logo">
+                    <div class="signupIntro">login to continue enjoying our delicious meals</div>
+                    <div>
+                        <div class="signupText">Username</div>
+                        <input required autofocus class="signupInput" type="text" name="username" placeholder="create a username..." autocomplete="off">
+                    </div> 
+                    <div class="signupText">Password</div>
+                    <div class="Lpassword">
+                        <div><input required id="password" class="signupInput" type="password" name="password" placeholder="create a password..." autocomplete="off"></div>
+                        <img id="view" src="{{ url_for('static', filename='images/view.png') }}" alt="view">
+                    </div>
+                    <div class="loginC">
+                        <input type="submit" value="login">
+                    </div>
+                    <div class="bottomInfo">don't own an account?<a href="/signup">create one</a></div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}
