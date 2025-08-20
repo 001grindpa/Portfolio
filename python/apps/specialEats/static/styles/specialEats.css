@@ -714,6 +714,13 @@ h2 {
 
 /* sign up page UI styling */
 
+#nameError {
+    font-size: small;
+    color: orange;
+    text-align: left;
+    margin-left: 63px;
+    width: fit-content;
+}
 .heading2 {
     background-color: darkslategray;
     width: 30%;

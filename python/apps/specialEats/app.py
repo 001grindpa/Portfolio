@@ -43,6 +43,19 @@ def signup():
         else:
             return render_template("signup.html", page_id = "signup", months = months)
     return render_template("signup.html", page_id = "signup", months = months)
+@app.route("/usernamecheck")
+def namecheck():
+    username = request.args.get("namecheck")
+    userData = db.execute("SELECT * FROM userData")
+    for data in userData:
+        if data.get("username") == username:
+            name_error = "username already exists"
+            return render_template("usernameCheck.html", name_error = name_error )
+    if len(username) <= 4:
+        error = "username must be more than 4 characters long"
+        return render_template("usernameCheck.html", error = error)
+    nameError = "valid username \U00002705"
+    return render_template("usernameCheck.html", nameError = nameError)
 @app.route("/signup/returned")
 def returned():
     query = request.args.get("q")

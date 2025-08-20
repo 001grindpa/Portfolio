@@ -97,7 +97,26 @@ document.addEventListener('DOMContentLoaded', function(){
 		let blur = document.querySelector('.submitBlur');
 		let body = document.querySelector('body');
 		let dob = document.querySelector('#dob');
-		
+		let nameError = document.querySelector("#nameError");
+		let username = document.querySelector("#username");
+		let signup = document.querySelector(".signupButton");
+
+
+		//username error config
+		username.addEventListener("input", async function(){
+			let response = await fetch("/usernamecheck?namecheck=" + username.value)
+			let data = await response.text();
+			nameError.innerHTML = data;
+			if (data === "username already exists") {
+				signup.disabled = true;
+				confirmP.innerHTML = "Please go back and use a different username";
+			}
+			else {
+				signup.disabled = false;
+				confirmP.innerHTML = "";
+			}
+		});
+
 	    // password config
 	    view.addEventListener('click', function(event){
 	        if (password.type === 'password') {
@@ -205,6 +224,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		
+
 	}
 })
