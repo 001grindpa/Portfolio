@@ -26,7 +26,9 @@ def prototype():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        session["username"] = request.form.get("username")
+        username = request.form.get("username")
+        session["username"] = username
+        username_low = username.lower()
         password = request.form.get("password")
         session["first_name"] = request.form.get("first_name")
         session["last_name"] = request.form.get("last_name")
@@ -38,14 +40,14 @@ def signup():
             for data in user_data:
                 if data.get("username") == session.get("username") and data.get("password") == session.get("password"):
                     return redirect("/signupError")
-            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b) VALUES(?, ?, ?, ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"))
+            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b) VALUES(?, ?, ?, ?, ?)", username_low, session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"))
             return redirect("/")
         else:
             return render_template("signup.html", page_id = "signup", months = months)
     return render_template("signup.html", page_id = "signup", months = months)
 @app.route("/usernamecheck")
 def namecheck():
-    username = request.args.get("namecheck")
+    username = request.args.get("namecheck").lower()
     userData = db.execute("SELECT * FROM userData")
     for data in userData:
         if data.get("username") == username:
@@ -73,7 +75,7 @@ def signupError():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        session["username"] = request.form.get("username")
+        session["username"] = request.form.get("username").lower()
         session["password"] = request.form.get("password")
         userData = db.execute("SELECT * FROM userData")
         for data in userData:
