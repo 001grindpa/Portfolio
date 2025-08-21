@@ -948,6 +948,43 @@ h2 {
 }
 
 /* styling for homepage */
-#home {
+/* #home {
     height: 100vh;
+} */
+.heroSlider {
+    outline: 1px solid red;
+    text-align: center;
+    padding-top: 300px;
+    padding-bottom: 300px;
+}
+.choices {
+    outline: 1px solid blue;
+    padding: 10px;
+    display: grid;
+    gap: 15px;
+    justify-content: center;
+}
+.choiceC {
+    background-color: white;
+    outline: 2px solid black;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.choiceC h2 {
+    text-align: left;
+    color: darkslategray;
+    margin: 5px;
+}
+.choice-1 {
+    display: grid;
+    justify-content: center;
+    width: 400px;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: white;
+    gap: 20px;
+}
+.choice-1 img {
+    width: 200px;
 }

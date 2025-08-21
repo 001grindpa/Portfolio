@@ -17,7 +17,11 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 def homepage():
     if not session.get("password"):
         return redirect("/landing")
-    return render_template("home.html", page_id = "home", langs = languages)
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+    return render_template("home.html", page_id = "home", langs = languages, first_name = first_name, last_name = last_name)
 
 @app.route("/landing")
 def prototype():
