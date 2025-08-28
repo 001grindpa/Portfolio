@@ -224,6 +224,20 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
+		// hero slider configuration
 
+		let navImg = document.querySelectorAll(".slide1");
+
+		
+
+		for (let i = 0; i < navImg.length; i++){
+
+			navImg[i].addEventListener("click", function(){
+				for (let c of navImg){
+					c.classList.remove("choosen");
+				}
+				navImg[i].classList.add("choosen");
+			});
+		}
 	}
 })

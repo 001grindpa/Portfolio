@@ -149,7 +149,7 @@ header {
     background-color: white;
     top: 114px;
     right: 0;
-    height: 92%;
+    height: 98%;
     width: 300px;
     left: -315px;
     transition: 0.3s;
@@ -951,22 +951,70 @@ h2 {
 /* #home {
     height: 100vh;
 } */
+.hero {
+    outline: 5px solid blue;
+}
 .heroSlider {
-    outline: 1px solid red;
     text-align: center;
-    padding-top: 300px;
-    padding-bottom: 300px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: mandatory x;
+    scroll-behavior: smooth;
+}
+.heroSlider::-webkit-scrollbar {
+    display: none;
+}
+.heroSlider img {
+    height: 500px;
+    width: 100%;
+    flex: 1 0 auto;
+    scroll-snap-align: start;
+}
+.heroContainerHome {
+    position: relative;
+}
+.sliderNav {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3px;
+}
+.sliderNav a {
+    background-color: rgb(18, 34, 70);
+    opacity: 0.5;
+    padding: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 30px;
+    margin: 5px;
+}
+.sliderNav a:hover {
+    opacity: 1;
+}
+.sliderNav .choosen {
+    opacity: 1;
 }
 .choices {
-    outline: 1px solid blue;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 550px;
     padding: 10px;
     display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    "choice-1"
+    "choice-2"
+    "choice-3"
+    "choice-4";
     gap: 15px;
     justify-content: center;
 }
 .choiceC {
     background-color: white;
-    outline: 2px solid black;
     padding: 15px;
     padding-left: 30px;
     padding-right: 30px;
@@ -987,4 +1035,57 @@ h2 {
 }
 .choice-1 img {
     width: 200px;
+}
+
+/* congiguring the cuisines from different rgions */
+
+#choice_1 {
+    grid-area: choice-1;
+}
+#choice_2 {
+    grid-area: choice-2;
+}
+#choice_3 {
+    grid-area: choice-3;
+}
+#choice_4 {
+    grid-area: choice-4;
+}
+
+@media(min-width: 765px) {
+    .heroSlider img {
+        height: 700px;
+    }
+    .choices {
+        top: 720px;
+    }
+}
+@media(min-width: 1060px) {
+    .heroSlider img {
+        height: 900px;
+    }
+    .choices {
+        top: 920px;
+    }
+}
+@media(min-width: 1350px) {
+    .heroSlider img {
+        height: 1400px;
+    }
+    .choices {
+        top: 1420px;
+    }
+}
+@media(min-width: 985px) {
+    .choices {
+        grid-template-areas: 
+        "choice-2 choice-1"
+        "choice-4 choice-3";
+    }
+}
+@media(min-width: 1700px) {
+    .choices {
+        grid-template-areas: 
+        "choice-2 choice-1 choice-4 choice-3";
+    }
 }
