@@ -227,8 +227,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		// hero slider configuration
 
 		let navImg = document.querySelectorAll(".slide1");
-
-		
+		let heroSlider = document.querySelector(".heroSlider");
+		let sliderImg = document.querySelectorAll(".sliderImg");
 
 		for (let i = 0; i < navImg.length; i++){
 

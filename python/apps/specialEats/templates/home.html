@@ -100,14 +100,14 @@
 	<main class="home" id="home">
 		<div class="heroContainerHome">
 			<div class="heroSlider">
-				<img id="img1" src="{{ url_for('static', filename='banner_img/2.png') }}" alt="intro">
-				<img id="img2" src="{{ url_for('static', filename='banner_img/5.png') }}" alt="family">
-				<img id="img3" src="{{ url_for('static', filename='banner_img/3.png') }}" alt="yoruba">
-				<img id="img4" src="{{ url_for('static', filename='banner_img/6.png') }}" alt="hausa">
-				<img id="img5" src="{{ url_for('static', filename='banner_img/4.png') }}" alt="street">
+				<img class="sliderImg" id="img1" src="{{ url_for('static', filename='banner_img/2.png') }}" alt="intro">
+				<img class="sliderImg" id="img2" src="{{ url_for('static', filename='banner_img/5.png') }}" alt="family">
+				<img class="sliderImg" id="img3" src="{{ url_for('static', filename='banner_img/3.png') }}" alt="yoruba">
+				<img class="sliderImg" id="img4" src="{{ url_for('static', filename='banner_img/6.png') }}" alt="hausa">
+				<img class="sliderImg" id="img5" src="{{ url_for('static', filename='banner_img/4.png') }}" alt="street">
 			</div>
 			<div class="sliderNav">
-				<a class="slide1" href="#img1"></a>
+				<a class="slide1 choosen" href="#img1"></a>
 				<a class="slide1" href="#img2"></a>
 				<a class="slide1" href="#img3"></a>
 				<a class="slide1" href="#img4"></a>
@@ -115,90 +115,207 @@
 			</div>
 		</div>
 		<div class="choices">
-			<div class="choiceC" id="choice_1">
-				<h2>South Nigerian Cuisine</h2>
-				<div class="choice-1">
-					<div>
-						<img src="{{ url_for('static', filename='images/isiewu2.png') }}" alt="isiewu">
-						<div>Isi-ewu</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='images/olubu2.png') }}" alt="olubu">
-						<div>Bitter-leaf Soup</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='images/pepperSoup2.png') }}" alt="pepper_soup">
-						<div>Pepper Soup</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='images/offor2 .png') }}" alt="ofor_soup">
-						<div>Oha Soup</div>
-					</div>
-				</div>
-			</div>
-			<div class="choiceC" id="choice_2">
-				<h2>North Nigeria Cuisine</h2>
-				<div class="choice-1">
-					<div>
-						<img src="{{ url_for('static', filename='food_images/dambu nama.png') }}" alt="isiewu">
-						<div>Dambu nama</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/danwake.png') }}" alt="olubu">
-						<div>Dan Wake</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/fura da nono.png') }}" alt="pepper_soup">
-						<div>Fura Da Nono</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/tuwo_shinkara.png') }}" alt="ofor_soup">
-						<div>Tuwo Shinkara</div>
+			<a href="#">
+				<div class="choiceC" id="choice_1">
+					<h2>South Nigerian Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='images/isiewu2.png') }}" alt="isiewu">
+							<div>Isi-ewu</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='images/olubu2.png') }}" alt="olubu">
+							<div>Bitter-leaf Soup</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='images/pepperSoup2.png') }}" alt="pepper_soup">
+							<div>Pepper Soup</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='images/offor2 .png') }}" alt="ofor_soup">
+							<div>Oha Soup</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="choiceC" id="choice_3">
-				<h2>West Nigeria Cuisine</h2>
-				<div class="choice-1">
-					<div>
-						<img src="{{ url_for('static', filename='food_images/ikokere.png') }}" alt="isiewu">
-						<div>Ikokere</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/ofada.png') }}" alt="olubu">
-						<div>Ofada</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="pepper_soup">
-						<div>Ewedu</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/dodo.png') }}" alt="ofor_soup">
-						<div>Dodo</div>
-					</div>
-				</div>
-			</div>
-			<div class="choiceC" id="choice_4">
-				<h2>East Nigeria Cuisine</h2>
-				<div class="choice-1">
-					<div>
-						<img src="{{ url_for('static', filename='food_images/ofe nsala.png') }}" alt="isiewu">
-						<div>Ofe Nsala</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/ugba.png') }}" alt="olubu">
-						<div>Ugba</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/ofe akwu.png') }}" alt="pepper_soup">
-						<div>Ofe Akwu</div>
-					</div>
-					<div>
-						<img src="{{ url_for('static', filename='food_images/ofe owerri.png') }}" alt="ofor_soup">
-						<div>Ofe Owerri</div>
+			</a>
+			<a href="#">
+				<div class="choiceC" id="choice_2">
+					<h2>North Nigeria Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='food_images/dambu nama.png') }}" alt="isiewu">
+							<div>Dambu nama</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/danwake.png') }}" alt="olubu">
+							<div>Dan Wake</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/fura da nono.png') }}" alt="pepper_soup">
+							<div>Fura Da Nono</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/tuwo_shinkara.png') }}" alt="ofor_soup">
+							<div>Tuwo Shinkara</div>
+						</div>
 					</div>
 				</div>
+			</a>
+			<a href="#">
+				<div class="choiceC" id="choice_3">
+					<h2>West Nigeria Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ikokere.png') }}" alt="isiewu">
+							<div>Ikokere</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofada.png') }}" alt="olubu">
+							<div>Ofada</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="pepper_soup">
+							<div>Ewedu</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/dodo.png') }}" alt="ofor_soup">
+							<div>Dodo</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			<a href="#">
+				<div class="choiceC" id="choice_4">
+					<h2>East Nigeria Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofe nsala.png') }}" alt="isiewu">
+							<div>Ofe Nsala</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ugba.png') }}" alt="olubu">
+							<div>Ugba</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofe akwu.png') }}" alt="pepper_soup">
+							<div>Ofe Akwu</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofe owerri.png') }}" alt="ofor_soup">
+							<div>Ofe Owerri</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="adContainer">
+			<h2>Top orders for Rivers State</h2>
+			<div class="ad">
+				<a href="#"><img src="{{ url_for('static', filename='food_images/jollof-rice-w.png') }}" alt="jollof_rice"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/pepper-soup-w.png') }}" alt="pepper_soup"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/fruit-salad-w.png') }}" alt="fruit-salad"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/suya-w.png') }}" alt="suya"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/ugba-w.png') }}" alt="ugba"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/chim-chim-w.png') }}" alt="chim-chim"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/oha-w.png') }}" alt="oha-soup"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/ewedu-w.png') }}" alt="ewedu"></a>
+				<a href="#"><img src="{{ url_for('static', filename='food_images/ofada-w.png') }}" alt="ofada"></a>
+				<a href="#"><img class="mango" src="{{ url_for('static', filename='food_images/mango-dessert-w.png') }}" alt="mango_dessert_drink"></a>
 			</div>
+		</div>
+		<div class="choices2">
+			<a href="#">
+				<div class="choiceC" id="choice_1">
+					<h2>South Nigerian Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='images/isiewu2.png') }}" alt="isiewu">
+							<div>Isi-ewu</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='images/olubu2.png') }}" alt="olubu">
+							<div>Bitter-leaf Soup</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='images/pepperSoup2.png') }}" alt="pepper_soup">
+							<div>Pepper Soup</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='images/offor2 .png') }}" alt="ofor_soup">
+							<div>Oha Soup</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			<a href="#">
+				<div class="choiceC" id="choice_2">
+					<h2>North Nigeria Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='food_images/dambu nama.png') }}" alt="isiewu">
+							<div>Dambu nama</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/danwake.png') }}" alt="olubu">
+							<div>Dan Wake</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/fura da nono.png') }}" alt="pepper_soup">
+							<div>Fura Da Nono</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/tuwo_shinkara.png') }}" alt="ofor_soup">
+							<div>Tuwo Shinkara</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			<a href="#">
+				<div class="choiceC" id="choice_3">
+					<h2>West Nigeria Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ikokere.png') }}" alt="isiewu">
+							<div>Ikokere</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofada.png') }}" alt="olubu">
+							<div>Ofada</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="pepper_soup">
+							<div>Ewedu</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/dodo.png') }}" alt="ofor_soup">
+							<div>Dodo</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			<a href="#">
+				<div class="choiceC" id="choice_4">
+					<h2>East Nigeria Cuisine</h2>
+					<div class="choice-1">
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofe nsala.png') }}" alt="isiewu">
+							<div>Ofe Nsala</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ugba.png') }}" alt="olubu">
+							<div>Ugba</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofe akwu.png') }}" alt="pepper_soup">
+							<div>Ofe Akwu</div>
+						</div>
+						<div>
+							<img src="{{ url_for('static', filename='food_images/ofe owerri.png') }}" alt="ofor_soup">
+							<div>Ofe Owerri</div>
+						</div>
+					</div>
+				</div>
+			</a>
 		</div>
 	</main>
 
