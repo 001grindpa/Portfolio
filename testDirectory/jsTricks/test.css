@@ -1,0 +1,168 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+.sideNote {
+	background-color: black;
+	color: white;
+	padding: 5px;
+	font-size: small;
+	margin-bottom: 5px;
+}
+header h3 {
+	padding: 5px;
+	width: 50%;
+	margin: auto;
+	background-color: gray;
+	border-radius: 10px; 
+	text-align: center;
+	color: white;
+}
+.counterT {
+	color: white;
+	font-size: xx-large;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.counter {
+	position: absolute;
+	color: white;
+	font-size: xxx-large;
+	top: 40%;
+	left: 44.5%;
+}
+.front {
+	position: absolute;
+	background-color: green;
+	height: 100%;
+	width: 50%;
+	right: 0;
+	font-size: xxx-large;
+	font-weight: bolder;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.3;
+}
+.back {
+	position: absolute;
+	background-color: red;
+	height: 100%;
+	width: 50%;
+	font-size: xxx-large;
+	font-weight: bolder;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.3;
+}
+.counterC ~ h3 {
+	background-color: blue;
+	width: 270px;
+	padding: 5px;
+	margin: auto;
+	color: white;
+	text-align: center;
+	margin-top: 5px;
+}
+.counterC + div {
+	margin: auto;
+	margin-top: 5px;
+	width: 300px;
+	font-weight: bold;
+}
+.save {
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: black;
+	color: white;
+	padding: 5px;
+	padding-left: 40px;
+	padding-right: 40px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#total2 {
+	width: 298px;
+	font-weight: bold;
+	color: green;
+	margin: auto;
+}
+.humanDog {
+	margin-top: 10px;
+	text-align: center;
+	background-color: black;
+	display: grid;
+	padding: 10px;
+	justify-content: center;
+	gap: 5px;
+}
+.humanDog h3 {
+	color: white;
+}
+#human {
+	padding: 5px;
+}
+#human + div {
+	color: white;
+}
+#human + div span {
+	color: green;
+}
+.ratio {
+	color: red;
+}
+.ratio + div {
+	color: white;
+	background-color: gray;
+	padding: 5px;
+	width: fit-content;
+}
+.calcC {
+	margin: 20px;
+	text-align: center;
+}
+.calc {
+	background-color: black;
+	width: fit-content;
+	margin: auto;
+}
+.calc input {
+	padding: 5px;
+	text-align: right;
+	font-weight: bolder;
+	background-color: black;
+	color: white;
+}
+.buttons {
+	margin: 5px;
+	display: grid;
+	gap: 3px;
+	grid-template-columns: repeat(4, 1fr);
+}
+.buttons button {
+	cursor: pointer;
+	aspect-ratio: 1;
+	border-radius: 20px;
+	font-weight: bolder;
+}
+#action {
+	background-color: orange;		
+}
+.actionM {
+	background-color: gray;
+}
+.equal {
+	background-color: lightgreen;
+}
+/* blackcard game styling */
+
+.jackC {
+	outline: 1px solid black;
+	margin-top: 10px;
+}
