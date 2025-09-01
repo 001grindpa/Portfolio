@@ -239,5 +239,12 @@ document.addEventListener('DOMContentLoaded', function(){
 				navImg[i].classList.add("choosen");
 			});
 		}
+		// let signIn = document.querySelector(".signIn");
+
+		// function red(){
+		// 	signIn.style.background = "red";
+		// }
+
+		
 	}
 })
