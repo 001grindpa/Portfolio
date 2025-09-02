@@ -1122,7 +1122,10 @@ h2 {
     font-size: small;
     color: rgb(18, 34, 70);
 }
-
+#home_page {
+    background: rgb(18, 34, 70);
+    color: white;
+}
 @media(min-width: 765px) {
     .heroSlider img {
         height: 700px;
