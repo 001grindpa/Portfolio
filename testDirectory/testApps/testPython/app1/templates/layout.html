@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta name="viewport" content="initial-scale=1, width=device-width">
+		<meta property="og:title" content="test app">
+		<link href="{{ url_for('static', filename='style/app1.css') }}" rel="stylesheet">
+		<script src="{{ url_for('static', filename='js/app1.js') }}"></script>
+		<title>testApp</title>
+	</head>
+	<body id="{{ page_id }}">
+		{% block body %}{% endblock %}
+	</body>
+</html>

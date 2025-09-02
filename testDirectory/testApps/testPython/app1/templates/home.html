@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+	<header>
+		<div class="sideNote">Another Masterpiece</div>
+	</header>
+	<main>
+		<div>
+			<input id="input" type="text" autocomplete="off" placeholder="enter title">
+			<table>
+				<thead>
+					<tr>
+						<td>Title</td><td>Year</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="tBody">
+						<!--this is where the retrieved API resources go-->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+
+{% endblock %}
