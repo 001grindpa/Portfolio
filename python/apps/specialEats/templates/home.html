@@ -53,7 +53,7 @@
 						<li><a href="#">About Us</a></li>
 					</ul>
 				</div>
-				<div class="divide"></div>
+				<div class="divideI"></div>
 				<div class="help">
 					<h4>Help & Settings</h4>
 					<ul class="ul">
@@ -226,7 +226,7 @@
 		<div class="choices2">
 			<a href="#">
 				<div class="choiceC" id="choice_1">
-					<h2>Vegies</h2>
+					<h2>Veggies</h2>
 					<div class="choice-1">
 						<div>
 							<img src="{{ url_for('static', filename='veggie_images/grilled-corn.png') }}" alt="corn">
@@ -275,20 +275,20 @@
 					<h2>Desserts and Pudding</h2>
 					<div class="choice-1">
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ikokere.png') }}" alt="isiewu">
-							<div>Ikokere</div>
+							<img src="{{ url_for('static', filename='dessert_images/agidi.png') }}" alt="agidi">
+							<div>Agidi Jollof</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ofada.png') }}" alt="olubu">
-							<div>Ofada</div>
+							<img src="{{ url_for('static', filename='dessert_images/akamu.png') }}" alt="akamu">
+							<div>Akamu</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="pepper_soup">
-							<div>Ewedu</div>
+							<img src="{{ url_for('static', filename='dessert_images/moi-moi.png') }}" alt="moi-moi">
+							<div>Moi-moi</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/dodo.png') }}" alt="ofor_soup">
-							<div>Dodo</div>
+							<img src="{{ url_for('static', filename='dessert_images/danwake.png') }}" alt="dan wake">
+							<div>Dan Wake</div>
 						</div>
 					</div>
 				</div>
@@ -318,5 +318,23 @@
 			</a>
 		</div>
 	</main>
+	<footer>
+		<div class="footer-h">
+			<div>
+				<img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
+				<a href="#">Online booking</a>
+			</div>
+			<div>
+				<img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
+				<a href="#">Catering service</a>
+			</div>
+			<div>
+				<img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
+				<a href="#">Membership</a>
+			</div>
+		</div>
+		<div class="rights">&copy; 2025, Special Eats, Inc. or its affiliates</div>
+		<div class="sideNote">Another Masterpiece</div>
+	</footer>
 
 {% endblock %}
