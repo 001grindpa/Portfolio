@@ -48,12 +48,12 @@
 				<div class="appMap">
 					<h4>App Map</h4>
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="/" id="home_page">Home</a></li>
 						<li><a href="#">Today's Deals</a></li>
 						<li><a href="#">About Us</a></li>
 					</ul>
 				</div>
-				<div class="divide"></div>
+				<div class="divideI"></div>
 				<div class="help">
 					<h4>Help & Settings</h4>
 					<ul class="ul">
@@ -82,7 +82,7 @@
 				<nav>
 					<div><h4>App Map</h4></div>
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="/" id="home_page">Home</a></li>
 						<li><a href="#">Today's Deals</a></li>
 						<li><a href="#">About Us</a></li>
 					</ul>
@@ -226,7 +226,7 @@
 		<div class="choices2">
 			<a href="#">
 				<div class="choiceC" id="choice_1">
-					<h2>Vegies</h2>
+					<h2>Veggies</h2>
 					<div class="choice-1">
 						<div>
 							<img src="{{ url_for('static', filename='veggie_images/grilled-corn.png') }}" alt="corn">
@@ -275,20 +275,20 @@
 					<h2>Desserts and Pudding</h2>
 					<div class="choice-1">
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ikokere.png') }}" alt="isiewu">
-							<div>Ikokere</div>
+							<img src="{{ url_for('static', filename='dessert_images/agidi.png') }}" alt="agidi">
+							<div>Agidi Jollof</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ofada.png') }}" alt="olubu">
-							<div>Ofada</div>
+							<img src="{{ url_for('static', filename='dessert_images/akamu.png') }}" alt="akamu">
+							<div>Akamu</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="pepper_soup">
-							<div>Ewedu</div>
+							<img src="{{ url_for('static', filename='dessert_images/moi-moi.png') }}" alt="moi-moi">
+							<div>Moi-moi</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/dodo.png') }}" alt="ofor_soup">
-							<div>Dodo</div>
+							<img src="{{ url_for('static', filename='dessert_images/danwake.png') }}" alt="dan wake">
+							<div>Dan Wake</div>
 						</div>
 					</div>
 				</div>
@@ -298,25 +298,43 @@
 					<h2>Cereal Meals</h2>
 					<div class="choice-1">
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ofe nsala.png') }}" alt="isiewu">
-							<div>Ofe Nsala</div>
+							<img src="{{ url_for('static', filename='cereal_images/fura da nono.png') }}" alt="fura_da_nono">
+							<div>Fura da Nono</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ugba.png') }}" alt="olubu">
-							<div>Ugba</div>
+							<img src="{{ url_for('static', filename='cereal_images/tom.png') }}" alt="tom_brown">
+							<div>Tom Brown</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ofe akwu.png') }}" alt="pepper_soup">
-							<div>Ofe Akwu</div>
+							<img src="{{ url_for('static', filename='cereal_images/brown-rice.png') }}" alt="brown_rice">
+							<div>Brown Rice</div>
 						</div>
 						<div>
-							<img src="{{ url_for('static', filename='food_images/ofe owerri.png') }}" alt="ofor_soup">
-							<div>Ofe Owerri</div>
+							<img src="{{ url_for('static', filename='cereal_images/oat meal.png') }}" alt="oat-meal">
+							<div>Oat Meal</div>
 						</div>
 					</div>
 				</div>
 			</a>
 		</div>
 	</main>
+	<footer>
+		<div class="footer-h">
+			<div>
+				<img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
+				<a href="#">Online booking</a>
+			</div>
+			<div>
+				<img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
+				<a href="#">Catering service</a>
+			</div>
+			<div>
+				<img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
+				<a href="#">Membership</a>
+			</div>
+		</div>
+		<div class="rights">&copy; 2025, Special Eats, Inc. or its affiliates</div>
+		<div class="sideNote">Another Masterpiece</div>
+	</footer>
 
 {% endblock %}
