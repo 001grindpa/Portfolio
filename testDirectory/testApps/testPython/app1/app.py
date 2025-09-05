@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, jsonify
 from flask_session import Session
 from cs50 import SQL
 db = SQL("sqlite:///app.db")
@@ -15,8 +15,10 @@ def home():
 @app.route("/api/shows")
 def shows():
     title = request.args.get("title")
-    shows = db.execute("SELECT * FROM shows WHERE title LIKE '?%'", title)
-    return render_template("shows.html", shows = shows)
+    if title == "":
+        return jsonify({"Empty": "space"}), 400
+    shows = db.execute("SELECT * FROM shows WHERE title LIKE ?", title + '%')
+    return jsonify(shows)
 
 
 if __name__ == "__main__":

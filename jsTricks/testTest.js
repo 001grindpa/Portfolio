@@ -20,21 +20,4 @@ document.addEventListener("DOMContentLoaded", function(){
 		testBlock.appendChild(testChild);
 		i ++;
 	}
-
-	//function red(){
-	//	testBlock.style.background = (testBlock.style.background === "black") ? "red" : "black";	
-	//}
-
-	testBlock.addEventListener("click", function(){
-		testBlock.style.background = testBlock.style.background = (testBlock.style.background === "black") ? "red" : "black";
-	})
-
-	let input = document.querySelector("#testInput");
-	
-	input.addEventListener("input", function(event){
-		let chars = input.value;
-		if (chars.length >= 6){
-			alert("6 or more characters entered");
-		}
-	})
 })
