@@ -239,7 +239,29 @@ document.addEventListener('DOMContentLoaded', function(){
 				navImg[i].classList.add("choosen");
 			});
 		}
+
+		function changeNavOnSwip() {
+			for (let i = 0; i < sliderImg.length; i++) {
+				let dimention = sliderImg[i].getBoundingClientRect();
+				if (dimention.top >= 0 && dimention.bottom <= window.innerHeight) {
+					for (let c of navImg){
+						c.classList.remove("choosen");
+					}
+					navImg[i].classList.add("choosen");
+				}
+			}
+		};
+
+		let touchstartX = 0;
 		
-		
+		slider.addEventListener("touchstart", function(e){
+			touchstartX = e.touches[0].clientX;
+		});
+
+		slider.addEventListener("touchend", function(e) {
+			let touchendX = e.changedTouches[0].clientX;
+			if (touchstartX - touchendX > 50) changeNavOnSwip;
+			if (touchendX - touchstartX > 50) changeNavOnSwip;
+		});
 	}
 })
