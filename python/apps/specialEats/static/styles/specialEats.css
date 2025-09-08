@@ -968,7 +968,7 @@ h2 {
     text-align: center;
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: mandatory x;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
 .heroSlider::-webkit-scrollbar {
@@ -1063,7 +1063,7 @@ h2 {
     width: 200px;
 }
 
-/* congiguring the cuisines from different rgions */
+/* congiguring the cuisines from different regions */
 
 #choice_1 {
     grid-area: choice-1;
