@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.sideNote {
+    width: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: green;
+    font-weight: bold;
+    color: white;
+    margin: 5px;
+}
+#checkBox:checked ~ .info {
+    transform: translateY(20px);
+    opacity: 1;
+}
+#checkBox {
+    margin-top: 25px;
+}
+.hidden {
+    outline: 1px solid gray;
+    width: fit-content;
+    padding: 10px;
+    color: white;
+    position: relative;
+    height: 50px;
+}
+.info {
+    background: green;
+    padding: 3px;
+    outline: 1px solid white;
+    position: absolute;
+    top: 10px;
+    z-index: -1;
+    transition: 0.3s;
+    opacity: 0;
+}
+.title {
+    background: black;
+    padding: 3px;
+    outline: 1px solid white;
+    width: 205px;
+}

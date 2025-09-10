@@ -74,5 +74,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	
 	// blackjack game
 
+	// test2 html js
 	
 })
