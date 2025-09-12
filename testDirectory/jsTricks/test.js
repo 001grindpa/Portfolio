@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
 	let counterC = document.querySelector(".counterC");
 	let counter = counterC.querySelector(".counter");
 	let front = counterC.querySelector(".front");
@@ -73,7 +73,5 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	// blackjack game
-
-	// test2 html js
 	
 })
