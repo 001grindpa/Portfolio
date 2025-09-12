@@ -965,20 +965,23 @@ h2 {
     outline: 5px solid blue;
 }
 .heroSlider {
-    text-align: center;
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    align-items: center;
 }
 .heroSlider::-webkit-scrollbar {
     display: none;
 }
 .heroSlider img {
     height: 500px;
-    width: 100%;
+    width: 90%;
     flex: 1 0 auto;
     scroll-snap-align: start;
+    border-radius: 40px;
+    margin: 10px;
+    /* margin-left: 20px; */
 }
 .heroContainerHome {
     position: relative;

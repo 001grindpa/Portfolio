@@ -237,31 +237,40 @@ document.addEventListener('DOMContentLoaded', function(){
 					c.classList.remove("choosen");
 				}
 				navImg[i].classList.add("choosen");
+				// changeNavOnSwip();
 			});
 		}
 
-		function changeNavOnSwip() {
-			for (let i = 0; i < sliderImg.length; i++) {
-				let dimention = sliderImg[i].getBoundingClientRect();
-				if (dimention.top >= 0 && dimention.bottom <= window.innerHeight) {
-					for (let c of navImg){
-						c.classList.remove("choosen");
-					}
-					navImg[i].classList.add("choosen");
-				}
-			}
-		};
-
-		let touchstartX = 0;
+		// heroSlider.style.marginLeft = "15px";
 		
-		slider.addEventListener("touchstart", function(e){
-			touchstartX = e.touches[0].clientX;
-		});
+		let firstSlide = 0;
+		function slideTimer() {
+			sliderImg[firstSlide].style.transform = "translateX(-100%)";
+			firstSlide = (firstSlide + 1) % sliderImg.length;
+		}
 
-		slider.addEventListener("touchend", function(e) {
-			let touchendX = e.changedTouches[0].clientX;
-			if (touchstartX - touchendX > 50) changeNavOnSwip;
-			if (touchendX - touchstartX > 50) changeNavOnSwip;
-		});
+		// function changeNavOnSwip() {
+		// 	for (let i = 0; i < sliderImg.length; i++) {
+		// 		let dimension = sliderImg[i].getBoundingClientRect();
+		// 		if (dimension.top >= 0 && dimension.bottom <= window.innerHeight && 
+		// 			dimension.right <= window.innerWidth) {
+		// 				sliderImg[firstSlide].style.transform = "translateX(-100%)";
+		// 				firstSlide = (firstSlide + 1) % sliderImg.length;
+		// 		}
+		// 	}
+		// };
+		// setInterval(slideTimer(), 3000);
+
+		// let touchstartX = 0;
+		
+		// slider.addEventListener("touchstart", function(e){
+		// 	touchstartX = e.touches[0].clientX;
+		// });
+
+		// slider.addEventListener("touchend", function(e) {
+		// 	let touchendX = e.changedTouches[0].clientX;
+		// 	if (touchstartX - touchendX > 50) changeNavOnSwip;
+		// 	if (touchendX - touchstartX > 50) changeNavOnSwip;
+		// });
 	}
 })
