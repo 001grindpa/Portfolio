@@ -961,9 +961,7 @@ h2 {
 /* #home {
     height: 100vh;
 } */
-.hero {
-    outline: 5px solid blue;
-}
+ 
 .heroSlider {
     display: flex;
     overflow-x: auto;

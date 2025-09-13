@@ -232,22 +232,29 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		for (let i = 0; i < navImg.length; i++){
 
-			navImg[i].addEventListener("click", function(){
+			navImg[i].addEventListener("click", function(event){
+				let currentNav = event.target;
 				for (let c of navImg){
 					c.classList.remove("choosen");
 				}
 				navImg[i].classList.add("choosen");
-				// changeNavOnSwip();
+
+				function autoClickSlide() {
+					currentNav = (currentNav + 1) % 4;
+					currentNav.click();
+				}
+				setInterval(autoClickSlide, 3000);
 			});
 		}
 
-		// heroSlider.style.marginLeft = "15px";
-		
-		let firstSlide = 0;
-		function slideTimer() {
-			sliderImg[firstSlide].style.transform = "translateX(-100%)";
-			firstSlide = (firstSlide + 1) % sliderImg.length;
-		}
+
+
+
+		// let firstSlide = 0;
+		// function slideTimer() {
+		// 	sliderImg[firstSlide].style.transform = "translateX(-100%)";
+		// 	firstSlide = (firstSlide + 1) % sliderImg.length;
+		// }
 
 		// function changeNavOnSwip() {
 		// 	for (let i = 0; i < sliderImg.length; i++) {
@@ -259,7 +266,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		// 		}
 		// 	}
 		// };
-		// setInterval(slideTimer(), 3000);
 
 		// let touchstartX = 0;
 		
