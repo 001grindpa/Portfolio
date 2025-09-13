@@ -229,25 +229,34 @@ document.addEventListener('DOMContentLoaded', function(){
 		let navImg = document.querySelectorAll(".slide1");
 		let heroSlider = document.querySelector(".heroSlider");
 		let sliderImg = document.querySelectorAll(".sliderImg");
+		let currentNav = null;
+		let currentNavIndex = 0;
+		let autoSlide;
+
+		function autoClickForward() {
+			autoSlide = setInterval(autoClickSlide, 10000);
+		}
 
 		for (let i = 0; i < navImg.length; i++){
 
 			navImg[i].addEventListener("click", function(event){
-				let currentNav = event.target;
 				for (let c of navImg){
 					c.classList.remove("choosen");
 				}
-				navImg[i].classList.add("choosen");
-
-				function autoClickSlide() {
-					currentNav = (currentNav + 1) % 4;
-					currentNav.click();
-				}
-				setInterval(autoClickSlide, 3000);
+				currentNav = event.target;
+				currentNav.classList.add("choosen");
+				currentNavIndex = i;
+				clearInterval(autoSlide);
+				autoClickForward();
 			});
 		}
 
+		function autoClickSlide() {
+			currentNavIndex = (currentNavIndex + 1) % navImg.length;
+			navImg[currentNavIndex].click();
+		}
 
+		autoClickSlide();
 
 
 		// let firstSlide = 0;

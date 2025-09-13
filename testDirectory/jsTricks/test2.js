@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", function(){
 	let prevBtn = document.querySelector("#prev");
 	let list = document.querySelector(".list");
 	let thumbnail =	document.querySelector(".thumbnail");
+    let autoclickNext;
     
+    function startAutoSlide() {
+        autoclickNext = setInterval(autoClickNext, 15000);
+    }
     function removeNext() {
         list.classList.remove("next");
     }
@@ -27,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function(){
             thumbnail.appendChild(thumbnailItem[0]);
             list.classList.add("next");
             setTimeout(removeNext, 2000);
-            // setTimeout(autoClickNext, 20000);
+            clearInterval(autoclickNext);
+            startAutoSlide();
         }
         else if (type === "prev") {
             let lastListSlide = slider.length - 1;
@@ -35,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function(){
             thumbnail.prepend(thumbnailItem[lastListSlide]);
             list.classList.add("prev");
             setTimeout(removePrev, 2000);
+            clearInterval(autoclickNext);
+            startAutoSlide();
         }
     }
     function autoClickNext() {
@@ -42,6 +49,5 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     autoClickNext();
-
-    setInterval(autoClickNext, 20000);
+    
 });
