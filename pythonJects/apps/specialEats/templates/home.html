@@ -3,7 +3,7 @@
 {% block body %}
 
 	<header>
-		<div class="menu">
+		<div class="menu" id="menu">
 			<div><img class="headerLogo" src="{{ url_for('static', filename='images/specialEats_white.png') }}"></div>
 			<div class="location">
 				<div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
@@ -317,6 +317,7 @@
 				</div>
 			</a>
 		</div>
+		<div class="toTop"><a href="#menu">Jump to top</a></div>
 	</main>
 	<footer>
 		<div class="footer-h">

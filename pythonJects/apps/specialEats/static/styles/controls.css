@@ -1,4 +1,4 @@
-/* date picker style */
+/* date picker controler */
 
 .datePickerC {
     display: flex;
@@ -97,4 +97,31 @@
 .dates .sDate {
     background-color: lightgreen;
     color: black;
+}
+/* Jump to top controler*/
+.toTop {
+    position: absolute;
+    background-color: lightsalmon;
+    padding: 5px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    transition: 0.3s;
+    opacity: 0;
+}
+.toTop.move {
+    opacity: 0.5;
+    top: 99%;
+    animation: moveBtn 0.3s linear 1 forwards, float 0.3s linear forwards;
+}
+@keyframes moveBtn {
+    to {
+        top: 94%;
+    }
+}
+.toTop.move:hover {
+    opacity: 1;
 }

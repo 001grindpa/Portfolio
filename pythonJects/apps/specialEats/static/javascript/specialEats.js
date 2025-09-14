@@ -273,5 +273,24 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 
 		autoClickSlide();
+
+		// move to top button config
+		let toTopBtn = document.querySelector(".toTop");
+
+		// the algorithm below detects and adds a class to a DOM (html element) object when it comes into view
+		// --> else it remove the class
+		let observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("move");
+				}
+				else {
+					entry.target.classList.remove("move");
+				}
+			});
+		});
+
+		observer.observe(toTopBtn);
+
 	}
 })
