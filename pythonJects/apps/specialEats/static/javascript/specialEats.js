@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		let autoSlide;
 
 		function autoClickForward() {
-			autoSlide = setInterval(autoClickSlide, 5000);
+			autoSlide = setInterval(autoClickSlide, 10000);
 		}
 
 		for (let i = 0; i < navImg.length; i++){
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				currentNav.classList.add("choosen");
 				currentNavIndex = i;
 				clearInterval(autoSlide); //this block terminates auto scrolling when manually clicked
-				autoClickForward();// this block restarts autoscrolling
+				autoClickForward();// this block restarts auto scrolling
 				
 				let targetScrollPosition = currentNavIndex * sliderImgWidth;
 				// when the offsetWidth is multiplied by the currentImgNav (also currentNavIndex)
