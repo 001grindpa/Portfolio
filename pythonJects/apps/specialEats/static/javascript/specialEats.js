@@ -228,13 +228,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		let navImg = document.querySelectorAll(".slide1");
 		let heroSlider = document.querySelector(".heroSlider");
-		let sliderImg = document.querySelectorAll(".sliderImg");
+		let sliderImgWidth = heroSlider.querySelector(".sliderImg").offsetWidth;
+		// offsetWidth is used to get the width of a child object relative to it's parent object in pixels
 		let currentNav = null;
 		let currentNavIndex = 0;
 		let autoSlide;
 
 		function autoClickForward() {
-			autoSlide = setInterval(autoClickSlide, 10000);
+			autoSlide = setInterval(autoClickSlide, 5000);
 		}
 
 		for (let i = 0; i < navImg.length; i++){
@@ -246,46 +247,31 @@ document.addEventListener('DOMContentLoaded', function(){
 				currentNav = event.target;
 				currentNav.classList.add("choosen");
 				currentNavIndex = i;
-				clearInterval(autoSlide);
-				autoClickForward();
+				clearInterval(autoSlide); //this block terminates auto scrolling when manually clicked
+				autoClickForward();// this block restarts autoscrolling
+				
+				let targetScrollPosition = currentNavIndex * sliderImgWidth;
+				// when the offsetWidth is multiplied by the currentImgNav (also currentNavIndex)
+				// it gives the offset width of the currentSliderImg
+				//when scrollTo method is used on the slider itself, "left" allows it to scroll exactly
+				// to the offset width (in pixel) from x(0) to x(targetScrollPosition)
+				// we know that "targetScrollPosition" increases or reduces based on the current img index
+				heroSlider.scrollTo({
+					left: targetScrollPosition,
+					// behavior: "smooth"
+					// the above property comented out was already added with css scroll-snap behaviour
+				});
 			});
 		}
 
 		function autoClickSlide() {
 			currentNavIndex = (currentNavIndex + 1) % navImg.length;
+			// since currentNavIndex was declared globally, we can call it here and
+			// use a modulus loop to increment it's value by 1 for the next sliderImg
 			navImg[currentNavIndex].click();
+			// auto-click on the corresponding img with the new index from the array of images (navImg)
 		}
 
 		autoClickSlide();
-
-
-		// let firstSlide = 0;
-		// function slideTimer() {
-		// 	sliderImg[firstSlide].style.transform = "translateX(-100%)";
-		// 	firstSlide = (firstSlide + 1) % sliderImg.length;
-		// }
-
-		// function changeNavOnSwip() {
-		// 	for (let i = 0; i < sliderImg.length; i++) {
-		// 		let dimension = sliderImg[i].getBoundingClientRect();
-		// 		if (dimension.top >= 0 && dimension.bottom <= window.innerHeight && 
-		// 			dimension.right <= window.innerWidth) {
-		// 				sliderImg[firstSlide].style.transform = "translateX(-100%)";
-		// 				firstSlide = (firstSlide + 1) % sliderImg.length;
-		// 		}
-		// 	}
-		// };
-
-		// let touchstartX = 0;
-		
-		// slider.addEventListener("touchstart", function(e){
-		// 	touchstartX = e.touches[0].clientX;
-		// });
-
-		// slider.addEventListener("touchend", function(e) {
-		// 	let touchendX = e.changedTouches[0].clientX;
-		// 	if (touchstartX - touchendX > 50) changeNavOnSwip;
-		// 	if (touchendX - touchstartX > 50) changeNavOnSwip;
-		// });
 	}
 })

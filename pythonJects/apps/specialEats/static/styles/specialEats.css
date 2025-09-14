@@ -961,7 +961,7 @@ h2 {
 /* #home {
     height: 100vh;
 } */
- 
+
 .heroSlider {
     display: flex;
     overflow-x: auto;
@@ -993,7 +993,7 @@ h2 {
     transform: translateX(-50%);
     padding: 3px;
 }
-.sliderNav a {
+.sliderNav div {
     background-color: rgb(18, 34, 70);
     opacity: 0.5;
     padding: 0;
@@ -1002,7 +1002,7 @@ h2 {
     border-radius: 30px;
     margin: 5px;
 }
-.sliderNav a:hover {
+.sliderNav div:hover {
     opacity: 1;
 }
 .sliderNav .choosen {
