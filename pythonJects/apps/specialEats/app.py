@@ -100,5 +100,11 @@ def logout():
     session["dob"] = None
     return redirect("/signup")
 
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    return render_template("profile.html")
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True, reloader_type='watchdog')

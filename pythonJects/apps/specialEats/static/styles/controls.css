@@ -98,6 +98,7 @@
     background-color: lightgreen;
     color: black;
 }
+
 /* Jump to top controler*/
 .toTop {
     position: absolute;
@@ -114,14 +115,19 @@
 }
 .toTop.move {
     opacity: 0.5;
-    top: 99%;
-    animation: moveBtn 0.3s linear 1 forwards, float 0.3s linear forwards;
+    bottom: 0;
+    animation: moveBtn 0.3s linear 1 forwards, float 5s linear 1000;
 }
 @keyframes moveBtn {
     to {
-        top: 94%;
+        bottom: 5%;
     }
 }
+/* @keyframes float {
+    to {
+        scale: 1.1;
+    }
+} */
 .toTop.move:hover {
     opacity: 1;
 }

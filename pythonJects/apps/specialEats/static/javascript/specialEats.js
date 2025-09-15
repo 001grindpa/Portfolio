@@ -241,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		for (let i = 0; i < navImg.length; i++){
 
 			navImg[i].addEventListener("click", function(event){
+				event.stopPropagation();
 				for (let c of navImg){
 					c.classList.remove("choosen");
 				}
@@ -276,6 +277,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		// move to top button config
 		let toTopBtn = document.querySelector(".toTop");
+		let motionAd = document.querySelector(".motionAd");
 
 		// the algorithm below detects and adds a class to a DOM (html element) object when it comes into view
 		// --> else it remove the class
@@ -291,6 +293,19 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 
 		observer.observe(toTopBtn);
+		
+		// for motion ad class
+		let observer2 = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("move2");
+				}
+				else {
+					entry.target.classList.remove("move2");
+				}
+			});
+		});
 
+		observer2.observe(motionAd);
 	}
 })
