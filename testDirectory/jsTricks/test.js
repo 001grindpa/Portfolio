@@ -74,4 +74,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	// blackjack game
 	
+
+	// slide in animation config
+	let slideIn_1 = document.querySelector(".slideIn1");
+	let slideIn_2 = document.querySelector(".slideIn2");
+	slideIn_1.style.color = "red";
+
+	let observer_1 = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("moveRight");
+			}
+			else {
+				entry.target.classList.remove("moveRight");
+			}
+		});
+	});
+	observer_1.observe(slideIn_1);
 })

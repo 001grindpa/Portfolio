@@ -428,3 +428,45 @@ nav a:hover {
 		width: 100vw;
 	}
 }
+
+/*back to test1 css*/
+.slideIn {
+	font-size: larger;
+	font-weight: bolder;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.slideIn1 {
+	width: fit-content;
+	margin: auto;
+	transform: translateX(-100%);
+	opacity: 0;
+	color: green;
+}
+.slideIn1.moveRight {
+	animation: moveRight 0.3s linear forwards;
+}
+@keyframes moveRight {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+.slideIn2 {
+	background-color: blue;
+	width: fit-content;
+	margin: auto;
+	color: white;
+	transform: translateX(150%);
+	opacity: 0;
+	margin-top: 5px;
+}
+.slideIn2.moveLeft {
+	animation: moveLeft 1s 1.5s linear forwards;
+}
+@keyframes moveLeft {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

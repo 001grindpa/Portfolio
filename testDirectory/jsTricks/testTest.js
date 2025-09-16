@@ -37,4 +37,33 @@ document.addEventListener("DOMContentLoaded", function(){
 			alert("6 or more characters entered");
 		}
 	})
+
+	// slide in animation config
+	let slideIn_1 = document.querySelector(".slideIn1");
+	let slideIn_2 = document.querySelector(".slideIn2");
+
+	let observer_1 = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("moveRight");
+			}
+			else {
+				entry.target.classList.remove("moveRight");
+			}
+		});
+	});
+	observer_1.observe(slideIn_1);
+
+	let observer_2 = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("moveLeft");
+			}
+			else {
+				entry.target.classList.remove("moveLeft");
+			}
+		});
+	});
+	
+	observer_2.observe(slideIn_2);
 })

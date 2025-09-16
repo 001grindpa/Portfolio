@@ -26,7 +26,7 @@
 					<button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
 				</form>
 			</div>
-			<div class="menu_2Signin_2"><a href="/profile">{{ session.get("username") }}</a></div>
+			<div class="menu_2Signin_2"><a href="/profile">@{{ session.get("username") }}</a></div>
 			<div class="flag_lang">
 				<img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
 				<select name="language" id="languages_2" class="lang_2">
@@ -71,14 +71,13 @@
 					<option id="lang" value="{{ lang }}">{{ lang }}</option>
 					{% endfor %}
 				</select>
-				<div class="menu_2Signin"><a href="/profile">{{ session.get("username") }}</a></div>
 				<div class="cartContainer"><a href="#"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
 			</div>
 			<div class="navContainer">
 				<div class="userReg">
 					<div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
 					<div>
-						<a href="/profile">{{ session.get("username") }}</a>
+						<a href="/profile">@{{ session.get("username") }}</a>
 						<div>{{ first_name }} {{ last_name }}</div>
 					</div>
 				</div>
