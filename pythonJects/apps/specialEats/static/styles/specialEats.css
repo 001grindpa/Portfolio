@@ -1096,6 +1096,9 @@ h2 {
 .adContainer h2 {
     text-align: left;
 }
+.motionAdContainer {
+    width: 100vw;
+}
 .motionAd {
     width: 6000px;
     margin-bottom: -100px;
