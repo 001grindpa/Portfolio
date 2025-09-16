@@ -1206,6 +1206,7 @@ h2 {
 }
 
 /* style for profile page*/
+
 .banner {
     position: relative;
 }
@@ -1247,6 +1248,16 @@ h2 {
     padding: 7px;
     font-family: "Poppins";
  }
+ .pfp2 {
+    padding: 7px;
+    font-family: "Poppins";
+    align-items: center;
+    display: none;
+ }
+ .pfp2 img {
+    width: 100px;
+    height: 100px;
+ }
  .pfp img {
     width: 100px;
     height: 100px;
@@ -1262,6 +1273,11 @@ h2 {
  .pfpText {
     font-size: small;
  }
+.forMail {
+    align-items: center;
+    width: fit-content;
+    margin: auto;
+}
 .mail img {
     width: 20px;
 }
@@ -1282,6 +1298,10 @@ h2 {
 }
 .orderDetails {
     padding: 10px;
+    display: grid;
+    grid-template-areas: 
+    "one"
+    "two";
 }
 .myOrder {
     padding: 10px;
@@ -1301,8 +1321,7 @@ h2 {
     transition: 0.3s;
 }
 .orderInfo:hover {
-    background: rgba(255, 166, 0, 0.418);
-    color: white;
+    background: rgba(255, 255, 255, 0.493);
 }
 .myOrderH {
     font-size: large;
@@ -1323,4 +1342,47 @@ h2 {
 .notice img {
     width: 40px;
     height: 40px;
+}
+
+#order {
+    grid-area: one;
+}
+#settings {
+    grid-area: two;
+}
+@media(min-width: 650px) {
+    .orderDetails {
+        grid-template-areas:
+        "one two";
+    }
+}
+@media(min-width: 850px) {
+    .orderDetails {
+        grid-template-areas: 
+        "one"
+        "two";
+    }
+    .profile {
+        display: grid;
+        grid-template-areas: 
+        "pfp-one pfp-two";
+        margin-top: 60px;
+    }
+    .pfp2 {
+        display: grid;
+        justify-content: center;
+        text-align: center;
+    }
+    .mail {
+        margin-top: 5px;
+    }
+    .pfp {
+        display: none;
+    }
+}
+.profile .forMail {
+    grid-area: pfp-one;
+}
+.profile .orderDetails {
+    grid-area: pfp-two;
 }
