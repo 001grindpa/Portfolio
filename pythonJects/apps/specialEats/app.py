@@ -102,8 +102,12 @@ def logout():
 
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
-    return render_template("profile.html")
-
+    userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
+    for data in userData:
+        first_name = data["first_name"]
+        last_name = data["last_name"]
+        username = data["username"]
+    return render_template("profile.html", first_name = first_name, last_name = last_name, username = username)
 
 
 if __name__ == '__main__':

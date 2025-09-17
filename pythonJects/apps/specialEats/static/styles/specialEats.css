@@ -1097,7 +1097,7 @@ h2 {
     text-align: left;
 }
 .motionAdContainer {
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     margin-top: 150px;
     margin-bottom: -100px;
@@ -1278,9 +1278,10 @@ h2 {
  .pfpText {
     font-size: small;
  }
+ .pfpName + .pfpText {
+    margin-bottom: 10px;
+ }
 .forMail {
-    align-items: center;
-    width: fit-content;
     margin: auto;
 }
 .mail img {
@@ -1298,9 +1299,6 @@ h2 {
 .mail span {
     font-size: small;
 }
-.myOrder img {
-    width: 30px;
-}
 .orderDetails {
     padding: 10px;
     display: grid;
@@ -1314,19 +1312,35 @@ h2 {
     background: rgba(211, 211, 211, 0.281);
     margin: 10px;
 }
+.orderInfo img {
+    height: 30px;
+    width: 30px;
+}
+.orderInfo .rightArrow {
+    height: 20px;
+    width: 20px;
+}
 .orderInfo {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 5px;
-    width: fit-content;
+    width: 97%;
     margin-top: 5px;
     margin-left: 5px;
     padding: 5px;
     border-radius: 15px;
     transition: 0.3s;
 }
-.orderInfo:hover {
-    background: rgba(255, 255, 255, 0.493);
+.orderInfo .orderN {
+    background-color: red;
+    color: white;
+    padding: 3px;
+}
+.orderInfo div {
+    width: fit-content;
+    display: flex;
+    align-items: center;
 }
 .myOrderH {
     font-size: large;
@@ -1340,6 +1354,7 @@ h2 {
     margin: 10px;
     margin-left: auto;
     transition: 0.3s;
+    position: relative;
 }
 .notice:hover {
     background: rgba(211, 211, 211, 0.726);
@@ -1347,6 +1362,9 @@ h2 {
 .notice img {
     width: 40px;
     height: 40px;
+}
+.recommendC {
+    display: none;
 }
 
 #order {
@@ -1369,6 +1387,7 @@ h2 {
     }
     .profile {
         display: grid;
+        /* grid-auto-columns: 1fr; */
         grid-template-areas: 
         "pfp-one pfp-two";
         margin-top: 60px;
@@ -1383,6 +1402,32 @@ h2 {
     }
     .pfp {
         display: none;
+    }
+}
+@media (min-width: 1000px) {
+    .forMail {
+        margin: 2px;
+    }
+    .recommendC {
+        margin: auto;
+        margin-top: 90px;
+        width: 650px;
+        display: block;
+    }
+    .recommendC div:nth-child(1) {
+        font-size: larger;
+        font-weight: bold;
+        margin: 5px;
+    }
+    .recommend {
+        display: flex;
+        overflow-x: auto;
+        width: 100%;
+        background: white;
+    }
+    .recommend img {
+        width: 250px;
+        height: 250px;
     }
 }
 .profile .forMail {

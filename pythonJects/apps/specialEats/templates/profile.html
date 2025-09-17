@@ -10,7 +10,8 @@
             <div><a href="/"><img src="{{ url_for('static', filename='pfp_images/left-arrow.png') }}" alt="left_arrow"></a></div>
             <div class="pfp">
                 <div><img src="{{ url_for('static', filename='pfp_images/unknown_user_2.png') }}" alt="pfp"></div>
-                <div class="pfpName">Unknown User</div>
+                <div class="pfpName">{{ first_name }} {{ last_name }}</div>
+                <div class="pfpText">@{{ username }}</div>
                 <div class="pfpText"><a href="#">Edit Profile</a></div>
             </div>
         </div>
@@ -21,24 +22,35 @@
         <div class="forMail">
             <div class="pfp2">
                 <div><img src="{{ url_for('static', filename='pfp_images/unknown_user_2.png') }}" alt="pfp"></div>
-                <div class="pfpName">Unknown User</div>
+                <div class="pfpName">{{ first_name }} {{ last_name }}</div>
+                <div class="pfpText">@{{ username }}</div>
                 <div class="pfpText"><a href="#">Edit Profile</a></div>
             </div>
             <div class="mail"><img src="{{ url_for('static', filename='pfp_images/mail.png') }}" alt="mail_img"> <span>example@email.com</span></div>
+            <div class="recommendC">
+                <div>Favorites</div>
+                <div class="recommend">
+                    <img src="{{ url_for('static', filename='food_images/chim-chim-w.png') }}" alt="chim-chim">
+                    <img src="{{ url_for('static', filename='food_images/ugba-w.png') }}" alt="ugba">
+                    <img src="{{ url_for('static', filename='food_images/suya-w.png') }}" alt="suya">
+                    <img src="{{ url_for('static', filename='food_images/ewedu-w.png') }}" alt="ewedu">
+                </div>
+            </div>
         </div>
         <div class="orderDetails">
             <div class="myOrder" id="order">
                 <div class="myOrderH">My Orders</div>
-                <div class="orderInfo"><img src="{{ url_for('static', filename='pfp_images/pending.png') }}" alt="pending_payment"><span><a href="#">To Pay</a></span></div>
-                <div class="orderInfo"><img src="{{ url_for('static', filename='pfp_images/parcel.png') }}" alt="pending_shipment"><span><a href="#">To Ship</a></span></div>
-                <div class="orderInfo"><img src="{{ url_for('static', filename='pfp_images/delivery.png') }}" alt="shipped"><span><a href="#">Shipped</a></span></div>
-                <div class="orderInfo"><img src="{{ url_for('static', filename='pfp_images/review.png') }}" alt="user_review"><span><a href="#">To Review</a></span></div>
-                <div class="orderInfo"><img src="{{ url_for('static', filename='pfp_images/returned.png') }}" alt="returned"><span><a href="#">Returns</a></span></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/pending.png') }}" alt="pending_payment"><a href="#">To Pay</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/parcel.png') }}" alt="pending_shipment"><a href="#">To Ship</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/delivery.png') }}" alt="shipped"><a href="#">Shipped</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/review.png') }}" alt="user_review"><a href="#">To Review</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/returned.png') }}" alt="returned"><a href="#">Returns</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/cart.png') }}" alt="cart"><a href="#"><span class="orderN">0</span> Orders</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
             </div>
             <div class="myOrder" id="settings">
                 <div class="myOrderH">Account Settings</div>
-                <div class="orderInfo"><img src="{{ url_for('static', filename='pfp_images/payment.png') }}" alt="payment"><span><a href="#">Payment Methods</a></span></div>
-                <div class="orderInfo"><img src="{{ url_for('static', filename='pfp_images/nav.png') }}" alt="address"><span><a href="#">Address</a></span></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/payment.png') }}" alt="payment"><a href="#">Payment Methods</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/nav.png') }}" alt="address"><a href="#">Address</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
             </div>
         </div>
     </main>
