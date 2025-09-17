@@ -1114,11 +1114,11 @@ h2 {
     font-weight: bolder;
 }
 .motionAd.move2 {
-    animation: moveAd 40s 3s linear infinite;
+    animation: moveAd 28s 3s linear infinite;
 }
 @keyframes moveAd {
     to {
-        transform: translateX(-100%);
+        transform: translateX(-2800px);
     }
 }
 .ad {
