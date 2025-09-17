@@ -1097,12 +1097,14 @@ h2 {
     text-align: left;
 }
 .motionAdContainer {
-    width: 100vw;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 150px;
+    margin-bottom: -100px;
 }
 .motionAd {
-    width: 6000px;
-    margin-bottom: -100px;
-    margin-top: 80px;
+    display: inline-block;
+    white-space: nowrap;
     padding: 3px;
     background: green;
     color: white;
@@ -1112,11 +1114,11 @@ h2 {
     font-weight: bolder;
 }
 .motionAd.move2 {
-    animation: moveAd 40s 3s linear 10000;
+    animation: moveAd 40s 3s linear infinite;
 }
 @keyframes moveAd {
     to {
-        transform: translateX(-3000px);
+        transform: translateX(-100%);
     }
 }
 .ad {
