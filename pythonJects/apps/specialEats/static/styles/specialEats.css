@@ -1246,14 +1246,36 @@ h2 {
     height: 35px;
  }
  .pfp {
-    position: absolute;
-    top: 70%;
-    left: 50%;
+    position: relative;
+    margin-top: -70px;
+    margin-left: 50%;
     transform: translateX(-50%);
     padding: 7px;
     font-family: "Poppins";
  }
- .pfp2 {
+.pfp .editPfp {
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 3px;
+    background: rgba(128, 128, 128, 0.829);
+    opacity: 0.6;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.pfp .editPfp img {
+    margin-top: 6px;
+    width: 40px;
+    height: 40px;
+}
+.pfp .editPfp:hover {
+    opacity: 1;
+}
+.pfp2 {
     padding: 7px;
     font-family: "Poppins";
     align-items: center;
@@ -1278,6 +1300,9 @@ h2 {
  .pfpText {
     font-size: small;
  }
+ .pfpText a:hover {
+    text-decoration: underline;
+ }
  .pfpName + .pfpText {
     margin-bottom: 10px;
  }
@@ -1288,9 +1313,10 @@ h2 {
     width: 20px;
 }
 .mail {
-    margin-top: 120px;
+    margin-top: 80px;
     margin-left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -1394,8 +1420,31 @@ h2 {
     }
     .pfp2 {
         display: grid;
+        position: relative;
         justify-content: center;
         text-align: center;
+    }
+    .editPfp {
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 30px;
+        padding: 3px;
+        background: rgba(128, 128, 128, 0.829);
+        opacity: 0.6;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    .editPfp img {
+        margin-top: 7px;
+        width: 40px;
+        height: 40px;
+    }
+    .editPfp:hover {
+        opacity: 1;
     }
     .mail {
         margin-top: 5px;
