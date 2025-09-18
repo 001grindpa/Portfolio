@@ -1423,7 +1423,7 @@ h2 {
         display: flex;
         overflow-x: auto;
         width: 100%;
-        background: white;
+        background: rgba(255, 255, 255, 0.479);
     }
     .recommend img {
         width: 250px;

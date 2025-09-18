@@ -66,4 +66,40 @@ document.addEventListener("DOMContentLoaded", function(){
 	});
 	
 	observer_2.observe(slideIn_2);
+
+
+	// testing functions
+
+	// let doneWorking = () => {
+	// 	console.log("done with this work");
+	// }
+
+	// function doWork(work, callback) {
+	// 	console.log("working on " + work);
+	// 	callback();
+	// }
+
+	// doWork("assignment", () => console.log("done working"));
+
+	// creating an object method
+	let car = {
+		brand: "Lexus",
+		start: function(status, need) {
+			console.log(`${this.brand} is starting... ${this.brand} is ${status}, it needs ${need}`);
+		}
+	}
+	car.start("working", "washing");
+
+	// function sportCar(name, price, year_released) {
+	// 	let car = {
+	// 		name: name,
+	// 		price: price,
+	// 		year: year_released,
+	// 		info: function() {
+	// 			console.log(`This ${this.name} was released in ${this.year} and cost around $${this.price}`);
+	// 		}
+	// 	}
+	// 	car.info();
+	// }
+	// sportCar("Lamburgini", 300000, 2024);
 })
