@@ -12,6 +12,7 @@ Session(app)
 
 languages = ["English", "Hausa", "Igbo", "Yoruba"]
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+genders = ["Male", "Female"]
 
 @app.route("/")
 def homepage():
@@ -44,7 +45,7 @@ def signup():
             for data in user_data:
                 if data.get("username") == session.get("username") and data.get("password") == session.get("password"):
                     return redirect("/signupError")
-            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b) VALUES(?, ?, ?, ?, ?)", username_low, session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"))
+            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender) VALUES(?, ?, ?, ?, ?, ?, ?)", username_low, session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"), "example@email.com", "null")
             return redirect("/")
         else:
             return render_template("signup.html", page_id = "signup", months = months)
@@ -102,12 +103,29 @@ def logout():
 
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
+    if request.method == "POST":
+        username_new = request.form.get("username")
+        first_name_new = request.form.get("first_name")
+        last_name_new = request.form.get("last_name")
+        gender_new = request.form.get("gender")
+        e_mail_new = request.form.get("e_mail")
+        userData_1 = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+        for data_1 in userData_1:
+            user_id = data_1["id"]
+        db.execute("UPDATE userData SET username = ? WHERE id = ?", username_new, user_id)
+        db.execute("UPDATE userData SET first_name = ? WHERE id = ?", first_name_new, user_id)
+        db.execute("UPDATE userData SET last_name = ? WHERE id = ?", last_name_new, user_id)
+        db.execute("UPDATE userData SET gender = ? WHERE id = ?", gender_new, user_id)
+        db.execute("UPDATE userData SET e_mail = ? WHERE id = ?", e_mail_new, user_id)
+
     userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
         first_name = data["first_name"]
         last_name = data["last_name"]
         username = data["username"]
-    return render_template("profile.html", first_name = first_name, last_name = last_name, username = username)
+        e_mail = data["e_mail"]
+        gender = data["gender"]
+    return render_template("profile.html", first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
 
 
 if __name__ == '__main__':

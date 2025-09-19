@@ -1219,7 +1219,29 @@ h2 {
     height: 200px;
     width: 100%;
  }
- .pfpLogo {
+ .banner .editPfp {
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 5px;
+    background: rgba(128, 128, 128, 0.829);
+    opacity: 0.4;
+    transition: 0.3s;
+    cursor: pointer;
+ }
+.banner .editPfp img {
+    margin-left: 2px;
+    width: 50px;
+    height: 50px;
+}
+.banner .editPfp:hover {
+    opacity: 0.8;
+}
+.pfpLogo {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -1299,13 +1321,87 @@ h2 {
  }
  .pfpText {
     font-size: small;
+    color: green;
  }
- .pfpText a:hover {
-    text-decoration: underline;
+ .pfpText label {
+    display: block;
  }
- .pfpName + .pfpText {
+ .pfpText.u {
+    color: black;
+ }
+ .pfpText .a {
+    background: white;
+    width: fit-content;
+    margin: auto;
+    padding: 2px;
+ }
+ .pfpText .a:hover {
+    cursor: pointer;
+ }
+ #pfpChange {
+    display: none;
+ }
+#pfpChange:checked ~ .editInfo-bg {
+    display: block;
+}
+.editInfo-bg {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.466);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+ }
+.editInfo {
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 20px;
+    background: white;
+    width: fit-content;
+    margin: auto;
+    margin-top: 15%;
+ }
+.editInfo h3 {
+    color: green;
+}
+form .t {
+    margin-top: 10px;
+    text-align: left;
+    font-size: small;
+    font-weight: bolder;
+}
+form span {
+    margin-left: 5px;
+    font-size: small;
+}
+.editInfo form input {
+    background: inherit;
+    padding: 2px;
+    border: none;
+    outline: none;
+}
+.hLine {
+    background-color: black;
+    height: 0.1px;
+    width: 97%;
+}
+.editInfo form button {
+    margin-top: 10px;
+    margin-left: 70%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: rgb(46, 46, 46);
+    cursor: pointer;
+}
+.editInfo form button:hover {
+    background-color: black;
+}
+.pfpName + .pfpText {
     margin-bottom: 10px;
- }
+}
 .forMail {
     margin: auto;
 }
@@ -1406,6 +1502,9 @@ h2 {
     }
 }
 @media(min-width: 850px) {
+    .banner ~ .pfpText {
+        display: none;
+    }
     .orderDetails {
         grid-template-areas: 
         "one"
@@ -1451,6 +1550,11 @@ h2 {
     }
     .pfp {
         display: none;
+    }
+    .banner .editPfp img {
+        margin-top: -1px;
+        width: 50px;
+        height: 50px;
     }
 }
 @media (min-width: 1000px) {

@@ -8,12 +8,39 @@
             <img src="{{ url_for('static', filename='pfp_images/dark-banner.png') }}" alt="pfp_banner">
             <div class="pfpLogo"><img src="{{ url_for('static', filename='pfp_images/specialEats_1.png') }}" alt="special_eats_logo"></div>
             <div><a href="/"><img src="{{ url_for('static', filename='pfp_images/left-arrow.png') }}" alt="left_arrow"></a></div>
+            <div class="editPfp"><img src="{{ url_for('static', filename='pfp_images/edit-tool-w.png') }}" alt="edit_pen"></div>
             <div class="pfp">
                 <div><img src="{{ url_for('static', filename='pfp_images/unknown_user_2.png') }}" alt="pfp"></div>
                 <div class="editPfp"><img src="{{ url_for('static', filename='pfp_images/edit-pen2-w.png') }}" alt="edit_pen"></div>
                 <div class="pfpName">{{ first_name }} {{ last_name }}</div>
-                <div class="pfpText">@{{ username }}</div>
-                <div class="pfpText"><a href="#">Edit Profile</a></div>
+                <div class="pfpText u">@{{ username }}</div>
+            </div>
+        </div>
+        <input type="checkbox" id="pfpChange">
+        <div class="pfpText"><label class="a" for="pfpChange">Edit Profile</label></div>
+        <div class="editInfo-bg">
+            <div class="editInfo">
+                <h3>Edit Profile</h3>
+                <form action="/profile" method="post">
+                    <div class="t">Username</div>
+                    <input type="text" name="username" value="{{ username }}" placeholder="username" autocomplete="off" autofocus>
+                    <div class="hLine"></div>
+                    <div class="t">First Name</div>
+                    <input type="text" name="first_name" value="{{ first_name }}" placeholder="First Name" autocomplete="off">
+                    <div class="hLine"></div>
+                    <div class="t">Last Name</div>
+                    <input type="text" name="last_name" value="{{ last_name }}" placeholder="Last Name" autocomplete="off">
+                    <div class="hLine"></div>
+                    <div class="t">Gender</div>
+                    {% for gender in genders %}
+                    <input type="radio" name="gender" value="{{ gender }}"><span>{{ gender }}</span>
+                    {% endfor %}
+                    <div class="hLine"></div>
+                    <div class="t">Email</div>
+                    <input type="text" name="e_mail" value="{{ e_mail }}" placeholder="example@email.com" autocomplete="off">
+                    <div class="hLine"></div>
+                    <button>Save</button>
+                </form>
             </div>
         </div>
         <div class="notice"><a href="#"><img src="{{ url_for('static', filename='pfp_images/notice.png') }}" alt="notice"></a></div>
@@ -25,10 +52,10 @@
                 <div><img src="{{ url_for('static', filename='pfp_images/unknown_user_2.png') }}" alt="pfp"></div>
                 <div class="editPfp"><img src="{{ url_for('static', filename='pfp_images/edit-pen2-w.png') }}" alt="edit_pen"></div>
                 <div class="pfpName">{{ first_name }} {{ last_name }}</div>
-                <div class="pfpText">@{{ username }}</div>
-                <div class="pfpText"><a href="#">Edit Profile</a></div>
+                <div class="pfpText u">@{{ username }}</div>
+                <div class="pfpText"><div class="a">Edit Profile</div></div>
             </div>
-            <div class="mail"><img src="{{ url_for('static', filename='pfp_images/mail.png') }}" alt="mail_img"> <span>example@email.com</span></div>
+            <div class="mail"><img src="{{ url_for('static', filename='pfp_images/mail.png') }}" alt="mail_img"> <span>{{ e_mail }}</span></div>
             <div class="recommendC">
                 <div>Favorites</div>
                 <div class="recommend">

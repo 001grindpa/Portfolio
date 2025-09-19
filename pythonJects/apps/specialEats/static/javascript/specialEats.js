@@ -308,4 +308,23 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		observer2.observe(motionAd);
 	}
+
+	// js for profile page
+	else if (document.body.id === "profile") {
+
+		let editDetailsC = document.querySelector(".editInfo-bg");
+		let editDetails = document.querySelector(".editInfo");
+		let pfpCheck = document.querySelector("#pfpChange");
+		let body = document.querySelector("body");
+		let editBtn = document.querySelector(".a");
+
+		editBtn.addEventListener("click", (event) => {
+			event.stopPropagation();
+		});
+		// body.addEventListener("click", () => {
+		// 	if (pfpCheck.checked === true) {
+		// 		pfpCheck.checked = false;
+		// 	}
+		// });
+	}
 })
