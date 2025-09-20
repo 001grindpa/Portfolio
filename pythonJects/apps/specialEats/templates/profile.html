@@ -55,7 +55,7 @@
                 <div class="pfpText u">@{{ username }}</div>
                 <div class="pfpText"><div class="a">Edit Profile</div></div>
             </div>
-            <div class="mail"><img src="{{ url_for('static', filename='pfp_images/mail.png') }}" alt="mail_img"> <span>{{ e_mail }}</span></div>
+            <div class="mail"><img src="{{ url_for('static', filename='pfp_images/mail.png') }}" alt="mail_img"> {{ e_mail }}</div>
             <div class="recommendC">
                 <div>Favorites</div>
                 <div class="recommend">

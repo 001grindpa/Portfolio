@@ -1352,6 +1352,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 5;
  }
 .editInfo {
     padding: 20px;
@@ -1416,10 +1417,8 @@ form span {
     display: flex;
     justify-content: center;
     gap: 10px;
-    align-items: center;
-}
-.mail span {
     font-size: small;
+    align-items: center;
 }
 .orderDetails {
     padding: 10px;
@@ -1476,7 +1475,10 @@ form span {
     margin: 10px;
     margin-left: auto;
     transition: 0.3s;
-    position: relative;
+    /* position: relative; */
+    position: absolute;
+    right: 0;
+    top: 200px;
 }
 .notice:hover {
     background: rgba(211, 211, 211, 0.726);
@@ -1515,7 +1517,9 @@ form span {
         /* grid-auto-columns: 1fr; */
         grid-template-areas: 
         "pfp-one pfp-two";
-        margin-top: 60px;
+        margin-top: 70px;
+        margin-left: 50px;
+        margin-right: 100px;
     }
     .pfp2 {
         display: grid;
