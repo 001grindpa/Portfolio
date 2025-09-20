@@ -1303,42 +1303,42 @@ h2 {
     align-items: center;
     display: none;
  }
- .pfp2 img {
+.pfp2 img {
     width: 100px;
     height: 100px;
  }
- .pfp img {
+.pfp img {
     width: 100px;
     height: 100px;
  }
- .pfp div {
+.pfp div {
     text-align: center;
  }
- .pfpName {
+.pfpName {
     font-weight: bolder;
     font-size: large;
     text-align: center;
  }
- .pfpText {
+.pfpText {
     font-size: small;
     color: green;
  }
- .pfpText label {
+.pfpText label {
     display: block;
  }
- .pfpText.u {
+.pfpText.u {
     color: black;
  }
- .pfpText .a {
+.pfpText .a {
     background: white;
     width: fit-content;
     margin: auto;
     padding: 2px;
  }
- .pfpText .a:hover {
+.pfpText .a:hover {
     cursor: pointer;
  }
- #pfpChange {
+#pfpChange {
     display: none;
  }
 #pfpChange:checked ~ .editInfo-bg {

@@ -315,16 +315,28 @@ document.addEventListener('DOMContentLoaded', function(){
 		let editDetailsC = document.querySelector(".editInfo-bg");
 		let editDetails = document.querySelector(".editInfo");
 		let pfpCheck = document.querySelector("#pfpChange");
-		let body = document.querySelector("body");
 		let editBtn = document.querySelector(".a");
+		let body = document.querySelector("body");
 
 		editBtn.addEventListener("click", (event) => {
 			event.stopPropagation();
 		});
-		// body.addEventListener("click", () => {
-		// 	if (pfpCheck.checked === true) {
-		// 		pfpCheck.checked = false;
-		// 	}
-		// });
+		editDetailsC.addEventListener("click", () => {
+			if (pfpCheck.checked === true) {
+				pfpCheck.checked = false;
+				body.style.overflow = "auto";
+			}
+		});
+		editDetails.addEventListener("click", (event) => {
+			event.stopPropagation();
+		})
+		pfpCheck.addEventListener("change", () => {
+			if (pfpCheck.checked === true) {
+				body.style.overflow = "hidden";
+			}
+			// else if (pfpCheck.checked === false) {
+			// 	body.style.overflow = "auto";
+			// }
+		})
 	}
 })
