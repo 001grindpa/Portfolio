@@ -73,6 +73,7 @@
 }
 #load {
     display: none;
+    cursor: progress;
 }
 .total {
     text-align: center;

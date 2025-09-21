@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 		btn.addEventListener("click", () => {
 			loading();
+			btn.disabled = true;
 			async function get_r() {
 				try {
 					let response = await fetch('/api/spin_result');
@@ -50,9 +51,11 @@ document.addEventListener("DOMContentLoaded", function(){
 						let r = data[d];
 						if (r === "better luck next time") {
 							success();
+							btn.disabled = false;
 							return console.log(r);
 						}
 						bal.textContent = Number(bal.textContent) + r;
+						btn.disabled = false;
 						success();
 					}
 				}
@@ -60,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function(){
 					console.log(error);
 				}
 			}
-			setTimeout(get_r, 1000)
+			setTimeout(get_r, 7000)
 		});
 	}
 });
