@@ -1442,6 +1442,12 @@ form span {
 .orderInfo .rightArrow {
     height: 20px;
     width: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.orderInfo .rightArrow:hover {
+    background: rgb(207, 207, 207);
 }
 .orderInfo {
     display: flex;

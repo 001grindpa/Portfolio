@@ -43,3 +43,34 @@
     outline: 1px solid white;
     width: 205px;
 }
+.poolContainer {
+    margin-top: 10px;
+    padding: 20px;
+}
+.r {
+    width: fit-content;
+    margin: auto;
+}
+.r + button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    padding: 7px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: green;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    opacity: 0.6;
+}
+.r + button:hover {
+    opacity: 1;
+}
+#spin {
+    display: block;
+}
+#load {
+    display: none;
+}

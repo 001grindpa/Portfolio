@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 from flask_session import Session
+from testCode import spin
 from cs50 import SQL
 db = SQL("sqlite:///app.db")
 
@@ -17,9 +18,13 @@ def shows():
     title = request.args.get("title")
     if title == "":
         return jsonify({"Empty": "space"}), 400
-    shows = db.execute("SELECT * FROM shows WHERE title LIKE ?", title + '%')
+    shows = db.execute("SELECT * FROM shows WHERE title LIKE ?", f"{title}%")
     return jsonify(shows)
 
+@app.route("/api/spin_result")
+def spin_result():
+    r = spin()
+    return jsonify({"result": r})
 
 if __name__ == "__main__":
     app.run(debug =True, port=3000, use_reloader = True, reloader_type = "watchdog")
