@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		let rCon = poolContainer.querySelector(".r");
 		let spinText = poolContainer.querySelector("#spin");
 		let loadText = poolContainer.querySelector("#load");
+		let bal = poolContainer.querySelector(".bal");
 
 		function loading() {
 			spinText.style.display = "none";
@@ -46,14 +47,20 @@ document.addEventListener("DOMContentLoaded", function(){
 					let data = await response.json();
 					for (let d in data) {
 						rCon.textContent = data[d];
+						let r = data[d];
+						if (r === "better luck next time") {
+							success();
+							return console.log(r);
+						}
+						bal.textContent = Number(bal.textContent) + r;
+						success();
 					}
-					success();
 				}
 				catch (error) {
 					console.log(error);
 				}
 			}
-			setTimeout(get_r, 3000)
+			setTimeout(get_r, 1000)
 		});
 	}
 });
