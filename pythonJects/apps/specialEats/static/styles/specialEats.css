@@ -892,7 +892,8 @@ h2 {
 }
 .Pinfo::before {
     position: fixed;
-    content: "Please write out and store your generated password";
+    content: "Please write out and store your generated password. Note: The system won't give you access if you don't create a strong password";
+    font-size: small;
     top: 280px;
     right: 60%;
     width: 200px;
