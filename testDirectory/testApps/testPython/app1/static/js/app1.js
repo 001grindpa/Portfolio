@@ -63,7 +63,43 @@ document.addEventListener("DOMContentLoaded", function(){
 					console.log(error);
 				}
 			}
-			setTimeout(get_r, 7000)
+			setTimeout(get_r, 7000);
 		});
+
+
+		// function info() {
+		// 	return `${this.name} is ${this.age} years old`;
+		// }
+
+		// let person_1 = {
+		// 	name: "Jane", age: 25, info
+		// };
+
+		// console.log(person_1.info());
+
+		// let person_2 = {
+		// 	name: "Chuks", age: 28, bio: function () {
+		// 		return this.name + " is " + this.age + " years old";
+		// 	}
+		// };
+		// console.log(person_2.bio())
+
+		// function balance() {
+		// 	return `This ${this.bank} account has a balance of $${this.bal}`
+		// }
+		// function deposit(amt) {
+		// 	this.bal = this.bal + amt
+		// 	return `Credit Alert:\nThe sum of $${amt} has been deposited into your account\nNew Bal: $${this.bal}`
+		// }
+
+		// let acc_1 = {
+		// 	bank: "UBA",
+		// 	bal: 0,
+		// 	balance,
+		// 	deposit
+		// }
+
+		// console.log(acc_1.balance())
+		// console.log(acc_1.deposit(20))
 	}
 });

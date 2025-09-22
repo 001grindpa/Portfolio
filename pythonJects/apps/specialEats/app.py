@@ -48,7 +48,7 @@ def signup():
             db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender) VALUES(?, ?, ?, ?, ?, ?, ?)", username_low, session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"), "example@email.com", "null")
             return redirect("/")
         else:
-            return render_template("signup.html", page_id = "signup", months = months)
+            return render_template("pWordError.html")
     return render_template("signup.html", page_id = "signup", months = months)
 @app.route("/usernamecheck")
 def namecheck():
