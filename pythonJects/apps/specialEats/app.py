@@ -132,6 +132,13 @@ def profile():
         gender = data["gender"]
     return render_template("profile.html", first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
 
+@app.route("/sCuisines")
+def sCuisines():
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+    return render_template("sCuisine.html", page_id = "sCuisine", langs = languages, first_name = first_name, last_name = last_name)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000, use_reloader=True, reloader_type='watchdog')

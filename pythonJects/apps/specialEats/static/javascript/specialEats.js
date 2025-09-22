@@ -339,4 +339,9 @@ document.addEventListener('DOMContentLoaded', function(){
 			// }
 		})
 	}
+
+	// js for south Nigerian cuisine dishes page
+	else if (document.body.id === "sCuisine") {
+		
+	}
 })
