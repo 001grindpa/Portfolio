@@ -1,101 +1,101 @@
-id, meal_name, price
-1, isi_ewu, 10.99
-2, bitter_leaf_soup, 5
-3, pepper_soup, 5.20
-4, oha_soup, 5.40
-5, dambu_nama, 2.99
-6, Tuwo_shinkara, 7.99
-7, fura_da_nono, 4.20
-8, ikokere, 3.55
-9, ofada, 5.22
-10, dodo, 2.55
-11, dan_wake, 4.22
-12, ewedu, 3.99
-13, ofe_nsala, 8.44
-14, ugba, 4.66
-15, ofe_akwu, 7.88
-16, ofe_owerri, 9
-17, jolof_rice, 4.66
-18, pepper_soup, 6
-19, fruit_salad, 6.99
-20, suya, 7.33
-21, chim_chim, 1.99
-22, mango_ice_cream, 3
-23, oha_soup, 2.99
-24, grilled_corn, 2
-25, roasted_potatoes, 3
-26, veggie_salad, 3.55
-27, porridge_yam, 3.55
-28, scotched_egg, 0.80
-29, doughnut, 1.77
-30, kilishi, 2.88
-31, agidi_jollof, 1.75
-32, akamu, 1.99
-33, moi_moi, 2.77
-34, tom_brown, 2.44
-35, brown_rice, 4.55
-36, oat_meal, 1.27
-37, miyan_kubewa, 4.12
-38, dambu_nama, 5
-39, alkaki, 3.11
-40, kuli_kuli 2.55
-41, fanke, 5.22
-42, kunu_aya, 6
-43, miyan_taushe, 7.55
-44, balangu, 5.33
-45, tuwon_dawan, 6
-46, banga_soup, 9.99
-47, afang_soup, 8.99
-48, edikang_ikong, 8.99
-49, palm_wine, 5.33
-50, ube, 0.99
-51, abacha, 5.66
-52, boli, 3.55
-53, ukodo, 4.11
-54, ofe_egusi, 9.99
-55, ofe_ugu, 8.33
-56, okpa, 2.99
-57, ube_na_oka, 3.99
-58, ji_abubo, 5.99
-59, ofe_ugba, 4.55
-60, amala, 9.99
-61, asaro, 4.99
-62, ewa_agoyin, 4.77
-63, agege_bread, 6.77
-64, dodo_ikire, 8
-65, guguru_ati_ekpa, 12
-66, boli_and_epa, 7.99
-67, efo_riro, 6.99
-68, atama_soup, 12
-69, afia_efere, 11.99
-70, owo_soup, 8
-71, tuwon_alkama, 5.99
-72, tuwon_masara, 4.99
-73, banga_rice, 11
-74, jollof_spaghetti, 7.99
-75, coconut_rice, 4.99
-76, yam_and_egg_source, 6.99
-77, chicken_pepper_soup, 5.99
-78, goat_meat_pepper_soup, 4.33
-79, shawarma, 4.99
-80, catfish_barbecue, 10.99
-81, ashn, 6
-82, ayamase, 9
-83, coconut_candle, 1.99
-84, biscuits, 2.99
-85, Icheku, 1.99
-86, cucumber, 1.99
-87, water_melon, 2.99
-88, carrots, 1.47
-89, pineapple, 3.88
-90, african_apple, 5.99
-91, utu, 2.99
-92, ubene, 3.11
-93, aki_na_ukwa, 8.99
-94, agidi, 2.99
-95, anu_odu, 4
-96, anu_ele, 3.88
-97, puff_puff, 1.99
-98, meat_pie, 0.99
-99, vanilla_ice_cream, 1.99
-100, noodle, 2.31
+id,meal_name,price
+1,isi_ewu,10.99
+2,bitter_leaf_soup,5
+3,pepper_soup,5.20
+4,oha_soup,5.40
+5,dambu_nama,2.99
+6,Tuwo_shinkara,7.99
+7,fura_da_nono,4.20
+8,ikokere,3.55
+9,ofada,5.22
+10,dodo,2.55
+11,dan_wake,4.22
+12,ewedu,3.99
+13,ofe_nsala,8.44
+14,ugba,4.66
+15,ofe_akwu,7.88
+16,ofe_owerri,9
+17,jolof_rice,4.66
+18,pepper_soup,6
+19,fruit_salad,6.99
+20,suya,7.33
+21,chim_chim,1.99
+22,mango_ice_cream,3
+23,oha_soup,2.99
+24,grilled_corn,2
+25,roasted_potatoes,3
+26,veggie_salad,3.55
+27,porridge_yam,3.55
+28,scotched_egg,0.80
+29,doughnut,1.77
+30,kilishi,2.88
+31,agidi_jollof,1.75
+32,akamu,1.99
+33,moi_moi,2.77
+34,tom_brown,2.44
+35,brown_rice,4.55
+36,oat_meal,1.27
+37,miyan_kubewa,4.12
+38,dambu_nama,5
+39,alkaki,3.11
+40,kuli_kuli,2.55
+41,fanke,5.22
+42,kunu_aya,6
+43,miyan_taushe,7.55
+44,balangu,5.33
+45,tuwon_dawan,6
+46,banga_soup,9.99
+47,afang_soup,8.99
+48,edikang_ikong,8.99
+49,palm_wine,5.33
+50,ube,0.99
+51,abacha,5.66
+52,boli,3.55
+53,ukodo,4.11
+54,ofe_egusi,9.99
+55,ofe_ugu,8.33
+56,okpa,2.99
+57,ube_na_oka,3.99
+58,ji_abubo,5.99
+59,ofe_ugba,4.55
+60,amala,9.99
+61,asaro,4.99
+62,ewa_agoyin,4.77
+63,agege_bread,6.77
+64,dodo_ikire,8
+65,guguru_ati_ekpa,12
+66,boli_and_epa,7.99
+67,efo_riro,6.99
+68,atama_soup,12
+69,afia_efere,11.99
+70,owo_soup,8
+71,tuwon_alkama,5.99
+72,tuwon_masara,4.99
+73,banga_rice,11
+74,jollof_spaghetti,7.99
+75,coconut_rice,4.99
+76,yam_and_egg_source,6.99
+77,chicken_pepper_soup,5.99
+78,goat_meat_pepper_soup,4.33
+79,shawarma,4.99
+80,catfish_barbecue,10.99
+81,ashn,6
+82,ayamase,9
+83,coconut_candle,1.99
+84,biscuits,2.99
+85,Icheku,1.99
+86,cucumber,1.99
+87,water_melon,2.99
+88,carrots,1.47
+89,pineapple,3.88
+90,african_apple,5.99
+91,utu,2.99
+92,ubene,3.11
+93,aki_na_ukwa,8.99
+94,agidi,2.99
+95,anu_odu,4
+96,anu_ele,3.88
+97,puff_puff,1.99
+98,meat_pie,0.99
+99,vanilla_ice_cream,1.99
+100,noodle,2.31
