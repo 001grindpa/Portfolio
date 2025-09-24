@@ -1606,3 +1606,43 @@ form span {
 
 /* styling for south nigeria cuisine page */
 
+.sCuisine-cont {
+    margin-top: 10px;
+    outline: 1px solid red;
+}
+.sCuisine {
+    outline: 1px solid black;
+    padding: 5px;
+    margin: auto;
+    width: fit-content;
+}
+.sCuisine img {
+    width: 450px;
+    flex: 1 0 auto;
+}
+.sCuisine .one {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.one .b {
+    background: orange;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+.one .name {
+    font-size: larger;
+}
+.price span {
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+}
+.price {
+    color: green;
+}

@@ -100,7 +100,36 @@
 		</div>
     </header>
     <main>
-        
+        <div class="sCuisine-cont">
+            <div class="sCuisine">
+                <img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="ewedu">
+                <div class="one">
+                    <div>
+                        <div class="name">Ewedu</div>
+                        <div class="price">$<span>7.99</span></div>
+                    </div>
+                    <form action="#" method="post">
+                        <input type="hidden" value="id">
+                        <input class="b" type="submit" value="Add to cart">
+                    </form>
+                </div>
+            </div>
+            {% for x in test %}
+            <div class="sCuisine">
+                <img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="ewedu">
+                <div class="one">
+                    <div>
+                        <div class="name">{{ x.name }}</div>
+                        <div class="price">$<span>{{ x.price }}</span></div>
+                    </div>
+                    <form action="#" method="post">
+                        <input type="hidden" value="id">
+                        <input class="b" type="submit" value="Add to cart">
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </main>
 
 {% endblock %}
