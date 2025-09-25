@@ -138,8 +138,8 @@ def sCuisines():
     for data in userData:
         first_name = data.get("first_name")
         last_name = data.get("last_name")
-        test = db.execute("SELECT * FROM test")
-    return render_template("sCuisine.html", test = test, page_id = "sCuisine", langs = languages, first_name = first_name, last_name = last_name)
+        meals = db.execute("SELECT * FROM meals")
+    return render_template("sCuisine.html", meals = meals, page_id = "sCuisine", langs = languages, first_name = first_name, last_name = last_name)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000, use_reloader=True, reloader_type='watchdog')

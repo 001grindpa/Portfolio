@@ -1,101 +1,101 @@
-id,meal_name,price
-1,isi_ewu,10.99
-2,bitter_leaf_soup,5
-3,pepper_soup,5.20
-4,oha_soup,5.40
-5,dambu_nama,2.99
-6,Tuwo_shinkara,7.99
-7,fura_da_nono,4.20
-8,ikokere,3.55
-9,ofada,5.22
-10,dodo,2.55
-11,dan_wake,4.22
-12,ewedu,3.99
-13,ofe_nsala,8.44
-14,ugba,4.66
-15,ofe_akwu,7.88
-16,ofe_owerri,9
-17,jolof_rice,4.66
-18,pepper_soup,6
-19,fruit_salad,6.99
-20,suya,7.33
-21,chim_chim,1.99
-22,mango_ice_cream,3
-23,oha_soup,2.99
-24,grilled_corn,2
-25,roasted_potatoes,3
-26,veggie_salad,3.55
-27,porridge_yam,3.55
-28,scotched_egg,0.80
-29,doughnut,1.77
-30,kilishi,2.88
-31,agidi_jollof,1.75
-32,akamu,1.99
-33,moi_moi,2.77
-34,tom_brown,2.44
-35,brown_rice,4.55
-36,oat_meal,1.27
-37,miyan_kubewa,4.12
-38,dambu_nama,5
-39,alkaki,3.11
-40,kuli_kuli,2.55
-41,fanke,5.22
-42,kunu_aya,6
-43,miyan_taushe,7.55
-44,balangu,5.33
-45,tuwon_dawan,6
-46,banga_soup,9.99
-47,afang_soup,8.99
-48,edikang_ikong,8.99
-49,palm_wine,5.33
-50,ube,0.99
-51,abacha,5.66
-52,boli,3.55
-53,ukodo,4.11
-54,ofe_egusi,9.99
-55,ofe_ugu,8.33
-56,okpa,2.99
-57,ube_na_oka,3.99
-58,ji_abubo,5.99
-59,ofe_ugba,4.55
-60,amala,9.99
-61,asaro,4.99
-62,ewa_agoyin,4.77
-63,agege_bread,6.77
-64,dodo_ikire,8
-65,guguru_ati_ekpa,12
-66,boli_and_epa,7.99
-67,efo_riro,6.99
-68,atama_soup,12
-69,afia_efere,11.99
-70,owo_soup,8
-71,tuwon_alkama,5.99
-72,tuwon_masara,4.99
-73,banga_rice,11
-74,jollof_spaghetti,7.99
-75,coconut_rice,4.99
-76,yam_and_egg_source,6.99
-77,chicken_pepper_soup,5.99
-78,goat_meat_pepper_soup,4.33
-79,shawarma,4.99
-80,catfish_barbecue,10.99
-81,ashn,6
-82,ayamase,9
-83,coconut_candle,1.99
-84,biscuits,2.99
-85,Icheku,1.99
-86,cucumber,1.99
-87,water_melon,2.99
-88,carrots,1.47
-89,pineapple,3.88
-90,african_apple,5.99
-91,utu,2.99
-92,ubene,3.11
-93,aki_na_ukwa,8.99
-94,agidi,2.99
-95,anu_odu,4
-96,anu_ele,3.88
-97,puff_puff,1.99
-98,meat_pie,0.99
-99,vanilla_ice_cream,1.99
-100,noodle,2.31
+id,meal_name,price,url
+1,Isi Ewu,10.99,food_images/isi-ewu.png
+2,Bitter leaf Soup,5,food_images/bitter-leaf-soup.png
+3,Pepper Soup,5.20,food_images/pepperSoup2.png
+4,Oha Soup,5.40,food_images/ohaSoup.png
+5,Dambu Nama,2.99,food_images/dambu-nama.jpeg
+6,Tuwo Shinkara,7.99,food_images/tuwo_shinkara.jpeg
+7,Fura de Nono,4.20,food_images/fura da nono.png
+8,Ikokere,3.55,food_images/ikokere.png
+9,Ofada,5.22,food_images/ofada.png
+10,Dodo,2.55,food_images/dodo.png
+11,Dan Wake,4.22,food_images/danwake.png
+12,Ewedu,3.99,food_images/ewedu.png
+13,Ofe Nsala,8.44,food_images/ofe nsala.png
+14,Ugba,4.66,food_images/ugba.png
+15,Ofe Akwu,7.88,food_images/ofe akwu.png
+16,Ofe Owerri,9,food_images/ofe owerri.png
+17,Jollof Rice,7.66,food_images/jollof-rice.png
+18,Anu Odu,6,food_images/anu-odu.jpeg
+19,Fruit Salad,6.99,food_images/fruit-salad.png
+20,Suya,7.33,food_images/suya.png
+21,Chim Chim,1.99,food_images/chim-chim.png
+22,Mango Smoothy,3,food_images/mango-dessert.png
+23,Anu Ele,2.99,food_images/grolled-anu-ele.jpeg
+24,Grilled Corn,2,food_images/grilled-corn.png
+25,Roasted Potatoes,3,food_images/potatoes.png
+26,Salad,3.55,food_images/salad.png
+27,Porridge Yam,3.55,food_images/porridge-yam.png
+28,Scotched Egg,0.80,snacks_images/scotche-egg.png
+29,Doughnut,1.77,snacks_images/doughnuts.png
+30,Kilishi,2.88,snacks_images/kilishi.png
+31,Agidi Jollof,1.75,dessert_images/agidi.png
+32,Akamu,1.99,dessert_images/akamu.png
+33,Moi Moi,2.77,dessert_images/moi-moi.png
+34,Tom Brown,2.44,cereal_images/tom.png
+35,Brown Rice,4.55,cereal_images/brown-rice.png
+36,Oat Meal,1.27,cereal_images/oat meal.png
+37,Miyan Kubewa,4.12,food_images/miyan-kubewa.jpeg
+38,Dambu Nama,5,food_images/dambu-nama.jpeg
+39,Alkaki,3.11,food_images/alkaki.jpeg
+40,Kuli Kuli,2.55,food_images/kuli-kuli.jpeg
+41,Fanke,5.22,food_images/fanke.jpeg
+42,Kunu Aya,6,food_images/kunu-aya.jpeg
+43,Miyan Taushe,7.55,food_images/miyan-taushe.jpeg
+44,Balangu,5.33,food_images/balangu.jpeg
+45,Tuwon Dawan,6,food_images/tuwon-dawan.jpeg
+46,Banga Soup,9.99,food_images/banga-soup.jpeg
+47,Afang Soup,8.99,food_images/afang-soup.jpeg
+48,Edikang Ikong,8.99,food_images/edikang-ikong.jpeg
+49,Palm Wine,5.33,food_images/palm-wine.jpeg
+50,Ube (African Pear),0.99,food_images/ube.jpeg
+51,Abacha,5.66,food_images/abacha.jpeg
+52,Boli,3.55,food_images/boli.jpeg
+53,Ukodo,4.11,food_images/ukodo.jpeg
+54,Ofe Egusi,9.99,food_images/ofe-egusi.jpeg
+55,Ofe Ugu,8.33,food_images/ofe-ugu.jpeg
+56,Okpa,2.99,food_images/okpa.jpeg
+57,Ube na Oka,3.99,food_images/ube-na-oka.jpeg
+58,Ji Abubo,5.99,food_images/ji-abubo.jpeg
+59,Ofe Ugba,4.55,food_images/ofe-ugba.jpeg
+60,Amala,9.99,food_images/amala.jpeg
+61,Asaro,4.99,food_images/asaro.jpeg
+62,Ewa Agoyin,4.77,food_images/ewa-agoyin.jpeg
+63,Agege bread,6.77,food_images/agege-bread.jpeg
+64,Dodo Ikire,8,food_images/dodo-ikire.jpeg
+65,Guguru ati Ekpa,12,food_images/guguru-ati-ekpa.jpeg
+66,Boli and Epa,7.99,food_images/boli-and-epa.jpeg
+67,Efo Riro,6.99,food_images/efo-riro.jpeg
+68,Atama Soup,12,food_images/atama-soup.jpeg
+69,Afia Efere,11.99,food_images/afia-efere.jpeg
+70,Owo Soup,8,food_images/owo-soup.jpeg
+71,Tuwon Alkama,5.99,food_images/tuwo-alkama.jpeg
+72,Tuwon Masara,4.99,food_images/tuwon-masara.jpeg
+73,banga_rice,11,food_images/banga_rice.jpeg
+74,Jollof Spaghetti,7.99,food_images/jollof-spaghetti.png
+75,Coconut Rice,4.99,food_images/coconut-rice.jpeg
+76,Yam and Egg source,6.99,food_images/yam-and-eggsauce.jpeg
+77,Chicken pepper Soup,5.99,food_images/chicken-pepper-soup.jpeg
+78,Goat meat Pepper soup,4.33,food_images/got-meat-pepper-soup.jpeg
+79,Shawarma,4.99,food_images/shawarma.jpeg
+80,Tilapia Barbecue,10.99,food_images/tilapia-barbecue.jpeg
+81,Ashn,6,food_images/ashn.jpeg
+82,Ayamase,9,food_images/ayamase.jpeg
+83,Coconut Candy,1.99,food_images/coconut-candy.jpeg
+84,Biscuits,2.99,food_images/biscuits.jpeg
+85,Icheku,1.99,food_images/icheku.jpeg
+86,Cucumber Dish,1.99,food_images/cucumber.png
+87,Water melon Juice,2.99,food_images/water-melon-juice.jpeg
+88,Tapioca and Coconut,1.47,food_images/tapioca-and-coconut.jpeg
+89,Pineapple Juice,3.88,food_images/pineapple-juice.jpeg
+90,African Apple,5.99,food_images/udara.jpeg
+91,Utu,2.99,food_images/utu.jpeg
+92,Ubene,3.11,food_images/ubene.jpeg
+93,Aki na Ukwa,8.99,food_images/aki-na-ukwa.jpeg
+94,Agidi,2.99,food_images/agidi.jpeg
+95,Atama Soup,4,food_images/atama-soup.jpeg
+96,Boli and Epa,3.88,food_images/boli-and-epa.jpeg
+97,Puff Puff,1.99,food_images/puff-puff.jpeg
+98,Meat Pie,0.99,food_images/meat-pie.jpeg
+99,Vanilla ice cream,1.99,food_images/vanilla.jpeg
+100,Noodle,2.31,food_images/noodle.jpeg

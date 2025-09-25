@@ -1,8 +1,7 @@
-def drink_lim(uname, age):
-    ready = int(age) >= 18
+from cs50 import SQL
 
-    if ready == True:
-        return f"{uname} is within drinking age"
-    else:
-        return f"brah, {uname} is too young now."
+db = SQL("sqlite:///specialEats.db")
 
+table = db.execute("SELECT * FROM test")
+for data in table:
+    print(data.get("name"))

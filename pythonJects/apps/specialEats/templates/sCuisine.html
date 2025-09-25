@@ -114,13 +114,13 @@
                     </form>
                 </div>
             </div>
-            {% for x in test %}
+            {% for meal in meals %}
             <div class="sCuisine">
-                <img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="ewedu">
+                <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
                 <div class="one">
                     <div>
-                        <div class="name">{{ x.name }}</div>
-                        <div class="price">$<span>{{ x.price }}</span></div>
+                        <div class="name">{{ meal.name }}</div>
+                        <div class="price">$<span>{{ meal.price }}</span></div>
                     </div>
                     <form action="#" method="post">
                         <input type="hidden" value="id">
