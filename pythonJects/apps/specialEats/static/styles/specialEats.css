@@ -83,9 +83,6 @@ header {
 .signIn:hover {
     color: green;
 }
-.userReg div:nth-child(2) div {
-    color: rgb(18, 34, 70);
-}
 .headerLogo {
     width: 60px;
 }
@@ -193,20 +190,26 @@ a {
 nav ul a:hover {
     background-color: rgba(18, 34, 70, 0.342);
 }
+.sl:hover {
+    text-decoration: underline;
+}
 .userReg {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     background-color: green;
     font-size: larger;
     font-weight: bold;
-    margin-left: -15px;
-    padding-left: 15px;
     color: white;
-    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: -15px;
 }
-.userReg a:hover {
-	text-decoration: underline;
+.userReg a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.userReg .uname {
+    font-size: small;
+    color: rgb(18, 34, 70);
 }
 h4 {
     margin-top: 20px;
@@ -1608,6 +1611,7 @@ form span {
 
 .sCuisine-cont {
     margin-top: 10px;
+    display: grid;
     outline: 1px solid red;
 }
 .sCuisine {
@@ -1617,7 +1621,7 @@ form span {
     width: fit-content;
 }
 .sCuisine img {
-    width: 450px;
+    width: 400px;
     flex: 1 0 auto;
 }
 .sCuisine .one {
@@ -1626,7 +1630,7 @@ form span {
     justify-content: space-around;
 }
 .one .b {
-    background: orange;
+    background: rgb(197, 128, 0);
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -1634,6 +1638,9 @@ form span {
     color: white;
     cursor: pointer;
     border: none;
+}
+.one .b:hover {
+    background: orange;
 }
 .one .name {
     font-size: larger;
@@ -1645,4 +1652,14 @@ form span {
 }
 .price {
     color: green;
+}
+@media(min-width: 985px) {
+    .sCuisine-cont {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(min-width: 1500px) {
+    .sCuisine-cont {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

@@ -134,11 +134,12 @@ def profile():
 
 @app.route("/sCuisines")
 def sCuisines():
+    s_id = [2,3,4,32,47,48,51,75,85,92]
     userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
     for data in userData:
         first_name = data.get("first_name")
         last_name = data.get("last_name")
-        meals = db.execute("SELECT * FROM meals")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", s_id)
     return render_template("sCuisine.html", meals = meals, page_id = "sCuisine", langs = languages, first_name = first_name, last_name = last_name)
 
 if __name__ == '__main__':

@@ -75,11 +75,13 @@
 			</div>
 			<div class="navContainer">
 				<div class="userReg">
-					<div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
-					<div>
-						<a href="/profile">@{{ session.get("username") }}</a>
-						<div>{{ first_name }} {{ last_name }}</div>
-					</div>
+					<a href="/profile">
+						<div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
+						<div>
+							<div class="uname">@{{ session.get("username") }}</div>
+							<div>{{ first_name }} {{ last_name }}</div>
+						</div>
+					</a>
 				</div>
 				<nav>
 					<div><h4>App Map</h4></div>
@@ -109,8 +111,8 @@
                         <div class="name">{{ meal.name }}</div>
                         <div class="price">$<span>{{ meal.price }}</span></div>
                     </div>
-                    <form action="#" method="post">
-                        <input type="hidden" value="id">
+                    <form action="/cart" method="post">
+                        <input type="hidden" value="{{ meal.id }}">
                         <input class="b" type="submit" value="Add to cart">
                     </form>
                 </div>
