@@ -101,19 +101,6 @@
     </header>
     <main>
         <div class="sCuisine-cont">
-            <div class="sCuisine">
-                <img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="ewedu">
-                <div class="one">
-                    <div>
-                        <div class="name">Ewedu</div>
-                        <div class="price">$<span>7.99</span></div>
-                    </div>
-                    <form action="#" method="post">
-                        <input type="hidden" value="id">
-                        <input class="b" type="submit" value="Add to cart">
-                    </form>
-                </div>
-            </div>
             {% for meal in meals %}
             <div class="sCuisine">
                 <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">

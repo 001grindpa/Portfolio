@@ -1,10 +1,10 @@
-id,meal_name,price,url
+id,name,price,url
 1,Isi Ewu,10.99,food_images/isi-ewu.png
 2,Bitter leaf Soup,5,food_images/bitter-leaf-soup.png
 3,Pepper Soup,5.20,food_images/pepperSoup2.png
-4,Oha Soup,5.40,food_images/ohaSoup.png
+4,Oha Soup,5.40,food_images/oha1.png
 5,Dambu Nama,2.99,food_images/dambu-nama.jpeg
-6,Tuwo Shinkara,7.99,food_images/tuwo_shinkara.jpeg
+6,Tuwo Shinkara,7.99,food_images/tuwo_shinkara.png
 7,Fura de Nono,4.20,food_images/fura da nono.png
 8,Ikokere,3.55,food_images/ikokere.png
 9,Ofada,5.22,food_images/ofada.png
@@ -21,7 +21,7 @@ id,meal_name,price,url
 20,Suya,7.33,food_images/suya.png
 21,Chim Chim,1.99,food_images/chim-chim.png
 22,Mango Smoothy,3,food_images/mango-dessert.png
-23,Anu Ele,2.99,food_images/grolled-anu-ele.jpeg
+23,Anu Ele,2.99,food_images/grilled-anu-ele.jpeg
 24,Grilled Corn,2,food_images/grilled-corn.png
 25,Roasted Potatoes,3,food_images/potatoes.png
 26,Salad,3.55,food_images/salad.png
@@ -58,7 +58,7 @@ id,meal_name,price,url
 57,Ube na Oka,3.99,food_images/ube-na-oka.jpeg
 58,Ji Abubo,5.99,food_images/ji-abubo.jpeg
 59,Ofe Ugba,4.55,food_images/ofe-ugba.jpeg
-60,Amala,9.99,food_images/amala.jpeg
+60,Cashew Nuts,9.99,food_images/cashew-nuts.png
 61,Asaro,4.99,food_images/asaro.jpeg
 62,Ewa Agoyin,4.77,food_images/ewa-agoyin.jpeg
 63,Agege bread,6.77,food_images/agege-bread.jpeg
@@ -69,17 +69,17 @@ id,meal_name,price,url
 68,Atama Soup,12,food_images/atama-soup.jpeg
 69,Afia Efere,11.99,food_images/afia-efere.jpeg
 70,Owo Soup,8,food_images/owo-soup.jpeg
-71,Tuwon Alkama,5.99,food_images/tuwo-alkama.jpeg
-72,Tuwon Masara,4.99,food_images/tuwon-masara.jpeg
-73,banga_rice,11,food_images/banga_rice.jpeg
+71,Tuwon Alkama,5.99,food_images/tuwon-alkama.jpeg
+72,Tuwon Dawan,4.99,food_images/tuwon-dawan.jpeg
+73,Banga Rice,11,food_images/banga-rice.jpeg
 74,Jollof Spaghetti,7.99,food_images/jollof-spaghetti.png
 75,Coconut Rice,4.99,food_images/coconut-rice.jpeg
 76,Yam and Egg source,6.99,food_images/yam-and-eggsauce.jpeg
 77,Chicken pepper Soup,5.99,food_images/chicken-pepper-soup.jpeg
-78,Goat meat Pepper soup,4.33,food_images/got-meat-pepper-soup.jpeg
+78,Peanut,1.33,food_images/peanuts.png
 79,Shawarma,4.99,food_images/shawarma.jpeg
 80,Tilapia Barbecue,10.99,food_images/tilapia-barbecue.jpeg
-81,Ashn,6,food_images/ashn.jpeg
+81,Asun,6,food_images/asun.jpeg
 82,Ayamase,9,food_images/ayamase.jpeg
 83,Coconut Candy,1.99,food_images/coconut-candy.jpeg
 84,Biscuits,2.99,food_images/biscuits.jpeg
@@ -89,10 +89,10 @@ id,meal_name,price,url
 88,Tapioca and Coconut,1.47,food_images/tapioca-and-coconut.jpeg
 89,Pineapple Juice,3.88,food_images/pineapple-juice.jpeg
 90,African Apple,5.99,food_images/udara.jpeg
-91,Utu,2.99,food_images/utu.jpeg
+91,Utu,2.99,food_images/utu_fruit.jpeg
 92,Ubene,3.11,food_images/ubene.jpeg
 93,Aki na Ukwa,8.99,food_images/aki-na-ukwa.jpeg
-94,Agidi,2.99,food_images/agidi.jpeg
+94,Grilled Corn,2.99,food_images/grilled-corn.png
 95,Atama Soup,4,food_images/atama-soup.jpeg
 96,Boli and Epa,3.88,food_images/boli-and-epa.jpeg
 97,Puff Puff,1.99,food_images/puff-puff.jpeg
