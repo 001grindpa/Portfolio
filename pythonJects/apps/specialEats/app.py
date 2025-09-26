@@ -134,13 +134,39 @@ def profile():
 
 @app.route("/sCuisines")
 def sCuisines():
-    s_id = [2,3,4,32,47,48,51,75,85,92]
+    s_id = [2,3,4,32,47,48,51,75,85,92,88,70,57,31,94,95]
     userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
     for data in userData:
         first_name = data.get("first_name")
         last_name = data.get("last_name")
         meals = db.execute("SELECT * FROM meals WHERE id IN (?)", s_id)
     return render_template("sCuisine.html", meals = meals, page_id = "sCuisine", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/nCuisines")
+def nCuisines():
+    n_id = [5,6,11,30,37,38,39,40,42,41,43,44,45,71,72,20,81]
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", s_id)
+    return render_template("nCuisine.html", meals = meals, page_id = "nCuisine", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/cart", methods=["GET", "POST"])
+def cart():
+    identity = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+    for user in identity:
+        user_id = user.get("id")
+    if request.method == "POST":
+        item_id = request.form.get("item_id")
+        db.execute("INSERT INTO cart(user_id, item_id) VALUES(?, ?)", user_id, item_id)
+    x = []
+    cart_data = db.execute("SELECT item_id FROM cart WHERE user_id = ?", user_id)
+    for item in cart_data:
+        item_id2 = item["item_id"]
+        x.append(item_id2)
+    cart_items = db.execute("SELECT * FROM meals WHERE id IN (?)", x)
+    return render_template("cart.html", cart_items = cart_items)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000, use_reloader=True, reloader_type='watchdog')

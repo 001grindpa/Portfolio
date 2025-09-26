@@ -201,6 +201,7 @@ nav ul a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: -15px;
+    cursor: pointer;
 }
 .userReg a {
     display: flex;
@@ -1612,10 +1613,8 @@ form span {
 .sCuisine-cont {
     margin-top: 10px;
     display: grid;
-    outline: 1px solid red;
 }
 .sCuisine {
-    outline: 1px solid black;
     padding: 5px;
     margin: auto;
     width: fit-content;

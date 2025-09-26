@@ -112,7 +112,7 @@
                         <div class="price">$<span>{{ meal.price }}</span></div>
                     </div>
                     <form action="/cart" method="post">
-                        <input type="hidden" value="{{ meal.id }}">
+                        <input name="item_id" type="hidden" value="{{ meal.id }}">
                         <input class="b" type="submit" value="Add to cart">
                     </form>
                 </div>
