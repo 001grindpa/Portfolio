@@ -1652,12 +1652,17 @@ form span {
 .price {
     color: green;
 }
-@media(min-width: 985px) {
+@media(min-width: 850px) {
     .sCuisine-cont {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media(min-width: 1500px) {
+@media(min-width: 1250px) {
+    .sCuisine-cont {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media(min-width: 1655px) {
     .sCuisine-cont {
         grid-template-columns: repeat(4, 1fr);
     }

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <main>
+        <div class="sCuisine-cont">
+            {% for meal in cart_meals %}
+            <div class="sCuisine">
+                <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
+                <div class="one">
+                    <div>
+                        <div class="name">{{ meal.name }}</div>
+                        <div class="price">$<span>{{ meal.price }}</span></div>
+                    </div>
+                    <form action="/remove" method="get">
+                        <input name="meal_id" type="hidden" value="{{ meal.id }}">
+                        <input class="b" type="submit" value="Remove from cart">
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+		<div class="motionAdContainer">
+		</div>
+		<div class="footer-h">
+			<div>
+				<img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
+				<a href="#">Online booking</a>
+			</div>
+			<div>
+				<img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
+				<a href="#">Catering service</a>
+			</div>
+			<div>
+				<img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
+				<a href="#">Membership</a>
+			</div>
+		</div>
+		<div class="rights">&copy; 2025, Special Eats, Inc. or its affiliates</div>
+		<div class="sideNote">Another Masterpiece</div>
+	</footer>
+
+{% endblock %}

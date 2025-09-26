@@ -122,7 +122,14 @@ def profile():
             db.execute("UPDATE userData SET gender = ? WHERE id = ?", gender_new, user_id)
         if e_mail_new:
             db.execute("UPDATE userData SET e_mail = ? WHERE id = ?", e_mail_new, user_id)
-
+    userData_2 = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+    for data_1 in userData_2:
+        user_id2 = data_1["id"]
+    n = []
+    cContent = db.execute("SELECT user_id FROM cart WHERE user_id = ?", user_id2)
+    for x in cContent:
+        y = x.get("user_id")
+        n.append(y)
     userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
         first_name = data["first_name"]
@@ -130,7 +137,7 @@ def profile():
         username = data["username"]
         e_mail = data["e_mail"]
         gender = data["gender"]
-    return render_template("profile.html", first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
+    return render_template("profile.html", n = len(n), first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
 
 @app.route("/sCuisines")
 def sCuisines():
@@ -144,13 +151,33 @@ def sCuisines():
 
 @app.route("/nCuisines")
 def nCuisines():
-    n_id = [5,6,11,30,37,38,39,40,42,41,43,44,45,71,72,20,81]
+    n_id = [5,6,7,11,30,37,38,39,40,42,41,43,44,45,71,20,81]
     userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
     for data in userData:
         first_name = data.get("first_name")
         last_name = data.get("last_name")
-        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", s_id)
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", n_id)
     return render_template("nCuisine.html", meals = meals, page_id = "nCuisine", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/wCuisines")
+def wCuisines():
+    w_id = [8,9,10,12,52,53,62,63,64,65,66,67]
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", w_id)
+    return render_template("wCuisine.html", meals = meals, page_id = "wCuisine", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/eCuisines")
+def eCuisines():
+    e_id = [1,13,14,15,16,18,23,50,54,55,56,58,59,69,91,93]
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", e_id)
+    return render_template("eCuisine.html", meals = meals, page_id = "eCuisine", langs = languages, first_name = first_name, last_name = last_name)
 
 @app.route("/cart", methods=["GET", "POST"])
 def cart():
@@ -160,13 +187,24 @@ def cart():
     if request.method == "POST":
         item_id = request.form.get("item_id")
         db.execute("INSERT INTO cart(user_id, item_id) VALUES(?, ?)", user_id, item_id)
-    x = []
-    cart_data = db.execute("SELECT item_id FROM cart WHERE user_id = ?", user_id)
-    for item in cart_data:
-        item_id2 = item["item_id"]
-        x.append(item_id2)
-    cart_items = db.execute("SELECT * FROM meals WHERE id IN (?)", x)
-    return render_template("cart.html", cart_items = cart_items)
+        return redirect(request.referrer)
+    else:
+        x = []
+        cart_data = db.execute("SELECT item_id FROM cart WHERE user_id = ?", user_id)
+        for item in cart_data:
+            item_id2 = item["item_id"]
+            x.append(item_id2)
+        cart_meals = db.execute("SELECT * FROM meals WHERE id IN (?)", x)
+        return render_template("cart.html", cart_meals = cart_meals)
+
+@app.route("/remove")
+def remove():
+    meal_id = request.args.get("meal_id")
+    db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
+    db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
+    db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
+    return redirect("/cart")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000, use_reloader=True, reloader_type='watchdog')
