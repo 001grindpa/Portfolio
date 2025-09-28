@@ -342,6 +342,150 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	// js for south Nigerian cuisine dishes page
 	else if (document.body.id === "sCuisine") {
-		
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+
+
+		// slideIn slideOut
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", async (e) => {
+				e.preventDefault();
+				let formContent = new FormData(addForm[i])
+				let response = await fetch("/cart", {method: "POST", body: formContent})
+				let data = await response.json()
+
+				addNot.textContent = data.msg;
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 2000);
+				setTimeout(removeClasses, 2500);
+			});
+		}
+	}
+
+	// js for North Nigerian cuisine dishes page
+	else if (document.body.id === "nCuisine") {
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", async (e) => {
+				e.preventDefault();
+				let formContent = new FormData(addForm[i])
+				let response = await fetch("/cart", {method: "POST", body: formContent})
+				let data = await response.json()
+
+				addNot.textContent = data.msg;
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 3000);
+				setTimeout(removeClasses, 3500);
+			});
+		}
+	}
+
+	// js for west Nigerian cuisine dishes page
+	else if (document.body.id === "wCuisine") {
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", async (e) => {
+				e.preventDefault();
+				let formContent = new FormData(addForm[i])
+				let response = await fetch("/cart", {method: "POST", body: formContent})
+				let data = await response.json()
+
+				addNot.textContent = data.msg;
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 3000);
+				setTimeout(removeClasses, 3500);
+			});
+		}
+	}
+
+	// js for east Nigerian cuisine dishes page
+	else if (document.body.id === "eCuisine") {
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", async (e) => {
+				e.preventDefault();
+				let formContent = new FormData(addForm[i])
+				let response = await fetch("/cart", {method: "POST", body: formContent})
+				let data = await response.json()
+
+				addNot.textContent = data.msg;
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 3000);
+				setTimeout(removeClasses, 3500);
+			});
+		}
+	}
+
+	// js for cart page
+	else if (document.body.id === "cart") {
+		let body = document.querySelector("body");
+		let rmvForm = document.querySelectorAll(".rmvFrm");
+		let addNot = document.querySelector(".addNot");
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < rmvForm.length; i++) {
+			rmvForm[i].addEventListener("submit", async (e) => {
+				e.preventDefault();
+				let formContent = new FormData(rmvForm[i])
+				let response = await fetch("/remove", {method: "POST", body: formContent})
+				let data = await response.json()
+				console.log(JSON.stringify(data))
+				addNot.textContent = data.msg;
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 3000);
+				setTimeout(removeClasses, 3500);
+				setTimeout(() => this.location.reload(), 3500);
+			});
+		}
 	}
 })

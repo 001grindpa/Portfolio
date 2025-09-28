@@ -102,6 +102,7 @@
 		</div>
     </header>
     <main>
+		<div class="addNot"></div>
         <div class="sCuisine-cont">
             {% for meal in meals %}
             <div class="sCuisine">
@@ -111,7 +112,7 @@
                         <div class="name">{{ meal.name }}</div>
                         <div class="price">$<span>{{ meal.price }}</span></div>
                     </div>
-                    <form action="/cart" method="post">
+                    <form class="cartFrm" action="/cart" method="post">
                         <input name="item_id" type="hidden" value="{{ meal.id }}">
                         <input class="b" type="submit" value="Add to cart">
                     </form>

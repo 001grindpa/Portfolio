@@ -1,4 +1,4 @@
-from flask import Flask, session, render_template, redirect, url_for, request
+from flask import Flask, session, render_template, redirect, url_for, request, jsonify
 from flask_session import Session
 from randomModules import password_sys, password_gen
 from cs50 import SQL
@@ -187,23 +187,25 @@ def cart():
     if request.method == "POST":
         item_id = request.form.get("item_id")
         db.execute("INSERT INTO cart(user_id, item_id) VALUES(?, ?)", user_id, item_id)
-        return redirect(request.referrer)
-    else:
-        x = []
-        cart_data = db.execute("SELECT item_id FROM cart WHERE user_id = ?", user_id)
-        for item in cart_data:
-            item_id2 = item["item_id"]
-            x.append(item_id2)
-        cart_meals = db.execute("SELECT * FROM meals WHERE id IN (?)", x)
-        return render_template("cart.html", cart_meals = cart_meals)
+        resp = {"msg": "Successfully added to cart"}
+        return jsonify(resp)
+    x = []
+    cart_data = db.execute("SELECT item_id FROM cart WHERE user_id = ?", user_id)
+    for item in cart_data:
+        item_id2 = item["item_id"]
+        x.append(item_id2)
+    cart_meals = db.execute("SELECT * FROM meals WHERE id IN (?)", x)
+    return render_template("cart.html", cart_meals = cart_meals, page_id = "cart")
 
-@app.route("/remove")
+@app.route("/remove", methods=["GET", "POST"])
 def remove():
-    meal_id = request.args.get("meal_id")
-    db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
-    db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
-    db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
-    return redirect("/cart")
+    if request.method == "POST":
+        meal_id = request.form.get("meal_id")
+        db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
+        # db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
+        # db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
+        promise = {"msg": "removing this dish from your cart"}
+        return jsonify(promise)
 
 
 if __name__ == '__main__':

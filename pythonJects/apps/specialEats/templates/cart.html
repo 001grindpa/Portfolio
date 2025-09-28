@@ -3,6 +3,7 @@
 {% block body %}
 
     <main>
+        <div class="addNot"></div>
         <div class="sCuisine-cont">
             {% for meal in cart_meals %}
             <div class="sCuisine">
@@ -12,7 +13,7 @@
                         <div class="name">{{ meal.name }}</div>
                         <div class="price">$<span>{{ meal.price }}</span></div>
                     </div>
-                    <form action="/remove" method="get">
+                    <form class="rmvFrm" action="/remove" method="post">
                         <input name="meal_id" type="hidden" value="{{ meal.id }}">
                         <input class="b" type="submit" value="Remove from cart">
                     </form>

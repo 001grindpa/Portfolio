@@ -1609,6 +1609,41 @@ form span {
 }
 
 /* styling for south nigeria cuisine page */
+.addNot {
+    position: fixed;
+    top: 120px;
+    right: 5px;
+    width: fit-content;
+    padding: 7px;
+    border-radius: 20px;
+    background: rgba(0, 128, 0, 0.562);
+    color: white;
+    display: none;
+    opacity: 0;
+}
+.showNot {
+    display: block;
+    opacity: 1;
+}
+.addNot.slide {
+    transform: translateX(100px);
+    animation: slideIn 0.2s linear forwards;
+}
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.addNot.slideOut {
+    animation: slideOut 0.2s linear forwards;
+}
+@keyframes slideOut {
+    to {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+}
 
 .sCuisine-cont {
     margin-top: 10px;
