@@ -122,6 +122,9 @@ def profile():
             db.execute("UPDATE userData SET gender = ? WHERE id = ?", gender_new, user_id)
         if e_mail_new:
             db.execute("UPDATE userData SET e_mail = ? WHERE id = ?", e_mail_new, user_id)
+        response = {"msg": "profile updated succesfully"}
+        return jsonify(response)
+    
     userData_2 = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
     for data_1 in userData_2:
         user_id2 = data_1["id"]

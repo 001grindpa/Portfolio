@@ -18,10 +18,11 @@
         </div>
         <input type="checkbox" id="pfpChange">
         <div class="pfpText"><label class="a" for="pfpChange">Edit Profile</label></div>
+        <div class="addNot"></div>
         <div class="editInfo-bg">
             <div class="editInfo">
                 <h3>Edit Profile</h3>
-                <form action="/profile" method="post">
+                <form id="editpfpForm" action="/profile" method="post">
                     <div class="t">Username</div>
                     <input type="text" name="username" value="{{ username }}" placeholder="username" autocomplete="off" autofocus>
                     <div class="hLine"></div>
@@ -39,7 +40,7 @@
                     <div class="t">Email</div>
                     <input type="text" name="e_mail" value="{{ e_mail }}" placeholder="example@email.com" autocomplete="off">
                     <div class="hLine"></div>
-                    <button>Save</button>
+                    <input class="editpfpB" type="submit" value="Save">
                 </form>
             </div>
         </div>

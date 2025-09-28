@@ -317,6 +317,33 @@ document.addEventListener('DOMContentLoaded', function(){
 		let pfpCheck = document.querySelector("#pfpChange");
 		let editBtn = document.querySelector(".a");
 		let body = document.querySelector("body");
+		let editpfp = document.querySelector("#editpfpForm");
+		let addNot = document.querySelector(".addNot");
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+
+		editpfp.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			pfpCheck.checked = false;
+			let formDetails = new FormData(editpfp);
+			let response = await fetch("/profile", {method: "POST", body: formDetails});
+			let data = await response.json();
+			console.log(JSON.stringify(data));
+
+			addNot.textContent = data.msg;
+			addNot.classList.add("showNot");
+			addNot.classList.add("slide");
+			setTimeout(slideOut, 3000);
+			setTimeout(removeClasses, 3500);
+			setTimeout(() => this.location.reload(), 3500)
+		});
 
 		editBtn.addEventListener("click", (event) => {
 			event.stopPropagation();
