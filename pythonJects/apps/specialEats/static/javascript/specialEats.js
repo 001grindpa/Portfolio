@@ -376,6 +376,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages = document.querySelector('#languages');
 		let uk_flag_2 = document.querySelector('#flag_2');
 		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -404,7 +406,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-
 		// slideIn slideOut
 		function slideOut() {
 			addNot.classList.add("slideOut");
@@ -417,9 +418,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", async (e) => {
 				e.preventDefault();
-				let formContent = new FormData(addForm[i])
-				let response = await fetch("/cart", {method: "POST", body: formContent})
-				let data = await response.json()
+				let resp = await fetch("/cartCount");
+				let d = await resp.json();
+				c1.setAttribute("data-cartCount", d.count + 1);
+				c2.setAttribute("data-cartCount", d.count + 1);
+
+				let formContent = new FormData(addForm[i]);
+				let response = await fetch("/cart", {method: "POST", body: formContent});
+				let data = await response.json();
 
 				addNot.textContent = data.msg;
 				addNot.classList.add("showNot");
@@ -440,6 +446,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages = document.querySelector('#languages');
 		let uk_flag_2 = document.querySelector('#flag_2');
 		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -479,9 +487,15 @@ document.addEventListener('DOMContentLoaded', function(){
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", async (e) => {
 				e.preventDefault();
-				let formContent = new FormData(addForm[i])
-				let response = await fetch("/cart", {method: "POST", body: formContent})
-				let data = await response.json()
+				let resp = await fetch("/cartCount");
+				let d = await resp.json();
+				
+				c1.setAttribute("data-cartCount", d.count + 1);
+				c2.setAttribute("data-cartCount", d.count + 1);
+
+				let formContent = new FormData(addForm[i]);
+				let response = await fetch("/cart", {method: "POST", body: formContent});
+				let data = await response.json();
 
 				addNot.textContent = data.msg;
 				addNot.classList.add("showNot");
@@ -502,6 +516,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages = document.querySelector('#languages');
 		let uk_flag_2 = document.querySelector('#flag_2');
 		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -541,6 +557,11 @@ document.addEventListener('DOMContentLoaded', function(){
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", async (e) => {
 				e.preventDefault();
+				let resp = await fetch("/cartCount");
+				let d = await resp.json();
+				c1.setAttribute("data-cartCount", d.count + 1);
+				c2.setAttribute("data-cartCount", d.count + 1);
+
 				let formContent = new FormData(addForm[i])
 				let response = await fetch("/cart", {method: "POST", body: formContent})
 				let data = await response.json()
@@ -564,6 +585,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages = document.querySelector('#languages');
 		let uk_flag_2 = document.querySelector('#flag_2');
 		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -603,6 +626,11 @@ document.addEventListener('DOMContentLoaded', function(){
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", async (e) => {
 				e.preventDefault();
+				let resp = await fetch("/cartCount");
+				let d = await resp.json();
+				c1.setAttribute("data-cartCount", d.count + 1);
+				c2.setAttribute("data-cartCount", d.count + 1);
+
 				let formContent = new FormData(addForm[i])
 				let response = await fetch("/cart", {method: "POST", body: formContent})
 				let data = await response.json()

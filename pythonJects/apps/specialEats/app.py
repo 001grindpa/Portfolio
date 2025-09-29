@@ -14,14 +14,14 @@ languages = ["English", "Hausa", "Igbo", "Yoruba"]
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 genders = ["Male", "Female"]
 @app.context_processor
-def cart_count():
-    userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+def cart_countS():
+    userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
         user_id = data["id"]
     cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
     for content in cContent:
         n = content.get("cCounter")
-    return dict(n = n)
+        return dict(n = n)
 
 @app.route("/")
 def homepage():
@@ -32,6 +32,17 @@ def homepage():
         first_name = data.get("first_name")
         last_name = data.get("last_name")
     return render_template("home.html", page_id = "home", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/cartCount")
+def cart_count():
+    userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
+    for data in userData:
+        user_id = data["id"]
+    cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
+    for content in cContent:
+        n2 = content.get("cCounter")
+        count = {"count": n2}
+    return jsonify(count)
 
 @app.route("/landing")
 def prototype():
@@ -211,4 +222,4 @@ def remove():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000, use_reloader=True, reloader_type='watchdog')
+    app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')
