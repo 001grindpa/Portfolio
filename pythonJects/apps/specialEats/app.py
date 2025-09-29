@@ -14,6 +14,7 @@ languages = ["English", "Hausa", "Igbo", "Yoruba"]
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 genders = ["Male", "Female"]
 @app.context_processor
+<<<<<<< HEAD
 def cart_countS():
     userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
@@ -22,6 +23,10 @@ def cart_countS():
     for content in cContent:
         n = content.get("cCounter")
         return dict(n = n)
+=======
+d
+    return dict(n = n)
+>>>>>>> 45e58bb (updating app)
 
 @app.route("/")
 def homepage():
