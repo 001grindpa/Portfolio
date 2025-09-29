@@ -13,6 +13,14 @@ Session(app)
 languages = ["English", "Hausa", "Igbo", "Yoruba"]
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 genders = ["Male", "Female"]
+# userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+# for data in userData:
+#     user_id = data["id"]
+# n = []
+# cContent = db.execute("SELECT user_id FROM cart WHERE user_id = ?", user_id)
+# for x in cContent:
+#     y = x.get("item_id")
+#     n.append(y)
 
 @app.route("/")
 def homepage():
@@ -122,7 +130,7 @@ def profile():
             db.execute("UPDATE userData SET gender = ? WHERE id = ?", gender_new, user_id)
         if e_mail_new:
             db.execute("UPDATE userData SET e_mail = ? WHERE id = ?", e_mail_new, user_id)
-        response = {"msg": "profile updated succesfully"}
+        response = {"msg": "Updating profile..."}
         return jsonify(response)
     
     userData_2 = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
@@ -205,9 +213,7 @@ def remove():
     if request.method == "POST":
         meal_id = request.form.get("meal_id")
         db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
-        # db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
-        # db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
-        promise = {"msg": "removing this dish from your cart"}
+        promise = {"msg": "removing this dish from your cart..."}
         return jsonify(promise)
 
 
