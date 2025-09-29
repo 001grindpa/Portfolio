@@ -15,10 +15,13 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 genders = ["Male", "Female"]
 @app.context_processor
 def cart_countS():
-    userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
+    if not session.get("username"):
+        n = 0
+        return dict(n = n)
+    userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
         user_id = data["id"]
-    cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
+        cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
     for content in cContent:
         n = content.get("cCounter")
         return dict(n = n)

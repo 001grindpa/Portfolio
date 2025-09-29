@@ -2,8 +2,9 @@ from cs50 import SQL
 
 db = SQL("sqlite:///specialEats.db")
 
-user_cart = db.execute("SELECT COUNT(*) AS cartContent FROM cart WHERE user_id = ?", 1)
-for content in user_cart:
-    x = content.get("cartContent")
+userData = db.execute("SELECT * FROM userData WHERE username = ?", "0xgrindpa")
+for data in userData:
+    user_id = data["id"]
+cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
 
-print(x)
+print(cContent)
