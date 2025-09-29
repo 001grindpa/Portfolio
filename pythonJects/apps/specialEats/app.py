@@ -13,14 +13,15 @@ Session(app)
 languages = ["English", "Hausa", "Igbo", "Yoruba"]
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 genders = ["Male", "Female"]
-# userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
-# for data in userData:
-#     user_id = data["id"]
-# n = []
-# cContent = db.execute("SELECT user_id FROM cart WHERE user_id = ?", user_id)
-# for x in cContent:
-#     y = x.get("item_id")
-#     n.append(y)
+@app.context_preocessor
+def cart_count()
+    userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+    for data in userData:
+        user_id = data["id"]
+    cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
+    for content in cContent:
+        n = content.get("cCounter")
+    return dict(n = n)
 
 @app.route("/")
 def homepage():
@@ -133,14 +134,6 @@ def profile():
         response = {"msg": "Updating profile..."}
         return jsonify(response)
     
-    userData_2 = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
-    for data_1 in userData_2:
-        user_id2 = data_1["id"]
-    n = []
-    cContent = db.execute("SELECT user_id FROM cart WHERE user_id = ?", user_id2)
-    for x in cContent:
-        y = x.get("user_id")
-        n.append(y)
     userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
         first_name = data["first_name"]
@@ -148,7 +141,7 @@ def profile():
         username = data["username"]
         e_mail = data["e_mail"]
         gender = data["gender"]
-    return render_template("profile.html", n = len(n), first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
+    return render_template("profile.html", first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
 
 @app.route("/sCuisines")
 def sCuisines():

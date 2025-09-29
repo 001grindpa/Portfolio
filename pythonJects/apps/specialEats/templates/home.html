@@ -35,7 +35,7 @@
 					{% endfor %}
 				</select>
 			</div>
-			<div class="cartContainerTwo"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
+			<div class="cartContainerTwo" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
 		</div>
 		<div class="menu_2">
 			<input type="checkbox" id="menuCheck">
@@ -71,7 +71,7 @@
 					<option id="lang" value="{{ lang }}">{{ lang }}</option>
 					{% endfor %}
 				</select>
-				<div class="cartContainer"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
+				<div class="cartContainer" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
 			</div>
 			<div class="navContainer">
 				<div class="userReg">
