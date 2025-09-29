@@ -13,8 +13,8 @@ Session(app)
 languages = ["English", "Hausa", "Igbo", "Yoruba"]
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 genders = ["Male", "Female"]
-@app.context_preocessor
-def cart_count()
+@app.context_processor
+def cart_count():
     userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
         user_id = data["id"]
