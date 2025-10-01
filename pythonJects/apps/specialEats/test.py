@@ -7,4 +7,6 @@ for data in userData:
     user_id = data["id"]
 cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
 
-print(cContent)
+bio = {"name": "SAMUEL", "job": "Teacher"}
+
+print(bio.get("name").lower())
