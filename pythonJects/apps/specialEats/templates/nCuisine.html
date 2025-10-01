@@ -114,7 +114,7 @@
                     </div>
                     <form class="cartFrm" action="/cart" method="post">
                         <input name="item_id" type="hidden" value="{{ meal.id }}">
-                        <input class="b" type="submit" value="Add to cart">
+                        <button type="submit" class="b"><span><img class="b1" src="{{ url_for('static', filename='animated_icons/trailLoading.gif') }}" alt="loading"></span><span class="b2">Add to cart</span></button>
                     </form>
                 </div>
             </div>

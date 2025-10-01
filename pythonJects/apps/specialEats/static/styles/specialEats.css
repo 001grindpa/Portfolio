@@ -1183,7 +1183,7 @@ h2 {
     }
 
 }
-@media(min-width: 985px) {
+@media(min-width: 870px) {
     .choices {
         grid-template-areas: 
         "choice-2 choice-1"
@@ -1665,9 +1665,9 @@ form span {
 }
 .one .b {
     background: rgb(197, 128, 0);
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 7px;
+    padding-left: 25px;
+    padding-right: 25px;
     border-radius: 20px;
     color: white;
     cursor: pointer;
@@ -1687,6 +1687,20 @@ form span {
 .price {
     color: green;
 }
+.b span {
+    display: inline-block;
+    width: fit-content;
+}
+.b span img {
+    width: 20px;
+    display: none;
+}
+.b {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media(min-width: 850px) {
     .sCuisine-cont {
         grid-template-columns: repeat(2, 1fr);

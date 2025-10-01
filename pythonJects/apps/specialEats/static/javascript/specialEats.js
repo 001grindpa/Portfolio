@@ -378,12 +378,15 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages_2 = document.querySelector('#languages_2');
 		let c1 = document.querySelector(".cartContainerTwo");
 		let c2 = document.querySelector(".cartContainer");
-			
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
+		
 	    // hero section pop-up configuration
 		if (main && hambugger) {
 			main.addEventListener('click', function(){
 				hambugger.checked = false;
-			});	
+			});
 		}
 	
 	    // flag configuration
@@ -415,23 +418,32 @@ document.addEventListener('DOMContentLoaded', function(){
 			addNot.classList.remove("showNot");
 			addNot.classList.remove("slideOut");
 		}
-		for (let i = 0; i < addForm.length; i++) {
-			addForm[i].addEventListener("submit", async (e) => {
+		for (let i = 0; i < addForm.length; i++) { 
+			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
-				let resp = await fetch("/cartCount");
-				let d = await resp.json();
-				c1.setAttribute("data-cartCount", d.count + 1);
-				c2.setAttribute("data-cartCount", d.count + 1);
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
 
-				let formContent = new FormData(addForm[i]);
-				let response = await fetch("/cart", {method: "POST", body: formContent});
-				let data = await response.json();
+					let formContent = new FormData(addForm[i]);
+					let response = await fetch("/cart", {method: "POST", body: formContent});
+					let data = await response.json();
 
-				addNot.textContent = data.msg;
-				addNot.classList.add("showNot");
-				addNot.classList.add("slide");
-				setTimeout(slideOut, 2000);
-				setTimeout(removeClasses, 2500);
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 2000);
+					setTimeout(removeClasses, 2500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
 			});
 		}
 	}
@@ -448,6 +460,9 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages_2 = document.querySelector('#languages_2');
 		let c1 = document.querySelector(".cartContainerTwo");
 		let c2 = document.querySelector(".cartContainer");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -485,23 +500,33 @@ document.addEventListener('DOMContentLoaded', function(){
 			addNot.classList.remove("slideOut");
 		}
 		for (let i = 0; i < addForm.length; i++) {
-			addForm[i].addEventListener("submit", async (e) => {
+			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
-				let resp = await fetch("/cartCount");
-				let d = await resp.json();
-				
-				c1.setAttribute("data-cartCount", d.count + 1);
-				c2.setAttribute("data-cartCount", d.count + 1);
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
 
-				let formContent = new FormData(addForm[i]);
-				let response = await fetch("/cart", {method: "POST", body: formContent});
-				let data = await response.json();
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
 
-				addNot.textContent = data.msg;
-				addNot.classList.add("showNot");
-				addNot.classList.add("slide");
-				setTimeout(slideOut, 3000);
-				setTimeout(removeClasses, 3500);
+					let formContent = new FormData(addForm[i]);
+					let response = await fetch("/cart", {method: "POST", body: formContent});
+					let data = await response.json();
+
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 3000);
+					setTimeout(removeClasses, 3500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
 			});
 		}
 	}
@@ -518,6 +543,9 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages_2 = document.querySelector('#languages_2');
 		let c1 = document.querySelector(".cartContainerTwo");
 		let c2 = document.querySelector(".cartContainer");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -555,22 +583,32 @@ document.addEventListener('DOMContentLoaded', function(){
 			addNot.classList.remove("slideOut");
 		}
 		for (let i = 0; i < addForm.length; i++) {
-			addForm[i].addEventListener("submit", async (e) => {
+			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
-				let resp = await fetch("/cartCount");
-				let d = await resp.json();
-				c1.setAttribute("data-cartCount", d.count + 1);
-				c2.setAttribute("data-cartCount", d.count + 1);
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
 
-				let formContent = new FormData(addForm[i])
-				let response = await fetch("/cart", {method: "POST", body: formContent})
-				let data = await response.json()
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
 
-				addNot.textContent = data.msg;
-				addNot.classList.add("showNot");
-				addNot.classList.add("slide");
-				setTimeout(slideOut, 3000);
-				setTimeout(removeClasses, 3500);
+					let formContent = new FormData(addForm[i])
+					let response = await fetch("/cart", {method: "POST", body: formContent})
+					let data = await response.json()
+
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 3000);
+					setTimeout(removeClasses, 3500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
 			});
 		}
 	}
@@ -587,6 +625,9 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages_2 = document.querySelector('#languages_2');
 		let c1 = document.querySelector(".cartContainerTwo");
 		let c2 = document.querySelector(".cartContainer");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -624,22 +665,32 @@ document.addEventListener('DOMContentLoaded', function(){
 			addNot.classList.remove("slideOut");
 		}
 		for (let i = 0; i < addForm.length; i++) {
-			addForm[i].addEventListener("submit", async (e) => {
+			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
-				let resp = await fetch("/cartCount");
-				let d = await resp.json();
-				c1.setAttribute("data-cartCount", d.count + 1);
-				c2.setAttribute("data-cartCount", d.count + 1);
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
 
-				let formContent = new FormData(addForm[i])
-				let response = await fetch("/cart", {method: "POST", body: formContent})
-				let data = await response.json()
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
 
-				addNot.textContent = data.msg;
-				addNot.classList.add("showNot");
-				addNot.classList.add("slide");
-				setTimeout(slideOut, 3000);
-				setTimeout(removeClasses, 3500);
+					let formContent = new FormData(addForm[i])
+					let response = await fetch("/cart", {method: "POST", body: formContent})
+					let data = await response.json()
+
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 3000);
+					setTimeout(removeClasses, 3500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
 			});
 		}
 	}
