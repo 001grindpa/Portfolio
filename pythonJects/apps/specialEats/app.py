@@ -15,16 +15,16 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 genders = ["Male", "Female"]
 @app.context_processor
 def cart_countS():
-    if session["username"]:
-        userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
-        for data in userData:
-            user_id = data["id"]
-            cContent = db.execute("SELECT COUNT(*) AS cCounter FROM cart WHERE user_id = ?", user_id)
-        for content in cContent:
-            n = content.get("cCounter")
-            return dict(n = n)
-    else:
-        return dict(n = 0)
+    if not session.get("username"):
+        n = 0
+        return dict(n = n)
+    userData = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+    for data in userData:
+        user_id = data["id"]
+        cartContent = db.execute("SELECT COUNT(*) AS cartCounter FROM cart WHERE user_id = ?", user_id)
+    for content in cartContent:
+        n = content.get("cartCounter")
+        return dict(n = n)
 
 @app.route("/")
 def homepage():
@@ -55,20 +55,22 @@ def prototype():
 def signup():
     if request.method == "POST":
         username = request.form.get("username")
-        session["username"] = username
-        username_low = username.lower()
         password = request.form.get("password")
-        session["first_name"] = request.form.get("first_name")
-        session["last_name"] = request.form.get("last_name")
-        session["dob"] = request.form.get("dob")
+        first_name = request.form.get("first_name")
+        last_name = request.form.get("last_name")
+        d_o_b = request.form.get("dob")
         result = password_sys(password)
         if result == "valid_password":
-            session["password"] = password
             user_data = db.execute("SELECT * FROM userData")
             for data in user_data:
                 if data.get("username") == session.get("username") and data.get("password") == session.get("password"):
                     return redirect("/signupError")
-            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender) VALUES(?, ?, ?, ?, ?, ?, ?)", username_low, session.get("password"), session.get("first_name"), session.get("last_name"), session.get("dob"), "example@email.com", "null")
+            session["password"] = password
+            session["username"] = username.lower()
+            session["first_name"] = first_name
+            session["last_name"] = last_name
+            session["d_o_b"] = d_o_b
+            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender) VALUES(?, ?, ?, ?, ?, ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("d_o_b"), "example@email.com", "null")
             return redirect("/")
         else:
             return render_template("pWordError.html")
@@ -103,11 +105,13 @@ def signupError():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        session["username"] = request.form.get("username").lower()
-        session["password"] = request.form.get("password")
+        username = request.form.get("username").lower()
+        password = request.form.get("password")
         userData = db.execute("SELECT * FROM userData")
         for data in userData:
-            if data.get("username") == session.get("username") and data.get("password") == session.get("password"):
+            if data.get("username") == username.lower() and data.get("password") == password:
+                session["username"] = username
+                session["password"] = password
                 return redirect("/")
         return redirect("/loginError")
     return render_template("login.html", page_id = "login")

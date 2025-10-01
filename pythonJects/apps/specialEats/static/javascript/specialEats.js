@@ -697,7 +697,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	// js for cart page
 	else if (document.body.id === "cart") {
-		let body = document.querySelector("body");
 		let rmvForm = document.querySelectorAll(".rmvFrm");
 		let addNot = document.querySelector(".addNot");
 
