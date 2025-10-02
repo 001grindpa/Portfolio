@@ -2,144 +2,147 @@
 
 {% block body %}
 
-    <header>
-		<div class="menu" id="menu">
-			<div><img class="headerLogo" src="{{ url_for('static', filename='images/specialEats_white.png') }}"></div>
-			<div class="location">
-				<div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
-				<div class="navigate">
-					<div class="navText">Deliver to</div>
-					<div class="navText">Port Harcourt</div>
+	<div id="z"><img src="{{ url_for('static', filename='animated_icons/foodCarousel.gif') }}" alt="food_carousel"></div>
+	<div class="z">
+		<header>
+			<div class="menu" id="menu">
+				<div><img class="headerLogo" src="{{ url_for('static', filename='images/specialEats_white.png') }}"></div>
+				<div class="location">
+					<div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
+					<div class="navigate">
+						<div class="navText">Deliver to</div>
+						<div class="navText">Port Harcourt</div>
+					</div>
 				</div>
-			</div>
-			<div class="searchContainer">
-				<form action="#" class="search" method="get">
-					<select name="food" class="selector">
-						<option selected>All</option>
-						<option value="swallow">Swallow</option>
-						<option value="rice">Rice</option>
-						<option value="beans">Beans</option>
-						<option value="noodles">Noodles</option>
-						<option value="pasta">Pasta</option>
+				<div class="searchContainer">
+					<form action="#" class="search" method="get">
+						<select name="food" class="selector">
+							<option selected>All</option>
+							<option value="swallow">Swallow</option>
+							<option value="rice">Rice</option>
+							<option value="beans">Beans</option>
+							<option value="noodles">Noodles</option>
+							<option value="pasta">Pasta</option>
+						</select>
+						<input type="search" name="search" class="searchForm" autocomplete="off" placeholder="Search Special Eats">
+						<button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
+					</form>
+				</div>
+				<div class="menu_2Signin_2"><a href="/profile">@{{ session.get("username") }}</a></div>
+				<div class="flag_lang">
+					<img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
+					<select name="language" id="languages_2" class="lang_2">
+						{% for lang in langs %}
+							<option id="lang_2" value="{{ lang }}">{{ lang }}</option>
+						{% endfor %}
 					</select>
-					<input type="search" name="search" class="searchForm" autocomplete="off" placeholder="Search Special Eats">
-					<button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
-				</form>
+				</div>
+				<div class="cartContainerTwo" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
 			</div>
-			<div class="menu_2Signin_2"><a href="/profile">@{{ session.get("username") }}</a></div>
-			<div class="flag_lang">
-				<img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
-				<select name="language" id="languages_2" class="lang_2">
-					{% for lang in langs %}
-						<option id="lang_2" value="{{ lang }}">{{ lang }}</option>
-					{% endfor %}
-				</select>
-			</div>
-			<div class="cartContainerTwo" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
-		</div>
-		<div class="menu_2">
-			<input type="checkbox" id="menuCheck">
-			<label for="menuCheck" class="menucheck">
-				<div class="hBuggerContainer">
-					<div class="hBugger"></div>
-				</div>
-			</label>
-			<nav class="menu2nav">
-				<div class="appMap">
-					<h4>App Map</h4>
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="#">Today's Deals</a></li>
-						<li><a href="#">About Us</a></li>
-					</ul>
-				</div>
-				<div class="divideI"></div>
-				<div class="help">
-					<h4>Help & Settings</h4>
-					<ul class="ul">
-						<li><a href="#">English</a></li>
-						<li><a href="#">Nigeria</a></li>
-						<li><a href="#">Customer Service</a></li>
-					</ul>
-				</div>
-			</nav>
-			<div class="subMenu_2">
-				<div class="signIn"><a href="/logout">log out</a></div>
-				<img id="flag_1" class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
-				<select name="language" id="languages" class="lang_1">
-					{% for lang in langs %}
-					<option id="lang" value="{{ lang }}">{{ lang }}</option>
-					{% endfor %}
-				</select>
-				<div class="cartContainer" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
-			</div>
-			<div class="navContainer">
-				<div class="userReg">
-					<a href="/profile">
-						<div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
-						<div>
-							<div class="uname">@{{ session.get("username") }}</div>
-							<div>{{ first_name }} {{ last_name }}</div>
-						</div>
-					</a>
-				</div>
-				<nav>
-					<div><h4>App Map</h4></div>
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="#">Today's Deals</a></li>
-						<li><a href="#">About Us</a></li>
-					</ul>
-					<div><h4>Help & Settings</h4></div>
-					<ul>
-						<li><a href="#">English</a></li>
-						<li><a href="#">Nigeria</a></li>
-						<li><a href="#">Customer Service</a></li>
-					</ul>
+			<div class="menu_2">
+				<input type="checkbox" id="menuCheck">
+				<label for="menuCheck" class="menucheck">
+					<div class="hBuggerContainer">
+						<div class="hBugger"></div>
+					</div>
+				</label>
+				<nav class="menu2nav">
+					<div class="appMap">
+						<h4>App Map</h4>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="#">Today's Deals</a></li>
+							<li><a href="#">About Us</a></li>
+						</ul>
+					</div>
+					<div class="divideI"></div>
+					<div class="help">
+						<h4>Help & Settings</h4>
+						<ul class="ul">
+							<li><a href="#">English</a></li>
+							<li><a href="#">Nigeria</a></li>
+							<li><a href="#">Customer Service</a></li>
+						</ul>
+					</div>
 				</nav>
-				<div class="signIn"><a href="/logout">log out</a></div>
+				<div class="subMenu_2">
+					<div class="signIn"><a href="/logout">log out</a></div>
+					<img id="flag_1" class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
+					<select name="language" id="languages" class="lang_1">
+						{% for lang in langs %}
+						<option id="lang" value="{{ lang }}">{{ lang }}</option>
+						{% endfor %}
+					</select>
+					<div class="cartContainer" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
+				</div>
+				<div class="navContainer">
+					<div class="userReg">
+						<a href="/profile">
+							<div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
+							<div>
+								<div class="uname">@{{ session.get("username") }}</div>
+								<div>{{ first_name }} {{ last_name }}</div>
+							</div>
+						</a>
+					</div>
+					<nav>
+						<div><h4>App Map</h4></div>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="#">Today's Deals</a></li>
+							<li><a href="#">About Us</a></li>
+						</ul>
+						<div><h4>Help & Settings</h4></div>
+						<ul>
+							<li><a href="#">English</a></li>
+							<li><a href="#">Nigeria</a></li>
+							<li><a href="#">Customer Service</a></li>
+						</ul>
+					</nav>
+					<div class="signIn"><a href="/logout">log out</a></div>
+				</div>
 			</div>
-		</div>
-    </header>
-    <main>
-		<div class="addNot"></div>
-        <div class="sCuisine-cont">
-            {% for meal in meals %}
-            <div class="sCuisine">
-                <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
-                <div class="one">
-                    <div>
-                        <div class="name">{{ meal.name }}</div>
-                        <div class="price">$<span>{{ meal.price }}</span></div>
-                    </div>
-                    <form class="cartFrm" action="/cart" method="post">
-                        <input name="item_id" type="hidden" value="{{ meal.id }}">
-                        <button type="submit" class="b"><span><img class="b1" src="{{ url_for('static', filename='animated_icons/trailLoading.gif') }}" alt="loading"></span><span class="b2">Add to cart</span></button>
-                    </form>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </main>
-	<footer>
-		<div class="motionAdContainer">
-		</div>
-		<div class="footer-h">
-			<div>
-				<img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
-				<a href="#">Online booking</a>
+		</header>
+		<main>
+			<div class="addNot"></div>
+			<div class="sCuisine-cont">
+				{% for meal in meals %}
+				<div class="sCuisine">
+					<img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
+					<div class="one">
+						<div>
+							<div class="name">{{ meal.name }}</div>
+							<div class="price">$<span>{{ meal.price }}</span></div>
+						</div>
+						<form class="cartFrm" action="/cart" method="post">
+							<input name="item_id" type="hidden" value="{{ meal.id }}">
+							<button type="submit" class="b"><span><img class="b1" src="{{ url_for('static', filename='animated_icons/trailLoading.gif') }}" alt="loading"></span><span class="b2">Add to cart</span></button>
+						</form>
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div>
-				<img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
-				<a href="#">Catering service</a>
+		</main>
+		<footer>
+			<div class="motionAdContainer">
 			</div>
-			<div>
-				<img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
-				<a href="#">Membership</a>
+			<div class="footer-h">
+				<div>
+					<img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
+					<a href="#">Online booking</a>
+				</div>
+				<div>
+					<img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
+					<a href="#">Catering service</a>
+				</div>
+				<div>
+					<img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
+					<a href="#">Membership</a>
+				</div>
 			</div>
-		</div>
-		<div class="rights">&copy; 2025, Special Eats, Inc. or its affiliates</div>
-		<div class="sideNote">Another Masterpiece</div>
-	</footer>
+			<div class="rights">&copy; 2025, Special Eats, Inc. or its affiliates</div>
+			<div class="sideNote">Another Masterpiece</div>
+		</footer>
+	</div>
 
 {% endblock %}

@@ -201,6 +201,46 @@ def eCuisines():
         meals = db.execute("SELECT * FROM meals WHERE id IN (?)", e_id)
     return render_template("eCuisine.html", meals = meals, page_id = "eCuisine", langs = languages, first_name = first_name, last_name = last_name)
 
+@app.route("/veggie")
+def veggie():
+    v_id = [8,10,19,24,25,26,27,35,50,51,52,57,60,63,78,85,87,86,90,91,92,93,96]
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", v_id)
+    return render_template("veggie.html", meals = meals, page_id = "veggie", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/snacks")
+def snacks():
+    sn_id = [20,21,22,28,28,30,40,41,51,57,60,66,78,79,83,84,85,87,88,89,90,93,97,98,99]
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", sn_id)
+    return render_template("snacks.html", meals = meals, page_id = "snacks", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/dandp")
+def dandp():
+    dnp_id = [11,7,31,32,33,34,35,36,99]
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", dnp_id)
+    return render_template("dandp.html", meals = meals, page_id = "dandp", langs = languages, first_name = first_name, last_name = last_name)
+
+@app.route("/cereal")
+def cereal():
+    dnp_id = [14,17,51,74,73,75,62,65]
+    userData = db.execute("SELECT * FROM userData WHERE username = ? AND password = ?", session.get("username"), session.get("password"))
+    for data in userData:
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        meals = db.execute("SELECT * FROM meals WHERE id IN (?)", dnp_id)
+    return render_template("cereal.html", meals = meals, page_id = "cereal", langs = languages, first_name = first_name, last_name = last_name)
+
 @app.route("/cart", methods=["GET", "POST"])
 def cart():
     identity = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))

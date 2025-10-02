@@ -1672,7 +1672,7 @@ form span {
 }
 .one .b {
     background: rgb(197, 128, 0);
-    padding: 7px;
+    padding: 10px;
     padding-left: 25px;
     padding-right: 25px;
     border-radius: 20px;
@@ -1706,6 +1706,14 @@ form span {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.eCart {
+    padding-top: 200px;
+    text-align: center;
+}
+.eCart img {
+    width: 500px;
+    opacity: 0.3;
 }
 
 @media(min-width: 850px) {

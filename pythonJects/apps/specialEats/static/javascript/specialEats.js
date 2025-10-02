@@ -326,6 +326,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		let body = document.querySelector("body");
 		let editpfp = document.querySelector("#editpfpForm");
 		let addNot = document.querySelector(".addNot");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
 
 		function slideOut() {
 			addNot.classList.add("slideOut");
@@ -389,6 +397,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		let load = document.querySelectorAll(".b1");
 		let loadText = document.querySelectorAll(".b2");
 		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
 		
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -471,6 +487,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		let load = document.querySelectorAll(".b1");
 		let loadText = document.querySelectorAll(".b2");
 		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -554,6 +578,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		let load = document.querySelectorAll(".b1");
 		let loadText = document.querySelectorAll(".b2");
 		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -636,6 +668,369 @@ document.addEventListener('DOMContentLoaded', function(){
 		let load = document.querySelectorAll(".b1");
 		let loadText = document.querySelectorAll(".b2");
 		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
+			
+	    // hero section pop-up configuration
+		if (main && hambugger) {
+			main.addEventListener('click', function(){
+				hambugger.checked = false;
+			});	
+		}
+	
+	    // flag configuration
+	
+	    languages.addEventListener('change', function(event){
+			if (languages.value == 'English'){
+				uk_flag.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag.src = 'static/images/ng.png';
+			}
+	    });
+	
+	    languages_2.addEventListener('change', function(event){
+			if (languages_2.value == 'English'){
+				uk_flag_2.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag_2.src = 'static/images/ng.png';
+			}
+	    });	
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", (e) => {
+				e.preventDefault();
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
+
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
+
+					let formContent = new FormData(addForm[i])
+					let response = await fetch("/cart", {method: "POST", body: formContent})
+					let data = await response.json()
+
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 3000);
+					setTimeout(removeClasses, 3500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
+			});
+		}
+	}
+	// js for veggies page
+	else if (document.body.id === "veggie") {
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+		let hambugger = document.querySelector('#menuCheck');
+		let main = document.querySelector('main');
+		let uk_flag = document.querySelector('#flag_1');
+		let languages = document.querySelector('#languages');
+		let uk_flag_2 = document.querySelector('#flag_2');
+		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
+			
+	    // hero section pop-up configuration
+		if (main && hambugger) {
+			main.addEventListener('click', function(){
+				hambugger.checked = false;
+			});	
+		}
+	
+	    // flag configuration
+	
+	    languages.addEventListener('change', function(event){
+			if (languages.value == 'English'){
+				uk_flag.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag.src = 'static/images/ng.png';
+			}
+	    });
+	
+	    languages_2.addEventListener('change', function(event){
+			if (languages_2.value == 'English'){
+				uk_flag_2.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag_2.src = 'static/images/ng.png';
+			}
+	    });	
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", (e) => {
+				e.preventDefault();
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
+
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
+
+					let formContent = new FormData(addForm[i])
+					let response = await fetch("/cart", {method: "POST", body: formContent})
+					let data = await response.json()
+
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 3000);
+					setTimeout(removeClasses, 3500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
+			});
+		}
+	}
+	// js for snacks page
+	else if (document.body.id === "snacks") {
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+		let hambugger = document.querySelector('#menuCheck');
+		let main = document.querySelector('main');
+		let uk_flag = document.querySelector('#flag_1');
+		let languages = document.querySelector('#languages');
+		let uk_flag_2 = document.querySelector('#flag_2');
+		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
+			
+	    // hero section pop-up configuration
+		if (main && hambugger) {
+			main.addEventListener('click', function(){
+				hambugger.checked = false;
+			});	
+		}
+	
+	    // flag configuration
+	
+	    languages.addEventListener('change', function(event){
+			if (languages.value == 'English'){
+				uk_flag.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag.src = 'static/images/ng.png';
+			}
+	    });
+	
+	    languages_2.addEventListener('change', function(event){
+			if (languages_2.value == 'English'){
+				uk_flag_2.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag_2.src = 'static/images/ng.png';
+			}
+	    });	
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", (e) => {
+				e.preventDefault();
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
+
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
+
+					let formContent = new FormData(addForm[i])
+					let response = await fetch("/cart", {method: "POST", body: formContent})
+					let data = await response.json()
+
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 3000);
+					setTimeout(removeClasses, 3500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
+			});
+		}
+	}
+	// js for desserts and pudding page
+	else if (document.body.id === "dandp") {
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+		let hambugger = document.querySelector('#menuCheck');
+		let main = document.querySelector('main');
+		let uk_flag = document.querySelector('#flag_1');
+		let languages = document.querySelector('#languages');
+		let uk_flag_2 = document.querySelector('#flag_2');
+		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
+			
+	    // hero section pop-up configuration
+		if (main && hambugger) {
+			main.addEventListener('click', function(){
+				hambugger.checked = false;
+			});	
+		}
+	
+	    // flag configuration
+	
+	    languages.addEventListener('change', function(event){
+			if (languages.value == 'English'){
+				uk_flag.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag.src = 'static/images/ng.png';
+			}
+	    });
+	
+	    languages_2.addEventListener('change', function(event){
+			if (languages_2.value == 'English'){
+				uk_flag_2.src = 'static/images/uk.png';
+			}
+			else {
+				uk_flag_2.src = 'static/images/ng.png';
+			}
+	    });	
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		for (let i = 0; i < addForm.length; i++) {
+			addForm[i].addEventListener("submit", (e) => {
+				e.preventDefault();
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
+
+				async function retrieve() {
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count + 1);
+					c2.setAttribute("data-cartCount", d.count + 1);
+
+					let formContent = new FormData(addForm[i])
+					let response = await fetch("/cart", {method: "POST", body: formContent})
+					let data = await response.json()
+
+					addNot.textContent = data.msg;
+					addNot.classList.add("showNot");
+					addNot.classList.add("slide");
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 3000);
+					setTimeout(removeClasses, 3500);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
+			});
+		}
+	}
+	else if (document.body.id === "cereal") {
+		let addForm = document.querySelectorAll(".cartFrm");
+		let addNot = document.querySelector(".addNot");
+		let hambugger = document.querySelector('#menuCheck');
+		let main = document.querySelector('main');
+		let uk_flag = document.querySelector('#flag_1');
+		let languages = document.querySelector('#languages');
+		let uk_flag_2 = document.querySelector('#flag_2');
+		let languages_2 = document.querySelector('#languages_2');
+		let c1 = document.querySelector(".cartContainerTwo");
+		let c2 = document.querySelector(".cartContainer");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
@@ -707,6 +1102,27 @@ document.addEventListener('DOMContentLoaded', function(){
 	else if (document.body.id === "cart") {
 		let rmvForm = document.querySelectorAll(".rmvFrm");
 		let addNot = document.querySelector(".addNot");
+		let load = document.querySelectorAll(".b1");
+		let loadText = document.querySelectorAll(".b2");
+		let btn = document.querySelector(".b");
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+		let cuisines = document.querySelectorAll(".sCuisine");
+		let eCart = document.querySelector(".eCart");
+
+		if (cuisines.length >= 1) {
+			eCart.style.opacity = "0";
+			eCart.style.paddingTop = "0";
+		}
+		if (cuisines.length === 5) {
+			eCart.style.display = "none";
+		}
+
+		function afterLoad() {
+			page.style.opacity = "1";
+			caroLoad.style.display = "none";
+		}
+		window.addEventListener("load", afterLoad);
 
 		function slideOut() {
 			addNot.classList.add("slideOut");
@@ -717,19 +1133,30 @@ document.addEventListener('DOMContentLoaded', function(){
 			addNot.classList.remove("slideOut");
 		}
 		for (let i = 0; i < rmvForm.length; i++) {
-			rmvForm[i].addEventListener("submit", async (e) => {
+			rmvForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
-				let formContent = new FormData(rmvForm[i])
-				let response = await fetch("/remove", {method: "POST", body: formContent})
-				let data = await response.json()
-				console.log(JSON.stringify(data))
-				addNot.textContent = data.msg;
+				addNot.textContent = "Removing this dish from your cart...";
 				addNot.classList.add("showNot");
 				addNot.classList.add("slide");
-				setTimeout(slideOut, 3000);
-				setTimeout(removeClasses, 3500);
-				setTimeout(() => this.location.reload(), 3500);
+				loadText[i].style.display = "none";
+				load[i].style.display = "block";
+				btn.disabled = true;
+
+				async function retrieve() {
+					let formContent = new FormData(rmvForm[i])
+					let response = await fetch("/remove", {method: "POST", body: formContent})
+					let data = await response.json()
+					console.log(JSON.stringify(data))
+					
+					loadText[i].style.display = "block";
+					load[i].style.display = "none";
+					setTimeout(slideOut, 1000);
+					setTimeout(() => location.reload(), 1000);
+					btn.disabled = false;
+				}
+				setTimeout(retrieve, 2000);
 			});
 		}
 	}
+	
 })
