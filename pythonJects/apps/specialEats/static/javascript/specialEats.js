@@ -199,10 +199,10 @@ document.addEventListener('DOMContentLoaded', function(){
 		let caroLoad = document.querySelector("#z");
 
 		function afterLoad() {
-			page.style.display = "block";
+			page.style.opacity = "1";
 			caroLoad.style.display = "none";
 		}
-		window.onload = afterLoad;
+		window.addEventListener("load", afterLoad);
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
