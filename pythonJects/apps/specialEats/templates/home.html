@@ -1,348 +1,350 @@
 {% extends "layout.html" %}
 
 {% block body %}
-
-	<header>
-		<div class="menu" id="menu">
-			<div><img class="headerLogo" src="{{ url_for('static', filename='images/specialEats_white.png') }}"></div>
-			<div class="location">
-				<div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
-				<div class="navigate">
-					<div class="navText">Deliver to</div>
-					<div class="navText">Port Harcourt</div>
+	<div id="z"><img src={{ url_for('static', filename='animated_icons/foodCarousel.gif') }} alt="food_carousel"></div>
+	<div class="z">
+		<header>
+			<div class="menu" id="menu">
+				<div><img class="headerLogo" src="{{ url_for('static', filename='images/specialEats_white.png') }}"></div>
+				<div class="location">
+					<div class="navimage"><img class="navImage" src="{{ url_for('static', filename='images/navigator.png') }}" alt="navigator"></div>
+					<div class="navigate">
+						<div class="navText">Deliver to</div>
+						<div class="navText">Port Harcourt</div>
+					</div>
 				</div>
-			</div>
-			<div class="searchContainer">
-				<form action="#" class="search" method="get">
-					<select name="food" class="selector">
-						<option selected>All</option>
-						<option value="swallow">Swallow</option>
-						<option value="rice">Rice</option>
-						<option value="beans">Beans</option>
-						<option value="noodles">Noodles</option>
-						<option value="pasta">Pasta</option>
+				<div class="searchContainer">
+					<form action="#" class="search" method="get">
+						<select name="food" class="selector">
+							<option selected>All</option>
+							<option value="swallow">Swallow</option>
+							<option value="rice">Rice</option>
+							<option value="beans">Beans</option>
+							<option value="noodles">Noodles</option>
+							<option value="pasta">Pasta</option>
+						</select>
+						<input type="search" name="search" class="searchForm" autocomplete="off" placeholder="Search Special Eats">
+						<button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
+					</form>
+				</div>
+				<div class="menu_2Signin_2"><a href="/profile">@{{ session.get("username") }}</a></div>
+				<div class="flag_lang">
+					<img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
+					<select name="language" id="languages_2" class="lang_2">
+						{% for lang in langs %}
+							<option id="lang_2" value="{{ lang }}">{{ lang }}</option>
+						{% endfor %}
 					</select>
-					<input type="search" name="search" class="searchForm" autocomplete="off" placeholder="Search Special Eats">
-					<button type="submit" class="searchButton"><img class="google" src="{{ url_for('static', filename='images/google.png') }}" alt="search_google"></button>
-				</form>
+				</div>
+				<div class="cartContainerTwo" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
 			</div>
-			<div class="menu_2Signin_2"><a href="/profile">@{{ session.get("username") }}</a></div>
-			<div class="flag_lang">
-				<img id="flag_2" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
-				<select name="language" id="languages_2" class="lang_2">
-					{% for lang in langs %}
-						<option id="lang_2" value="{{ lang }}">{{ lang }}</option>
-					{% endfor %}
-				</select>
-			</div>
-			<div class="cartContainerTwo" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
-		</div>
-		<div class="menu_2">
-			<input type="checkbox" id="menuCheck">
-			<label for="menuCheck" class="menucheck">
-				<div class="hBuggerContainer">
-					<div class="hBugger"></div>
-				</div>
-			</label>
-			<nav class="menu2nav">
-				<div class="appMap">
-					<h4>App Map</h4>
-					<ul>
-						<li><a href="/" id="home_page">Home</a></li>
-						<li><a href="#">Today's Deals</a></li>
-						<li><a href="#">About Us</a></li>
-					</ul>
-				</div>
-				<div class="divideI"></div>
-				<div class="help">
-					<h4>Help & Settings</h4>
-					<ul class="ul">
-						<li><a href="#">English</a></li>
-						<li><a href="#">Nigeria</a></li>
-						<li><a href="#">Customer Service</a></li>
-					</ul>
-				</div>
-			</nav>
-			<div class="subMenu_2">
-				<div class="signIn"><a href="/logout">log out</a></div>
-				<img id="flag_1" class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
-				<select name="language" id="languages" class="lang_1">
-					{% for lang in langs %}
-					<option id="lang" value="{{ lang }}">{{ lang }}</option>
-					{% endfor %}
-				</select>
-				<div class="cartContainer" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
-			</div>
-			<div class="navContainer">
-				<div class="userReg">
-					<a href="/profile">
-						<div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
-						<div>
-							<div class="uname">@{{ session.get("username") }}</div>
-							<div>{{ first_name }} {{ last_name }}</div>
-						</div>
-					</a>
-				</div>
-				<nav>
-					<div><h4>App Map</h4></div>
-					<ul>
-						<li><a href="/" id="home_page">Home</a></li>
-						<li><a href="#">Today's Deals</a></li>
-						<li><a href="#">About Us</a></li>
-					</ul>
-					<div><h4>Help & Settings</h4></div>
-					<ul>
-						<li><a href="#">English</a></li>
-						<li><a href="#">Nigeria</a></li>
-						<li><a href="#">Customer Service</a></li>
-					</ul>
+			<div class="menu_2">
+				<input type="checkbox" id="menuCheck">
+				<label for="menuCheck" class="menucheck">
+					<div class="hBuggerContainer">
+						<div class="hBugger"></div>
+					</div>
+				</label>
+				<nav class="menu2nav">
+					<div class="appMap">
+						<h4>App Map</h4>
+						<ul>
+							<li><a href="/" id="home_page">Home</a></li>
+							<li><a href="#">Today's Deals</a></li>
+							<li><a href="#">About Us</a></li>
+						</ul>
+					</div>
+					<div class="divideI"></div>
+					<div class="help">
+						<h4>Help & Settings</h4>
+						<ul class="ul">
+							<li><a href="#">English</a></li>
+							<li><a href="#">Nigeria</a></li>
+							<li><a href="#">Customer Service</a></li>
+						</ul>
+					</div>
 				</nav>
-				<div class="signIn"><a href="/logout">log out</a></div>
+				<div class="subMenu_2">
+					<div class="signIn"><a href="/logout">log out</a></div>
+					<img id="flag_1" class="google" src="{{ url_for('static', filename='images/uk.png') }}" alt="uk_flag">
+					<select name="language" id="languages" class="lang_1">
+						{% for lang in langs %}
+						<option id="lang" value="{{ lang }}">{{ lang }}</option>
+						{% endfor %}
+					</select>
+					<div class="cartContainer" data-cartCount="{{ n }}"><a href="/cart"><img class="cart" src="{{ url_for('static', filename='images/cart_2.png') }}" alt="cart"></a></div>
+				</div>
+				<div class="navContainer">
+					<div class="userReg">
+						<a href="/profile">
+							<div><img class="unknownUser" src="{{ url_for('static', filename='images/unknown_user_2.png') }}" alt="unknown_user"></div>
+							<div>
+								<div class="uname">@{{ session.get("username") }}</div>
+								<div>{{ first_name }} {{ last_name }}</div>
+							</div>
+						</a>
+					</div>
+					<nav>
+						<div><h4>App Map</h4></div>
+						<ul>
+							<li><a href="/" id="home_page">Home</a></li>
+							<li><a href="#">Today's Deals</a></li>
+							<li><a href="#">About Us</a></li>
+						</ul>
+						<div><h4>Help & Settings</h4></div>
+						<ul>
+							<li><a href="#">English</a></li>
+							<li><a href="#">Nigeria</a></li>
+							<li><a href="#">Customer Service</a></li>
+						</ul>
+					</nav>
+					<div class="signIn"><a href="/logout">log out</a></div>
+				</div>
 			</div>
-		</div>
-    </header>
-	<main class="home" id="home">
-		<div class="heroContainerHome">
-			<div class="heroSlider">
-				<img class="sliderImg" id="img1" src="{{ url_for('static', filename='banner_img/2.png') }}" alt="intro">
-				<img class="sliderImg" id="img2" src="{{ url_for('static', filename='banner_img/5.png') }}" alt="family">
-				<img class="sliderImg" id="img3" src="{{ url_for('static', filename='banner_img/3.png') }}" alt="yoruba">
-				<img class="sliderImg" id="img4" src="{{ url_for('static', filename='banner_img/6.png') }}" alt="hausa">
-				<img class="sliderImg" id="img5" src="{{ url_for('static', filename='banner_img/4.png') }}" alt="street">
+	    </header>
+		<main class="home" id="home">
+			<div class="heroContainerHome">
+				<div class="heroSlider">
+					<img class="sliderImg" id="img1" src="{{ url_for('static', filename='banner_img/2.png') }}" alt="intro">
+					<img class="sliderImg" id="img2" src="{{ url_for('static', filename='banner_img/5.png') }}" alt="family">
+					<img class="sliderImg" id="img3" src="{{ url_for('static', filename='banner_img/3.png') }}" alt="yoruba">
+					<img class="sliderImg" id="img4" src="{{ url_for('static', filename='banner_img/6.png') }}" alt="hausa">
+					<img class="sliderImg" id="img5" src="{{ url_for('static', filename='banner_img/4.png') }}" alt="street">
+				</div>
+				<div class="sliderNav">
+					<div class="slide1 choosen"></div>
+					<div class="slide1"></div>
+					<div class="slide1"></div>
+					<div class="slide1"></div>
+					<div class="slide1"></div>
+				</div>
 			</div>
-			<div class="sliderNav">
-				<div class="slide1 choosen"></div>
-				<div class="slide1"></div>
-				<div class="slide1"></div>
-				<div class="slide1"></div>
-				<div class="slide1"></div>
+			<div class="choices">
+				<a href="/sCuisines">
+					<div class="choiceC" id="choice_1">
+						<h2>South Nigerian Cuisine</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='images/isiewu2.png') }}" alt="isiewu">
+								<div>Isi-ewu</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='images/olubu2.png') }}" alt="olubu">
+								<div>Bitter-leaf Soup</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='images/pepperSoup2.png') }}" alt="pepper_soup">
+								<div>Pepper Soup</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='images/offor2 .png') }}" alt="ofor_soup">
+								<div>Oha Soup</div>
+							</div>
+						</div>
+					</div>
+				</a>
+				<a href="/nCuisines">
+					<div class="choiceC" id="choice_2">
+						<h2>North Nigeria Cuisine</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='food_images/dambu nama.png') }}" alt="isiewu">
+								<div>Dambu nama</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/danwake.png') }}" alt="olubu">
+								<div>Dan Wake</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/fura da nono.png') }}" alt="pepper_soup">
+								<div>Fura Da Nono</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/tuwo_shinkara.png') }}" alt="ofor_soup">
+								<div>Tuwo Shinkara</div>
+							</div>
+						</div>
+					</div>
+				</a>
+				<a href="/wCuisines">
+					<div class="choiceC" id="choice_3">
+						<h2>West Nigeria Cuisine</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='food_images/ikokere.png') }}" alt="isiewu">
+								<div>Ikokere</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/ofada.png') }}" alt="olubu">
+								<div>Ofada</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="pepper_soup">
+								<div>Ewedu</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/dodo.png') }}" alt="ofor_soup">
+								<div>Dodo</div>
+							</div>
+						</div>
+					</div>
+				</a>
+				<a href="/eCuisines">
+					<div class="choiceC" id="choice_4">
+						<h2>East Nigeria Cuisine</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='food_images/ofe nsala.png') }}" alt="isiewu">
+								<div>Ofe Nsala</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/ugba.png') }}" alt="olubu">
+								<div>Ugba</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/ofe akwu.png') }}" alt="pepper_soup">
+								<div>Ofe Akwu</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='food_images/ofe owerri.png') }}" alt="ofor_soup">
+								<div>Ofe Owerri</div>
+							</div>
+						</div>
+					</div>
+				</a>
 			</div>
-		</div>
-		<div class="choices">
-			<a href="/sCuisines">
-				<div class="choiceC" id="choice_1">
-					<h2>South Nigerian Cuisine</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='images/isiewu2.png') }}" alt="isiewu">
-							<div>Isi-ewu</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='images/olubu2.png') }}" alt="olubu">
-							<div>Bitter-leaf Soup</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='images/pepperSoup2.png') }}" alt="pepper_soup">
-							<div>Pepper Soup</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='images/offor2 .png') }}" alt="ofor_soup">
-							<div>Oha Soup</div>
-						</div>
-					</div>
+			<div class="adContainer">
+				<h2>Top orders for Rivers State</h2>
+				<div class="ad">
+					<a href="#"><img src="{{ url_for('static', filename='food_images/jollof-rice-w.png') }}" alt="jollof_rice"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/pepper-soup-w.png') }}" alt="pepper_soup"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/fruit-salad-w.png') }}" alt="fruit-salad"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/suya-w.png') }}" alt="suya"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/ugba-w.png') }}" alt="ugba"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/chim-chim-w.png') }}" alt="chim-chim"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/oha-w.png') }}" alt="oha-soup"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/ewedu-w.png') }}" alt="ewedu"></a>
+					<a href="#"><img src="{{ url_for('static', filename='food_images/ofada-w.png') }}" alt="ofada"></a>
+					<a href="#"><img class="mango" src="{{ url_for('static', filename='food_images/mango-dessert-w.png') }}" alt="mango_dessert_drink"></a>
 				</div>
-			</a>
-			<a href="/nCuisines">
-				<div class="choiceC" id="choice_2">
-					<h2>North Nigeria Cuisine</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='food_images/dambu nama.png') }}" alt="isiewu">
-							<div>Dambu nama</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/danwake.png') }}" alt="olubu">
-							<div>Dan Wake</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/fura da nono.png') }}" alt="pepper_soup">
-							<div>Fura Da Nono</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/tuwo_shinkara.png') }}" alt="ofor_soup">
-							<div>Tuwo Shinkara</div>
-						</div>
-					</div>
-				</div>
-			</a>
-			<a href="/wCuisines">
-				<div class="choiceC" id="choice_3">
-					<h2>West Nigeria Cuisine</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='food_images/ikokere.png') }}" alt="isiewu">
-							<div>Ikokere</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/ofada.png') }}" alt="olubu">
-							<div>Ofada</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/ewedu.png') }}" alt="pepper_soup">
-							<div>Ewedu</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/dodo.png') }}" alt="ofor_soup">
-							<div>Dodo</div>
-						</div>
-					</div>
-				</div>
-			</a>
-			<a href="/eCuisines">
-				<div class="choiceC" id="choice_4">
-					<h2>East Nigeria Cuisine</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='food_images/ofe nsala.png') }}" alt="isiewu">
-							<div>Ofe Nsala</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/ugba.png') }}" alt="olubu">
-							<div>Ugba</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/ofe akwu.png') }}" alt="pepper_soup">
-							<div>Ofe Akwu</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='food_images/ofe owerri.png') }}" alt="ofor_soup">
-							<div>Ofe Owerri</div>
-						</div>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="adContainer">
-			<h2>Top orders for Rivers State</h2>
-			<div class="ad">
-				<a href="#"><img src="{{ url_for('static', filename='food_images/jollof-rice-w.png') }}" alt="jollof_rice"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/pepper-soup-w.png') }}" alt="pepper_soup"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/fruit-salad-w.png') }}" alt="fruit-salad"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/suya-w.png') }}" alt="suya"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/ugba-w.png') }}" alt="ugba"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/chim-chim-w.png') }}" alt="chim-chim"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/oha-w.png') }}" alt="oha-soup"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/ewedu-w.png') }}" alt="ewedu"></a>
-				<a href="#"><img src="{{ url_for('static', filename='food_images/ofada-w.png') }}" alt="ofada"></a>
-				<a href="#"><img class="mango" src="{{ url_for('static', filename='food_images/mango-dessert-w.png') }}" alt="mango_dessert_drink"></a>
 			</div>
-		</div>
-		<div class="choices2">
-			<a href="#">
-				<div class="choiceC" id="choice_1">
-					<h2>Veggies</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='veggie_images/grilled-corn.png') }}" alt="corn">
-							<div>Grilled Corn</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='veggie_images/potatoes.png') }}" alt="potatoes">
-							<div>Roasted Potatoes</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='veggie_images/salad.png') }}" alt="salad">
-							<div>Salad</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='veggie_images/porridge-yam.png') }}" alt="yam">
-							<div>Porridge Yam</div>
-						</div>
-					</div>
-				</div>
-			</a>
-			<a href="#">
-				<div class="choiceC" id="choice_2">
-					<h2>Snacks</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='snacks_images/scotche-egg.png') }}" alt="scotch eggs">
-							<div>Scotch Egg</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='snacks_images/doughnuts.png') }}" alt="doughnut">
-							<div>Doughnut</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='snacks_images/kilishi.png') }}" alt="kilishi">
-							<div>Kilishi</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='snacks_images/chim-chim.png') }}" alt="chim-chim">
-							<div>Chim-chim</div>
+			<div class="choices2">
+				<a href="#">
+					<div class="choiceC" id="choice_1">
+						<h2>Veggies</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='veggie_images/grilled-corn.png') }}" alt="corn">
+								<div>Grilled Corn</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='veggie_images/potatoes.png') }}" alt="potatoes">
+								<div>Roasted Potatoes</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='veggie_images/salad.png') }}" alt="salad">
+								<div>Salad</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='veggie_images/porridge-yam.png') }}" alt="yam">
+								<div>Porridge Yam</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</a>
-			<a href="#">
-				<div class="choiceC" id="choice_3">
-					<h2>Desserts and Pudding</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='dessert_images/agidi.png') }}" alt="agidi">
-							<div>Agidi Jollof</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='dessert_images/akamu.png') }}" alt="akamu">
-							<div>Akamu</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='dessert_images/moi-moi.png') }}" alt="moi-moi">
-							<div>Moi-moi</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='dessert_images/danwake.png') }}" alt="dan wake">
-							<div>Dan Wake</div>
-						</div>
-					</div>
-				</div>
-			</a>
-			<a href="#">
-				<div class="choiceC" id="choice_4">
-					<h2>Cereal Meals</h2>
-					<div class="choice-1">
-						<div>
-							<img src="{{ url_for('static', filename='cereal_images/fura da nono.png') }}" alt="fura_da_nono">
-							<div>Fura da Nono</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='cereal_images/tom.png') }}" alt="tom_brown">
-							<div>Tom Brown</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='cereal_images/brown-rice.png') }}" alt="brown_rice">
-							<div>Brown Rice</div>
-						</div>
-						<div>
-							<img src="{{ url_for('static', filename='cereal_images/oat meal.png') }}" alt="oat-meal">
-							<div>Oat Meal</div>
+				</a>
+				<a href="#">
+					<div class="choiceC" id="choice_2">
+						<h2>Snacks</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='snacks_images/scotche-egg.png') }}" alt="scotch eggs">
+								<div>Scotch Egg</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='snacks_images/doughnuts.png') }}" alt="doughnut">
+								<div>Doughnut</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='snacks_images/kilishi.png') }}" alt="kilishi">
+								<div>Kilishi</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='snacks_images/chim-chim.png') }}" alt="chim-chim">
+								<div>Chim-chim</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</a>
-		</div>
-		<div class="toTop"><a href="#menu">Jump to top</a></div>
-	</main>
-	<footer>
-		<div class="motionAdContainer">
-			<div class="motionAd">🚀 We've just launched our brand-new food delivery app, and to celebrate, we’re serving up sizzling deals <span>from October 2025 to February 2026!</span>  🍔 Whether you're craving jollof rice, suya, or a midnight snack, enjoy exclusive discounts and mouthwatering promos delivered straight to your door.  🎉 This is our way of saying “Welcome!”—because <span>great food should come with great savings.</span> 🚀 We’ve just launched our brand-new food delivery app, and to celebrate, we’re serving up sizzling deals <span>from October 2025 to February 2026!</span>  🍔 Whether you're craving jollof rice, suya, or a midnight snack, enjoy exclusive discounts and mouthwatering promos delivered straight to your door.  🎉 This is our way of saying “Welcome!”—because <span>great food should come with great savings.</span></div>
-		</div>
-		<div class="footer-h">
-			<div>
-				<img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
-				<a href="#">Online booking</a>
+				</a>
+				<a href="#">
+					<div class="choiceC" id="choice_3">
+						<h2>Desserts and Pudding</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='dessert_images/agidi.png') }}" alt="agidi">
+								<div>Agidi Jollof</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='dessert_images/akamu.png') }}" alt="akamu">
+								<div>Akamu</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='dessert_images/moi-moi.png') }}" alt="moi-moi">
+								<div>Moi-moi</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='dessert_images/danwake.png') }}" alt="dan wake">
+								<div>Dan Wake</div>
+							</div>
+						</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="choiceC" id="choice_4">
+						<h2>Cereal Meals</h2>
+						<div class="choice-1">
+							<div>
+								<img src="{{ url_for('static', filename='cereal_images/fura da nono.png') }}" alt="fura_da_nono">
+								<div>Fura da Nono</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='cereal_images/tom.png') }}" alt="tom_brown">
+								<div>Tom Brown</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='cereal_images/brown-rice.png') }}" alt="brown_rice">
+								<div>Brown Rice</div>
+							</div>
+							<div>
+								<img src="{{ url_for('static', filename='cereal_images/oat meal.png') }}" alt="oat-meal">
+								<div>Oat Meal</div>
+							</div>
+						</div>
+					</div>
+				</a>
 			</div>
-			<div>
-				<img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
-				<a href="#">Catering service</a>
+			<div class="toTop"><a href="#menu">Jump to top</a></div>
+		</main>
+		<footer>
+			<div class="motionAdContainer">
+				<div class="motionAd">🚀 We've just launched our brand-new food delivery app, and to celebrate, we’re serving up sizzling deals <span>from October 2025 to February 2026!</span>  🍔 Whether you're craving jollof rice, suya, or a midnight snack, enjoy exclusive discounts and mouthwatering promos delivered straight to your door.  🎉 This is our way of saying “Welcome!”—because <span>great food should come with great savings.</span> 🚀 We’ve just launched our brand-new food delivery app, and to celebrate, we’re serving up sizzling deals <span>from October 2025 to February 2026!</span>  🍔 Whether you're craving jollof rice, suya, or a midnight snack, enjoy exclusive discounts and mouthwatering promos delivered straight to your door.  🎉 This is our way of saying “Welcome!”—because <span>great food should come with great savings.</span></div>
 			</div>
-			<div>
-				<img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
-				<a href="#">Membership</a>
+			<div class="footer-h">
+				<div>
+					<img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
+					<a href="#">Online booking</a>
+				</div>
+				<div>
+					<img src="{{ url_for('static', filename='images/food-delivery.png') }}" alt="food_delivery">
+					<a href="#">Catering service</a>
+				</div>
+				<div>
+					<img src="{{ url_for('static', filename='images/group-of-people.png') }}" alt="group_of_people">
+					<a href="#">Membership</a>
+				</div>
 			</div>
-		</div>
-		<div class="rights">&copy; 2025, Special Eats, Inc. or its affiliates</div>
-		<div class="sideNote">Another Masterpiece</div>
-	</footer>
+			<div class="rights">&copy; 2025, Special Eats, Inc. or its affiliates</div>
+			<div class="sideNote">Another Masterpiece</div>
+		</footer>
+	</div>
 
 {% endblock %}

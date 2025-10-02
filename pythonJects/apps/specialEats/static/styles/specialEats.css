@@ -969,10 +969,16 @@ h2 {
 
 /* styling for homepage */
 
-/* #home {
-    height: 100vh;
-} */
-
+#z img {
+	position: fixed;
+	width: 50px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.z {
+	display: none;
+}
 .heroSlider {
     display: flex;
     overflow-x: auto;

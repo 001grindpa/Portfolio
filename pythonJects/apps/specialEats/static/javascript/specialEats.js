@@ -195,6 +195,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		let languages = document.querySelector('#languages');
 		let uk_flag_2 = document.querySelector('#flag_2');
 		let languages_2 = document.querySelector('#languages_2');
+		let page = document.querySelector(".z");
+		let caroLoad = document.querySelector("#z");
+
+		function afterLoad() {
+			page.style.display = "block";
+			caroLoad.style.display = "none";
+		}
+		window.onload = afterLoad;
 			
 	    // hero section pop-up configuration
 		if (main && hambugger) {
