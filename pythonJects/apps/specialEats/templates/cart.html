@@ -9,19 +9,22 @@
             <div class="addNot"></div>
             <div class="sCuisine-cont">
                 {% for meal in cart_meals %}
-                <div class="sCuisine">
-                    <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
-                    <div class="one">
-                        <div>
-                            <div class="name">{{ meal.name }}</div>
-                            <div class="price">$<span>{{ meal.price }}</span></div>
-                        </div>
-                        <form class="rmvFrm" action="/remove" method="post">
-                            <input name="meal_id" type="hidden" value="{{ meal.id }}">
-                            <button type="submit" class="b"><span><img class="b1" src="{{ url_for('static', filename='animated_icons/trailLoading.gif') }}" alt="loading"></span><span class="b2">Remove from cart</span></button>
-                        </form>
-                    </div>
-                </div>
+                <div class="pands">
+	                <div class="payFor"><input class="sCheck" id="sCheck{{ meal.id }}" type="checkbox" value="{{ meal.id }}"><label for="sCheck{{ meal.id }}"></label></div>
+	                <div class="sCuisine">
+	                    <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
+	                    <div class="one">
+	                        <div>
+	                            <div class="name">{{ meal.name }}</div>
+	                            <div class="price">$<span>{{ meal.price }}</span></div>
+	                        </div>
+	                        <form class="rmvFrm" action="/remove" method="post">
+	                            <input name="meal_id" type="hidden" value="{{ meal.id }}">
+	                            <button type="submit" class="b"><span><img class="b1" src="{{ url_for('static', filename='animated_icons/trailLoading.gif') }}" alt="loading"></span><span class="b2">Remove from cart</span></button>
+	                        </form>
+	                    </div>
+	                </div>
+	             </div>
                 {% endfor %}
             </div>
             <div class="eCart"><img src="{{ url_for('static', filename='images/emptyCart.png') }}" alt="empty_cart"></div>

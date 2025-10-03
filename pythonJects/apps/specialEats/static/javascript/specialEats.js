@@ -400,6 +400,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
 
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
+
 		function afterLoad() {
 			page.style.opacity = "1";
 			caroLoad.style.display = "none";
@@ -489,6 +495,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let btn = document.querySelector(".b");
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
+
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
 
 		function afterLoad() {
 			page.style.opacity = "1";
@@ -581,6 +593,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
 
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
+
 		function afterLoad() {
 			page.style.opacity = "1";
 			caroLoad.style.display = "none";
@@ -671,6 +689,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
 
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
+
 		function afterLoad() {
 			page.style.opacity = "1";
 			caroLoad.style.display = "none";
@@ -759,6 +783,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let btn = document.querySelector(".b");
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
+
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
 
 		function afterLoad() {
 			page.style.opacity = "1";
@@ -849,6 +879,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
 
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
+
 		function afterLoad() {
 			page.style.opacity = "1";
 			caroLoad.style.display = "none";
@@ -938,6 +974,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
 
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
+
 		function afterLoad() {
 			page.style.opacity = "1";
 			caroLoad.style.display = "none";
@@ -1026,6 +1068,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
 
+		window.addEventListener("pageshow", (e) => {
+			if (e.persisted) {
+				location.reload();
+			}
+		});
+
 		function afterLoad() {
 			page.style.opacity = "1";
 			caroLoad.style.display = "none";
@@ -1109,12 +1157,23 @@ document.addEventListener('DOMContentLoaded', function(){
 		let caroLoad = document.querySelector("#z");
 		let cuisines = document.querySelectorAll(".sCuisine");
 		let eCart = document.querySelector(".eCart");
+		let sCheck = document.querySelectorAll(".sCheck");
+		let payFor = document.querySelectorAll(".payFor label");
+
+		for (let i = 0; i < payFor.length; i++) {
+			sCheck[i].addEventListener("click", (e) => {
+				let x = e.target;
+				if (x.checked === true) {
+					payFor[i].style.background = "green";
+				} else payFor[i].style.background = "none";
+			});
+		}
 
 		if (cuisines.length >= 1) {
 			eCart.style.opacity = "0";
 			eCart.style.paddingTop = "0";
 		}
-		if (cuisines.length === 5) {
+		if (cuisines.length >= 5) {
 			eCart.style.display = "none";
 		}
 

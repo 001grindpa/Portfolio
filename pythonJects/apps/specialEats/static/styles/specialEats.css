@@ -1707,15 +1707,6 @@ form span {
     align-items: center;
     justify-content: center;
 }
-.eCart {
-    padding-top: 200px;
-    text-align: center;
-}
-.eCart img {
-    width: 500px;
-    opacity: 0.3;
-}
-
 @media(min-width: 850px) {
     .sCuisine-cont {
         grid-template-columns: repeat(2, 1fr);
@@ -1730,4 +1721,36 @@ form span {
     .sCuisine-cont {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+/* styling for cart page */
+
+.eCart {
+    padding-top: 200px;
+    width: fit-content;
+    margin: auto;
+}
+.eCart img {
+    width: 450px;
+    opacity: 0.3;
+    flex: 1 0 auto;
+}
+.pands {
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+}
+.sCheck {
+	display: none;
+}
+.payFor label {
+	display: block;
+	height: 15px;
+	width: 15px;
+	border-radius: 20px;
+	border: 2px solid black;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.payFor label:hover {
+	background-color: lightgreen;
 }
