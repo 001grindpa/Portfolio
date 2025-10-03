@@ -1170,10 +1170,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 
 		if (cuisines.length >= 1) {
-			eCart.style.opacity = "0";
-			eCart.style.paddingTop = "0";
-		}
-		if (cuisines.length >= 5) {
 			eCart.style.display = "none";
 		}
 

@@ -1724,8 +1724,25 @@ form span {
 }
 /* styling for cart page */
 
+.cartCont {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+.cartCont header {
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+.cartCont header img {
+    width: 60px;
+}
 .eCart {
-    padding-top: 200px;
     width: fit-content;
     margin: auto;
 }
@@ -1753,4 +1770,15 @@ form span {
 }
 .payFor label:hover {
 	background-color: lightgreen;
+}
+.checkout {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 10px;
+    gap: 10px;
+    padding-right: 30%;
+    background-color: orange;
+    margin-bottom: -100px;
+    margin-top: 100px;
 }
