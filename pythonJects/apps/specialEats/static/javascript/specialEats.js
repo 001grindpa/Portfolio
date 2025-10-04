@@ -1159,13 +1159,22 @@ document.addEventListener('DOMContentLoaded', function(){
 		let eCart = document.querySelector(".eCart");
 		let sCheck = document.querySelectorAll(".sCheck");
 		let payFor = document.querySelectorAll(".payFor label");
+		let price = document.querySelector("#tPrice");
+		let qantity = document.querySelector(".quantity span")
+
+		//price.textContent = "5";
 
 		for (let i = 0; i < payFor.length; i++) {
 			sCheck[i].addEventListener("click", (e) => {
 				let x = e.target;
+				n = Number(x.value);
 				if (x.checked === true) {
 					payFor[i].style.background = "green";
-				} else payFor[i].style.background = "none";
+					price.textContent = n;				
+				} else {
+					payFor[i].style.background = "none";
+					//price.textContent = (price.textContent - n);
+				}
 			});
 		}
 
