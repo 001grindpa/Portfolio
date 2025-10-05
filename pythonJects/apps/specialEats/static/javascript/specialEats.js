@@ -1160,21 +1160,27 @@ document.addEventListener('DOMContentLoaded', function(){
 		let sCheck = document.querySelectorAll(".sCheck");
 		let payFor = document.querySelectorAll(".payFor label");
 		let price = document.querySelector("#tPrice");
-		let qantity = document.querySelector(".quantity span")
+		let quantity = document.querySelector(".quantity span");
+		let totalCheckout = document.querySelector("#checkoutT");
 
-		//price.textContent = "5";
+		let tp = [];
 
 		for (let i = 0; i < payFor.length; i++) {
 			sCheck[i].addEventListener("click", (e) => {
 				let x = e.target;
-				n = Number(x.value);
+				p = Number(x.value);
 				if (x.checked === true) {
 					payFor[i].style.background = "green";
-					price.textContent = n;				
+					price.textContent = (Number(price.textContent) + p);
+					tp.push(sCheck[i].dataset.x);
 				} else {
 					payFor[i].style.background = "none";
-					//price.textContent = (price.textContent - n);
+					price.textContent = (Number(price.textContent) - p);
+					tp.pop();
 				}
+				quantity.textContent = tp.length;
+				totalCheckout.value = tp;
+				console.log(totalCheckout.value);
 			});
 		}
 

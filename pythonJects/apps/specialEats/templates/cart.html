@@ -11,7 +11,7 @@
                     <div class="sCuisine-cont">
                         {% for meal in cart_meals %}
                         <div class="pands">
-                            <div class="payFor"><input class="sCheck" id="sCheck{{ meal.id }}" type="checkbox" value="{{ meal.price }}"><label for="sCheck{{ meal.id }}"></label></div>
+                            <div class="payFor"><input class="sCheck" id="sCheck{{ meal.id }}" type="checkbox" data-x="{{ meal.id }}" value="{{ meal.price }}"><label for="sCheck{{ meal.id }}"></label></div>
                             <div class="sCuisine">
                                 <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
                                 <div class="one">
@@ -31,7 +31,10 @@
                     <div class="eCart"><img src="{{ url_for('static', filename='images/emptyCart.png') }}" alt="empty_cart"></div>
                 </main>
                 <footer>
-                    <div class="checkout"><div class="price">$<span id="tPrice">0</span></div><a href="#"><div class="quantity">Checkout (<span>0</span>)</div></a></div>
+                    <form action="#">
+                        <input id="checkoutT" type="hidden">
+                        <div class="checkout"><div class="price">$<span id="tPrice">0</span></div><button type="submit" class="quantity">Checkout (<span>0</span> )</button></div>
+                    </form>
                     <div class="footer-h">
                         <div>
                             <img src="{{ url_for('static', filename='images/smartphone.png') }}" alt="smart_phone">
