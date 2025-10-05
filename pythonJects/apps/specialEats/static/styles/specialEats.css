@@ -1773,10 +1773,9 @@ form span {
 }
 .checkout {
     display: flex;
-    align-items: center;
-    justify-content: right;
+    justify-content: space-around;
     padding: 10px;
-    gap: 10px;
+    gap: 5px;
     padding-right: 10%;
     background-color: orange;
     margin-bottom: -100px;
@@ -1787,4 +1786,19 @@ form span {
     border: none;
     font-weight: bolder;
     cursor: pointer;
+}
+.sAll {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	color: green;
+	font-weight: bold;
+}
+#sAll {
+	cursor: pointer;
+}
+.sAll + div {
+	display: flex;
+	align-items: center;	
+	gap: 10px;
 }

@@ -1162,11 +1162,39 @@ document.addEventListener('DOMContentLoaded', function(){
 		let price = document.querySelector("#tPrice");
 		let quantity = document.querySelector(".quantity span");
 		let totalCheckout = document.querySelector("#checkoutT");
+		let sAll = document.querySelector("#sAll");
 
 		let tp = [];
 
+		function selectAll() {
+			for (let j = 0; j < sCheck.length; j++) {
+				if (sAll.checked === true) {
+					price.textContent = 0;
+					tp = [];
+					sCheck[j].checked = false;
+				}
+			}
+			for (let i = 0; i < sCheck.length; i++) {
+				if (sAll.checked === true) {
+					sCheck[i].checked = true;
+					payFor[i].style.background = "green";
+					price.textContent = (Number(price.textContent) + Number(sCheck[i].value));
+					tp.push(sCheck[i].dataset.x);
+					quantity.textContent = tp.length;
+				} 
+				else if (sAll.checked === false) {
+					payFor[i].style.background = "none";
+					price.textContent = 0;
+					tp = [];
+					quantity.textContent = tp.length;
+					sCheck[i].checked = false;
+				}
+			}
+		}
+		sAll.addEventListener("change", selectAll);
+		
 		for (let i = 0; i < payFor.length; i++) {
-			sCheck[i].addEventListener("click", (e) => {
+			sCheck[i].addEventListener("change", (e) => {
 				let x = e.target;
 				p = Number(x.value);
 				if (x.checked === true) {
@@ -1180,6 +1208,12 @@ document.addEventListener('DOMContentLoaded', function(){
 				}
 				quantity.textContent = tp.length;
 				totalCheckout.value = tp;
+				if (tp.length === sCheck.length) {
+					sAll.checked = true;
+				}
+				else {
+					sAll.checked = false;
+				}
 				console.log(totalCheckout.value);
 			});
 		}
