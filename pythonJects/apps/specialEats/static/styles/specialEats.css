@@ -1694,6 +1694,24 @@ form span {
 .price {
     color: green;
 }
+.price2 span {
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+}
+.price2 {
+    color: green;
+    display: none;
+}
+.price3 span {
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+}
+.price3 {
+    color: green;
+    display: none;
+}
 .b span {
     display: inline-block;
     width: fit-content;

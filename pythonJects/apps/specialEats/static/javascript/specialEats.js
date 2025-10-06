@@ -1162,6 +1162,45 @@ document.addEventListener('DOMContentLoaded', function(){
 		let quantity = document.querySelector(".quantity span");
 		let totalCheckout = document.querySelector("#checkoutT");
 		let sAll = document.querySelector("#sAll");
+		let more = document.querySelectorAll(".amnt div:nth-child(1)");
+		let less = document.querySelectorAll(".amnt div:nth-child(2)");
+		let amnt = document.querySelectorAll(".amntCount");
+		let mealPriceCont = document.querySelectorAll(".price");
+		let mealPrice2Cont = document.querySelectorAll(".price2");
+		let mealPrice2 = document.querySelectorAll(".price2 span");
+		let mealPrice3Cont = document.querySelectorAll(".price3");
+		let mealPrice3 = document.querySelectorAll(".price3 span");
+
+		for (let i = 0; i < more.length; i++) {
+			more[i].addEventListener("click", () => {
+				// if (sCheck[i].checked === true) {
+					sCheck[i].value = 0;
+					amnt[i].textContent = (Number(amnt[i].textContent) + 1);
+					mealPriceCont[i].style.display = "none";
+					mealPrice2Cont[i].style.display = "block";
+					mealPrice3Cont[i].style.display = "block";
+					sCheck[i].value = (Number(mealPrice2[i].textContent) * Number(amnt[i].textContent));
+					mealPrice3[i].textContent = sCheck[i].value;
+					
+				// }
+			})
+
+			less[i].addEventListener("click", () => {
+				if (Number(amnt[i].textContent) === 1) {
+					mealPriceCont[i].style.display = "block";
+					mealPrice2Cont[i].style.display = "none";
+					mealPrice3Cont[i].style.display = "none";
+				}
+				else if (Number(amnt[i].textContent) >= 2) {
+					amnt[i].textContent = (Number(amnt[i].textContent) - 1);
+					mealPriceCont[i].style.display = "none";
+					mealPrice2Cont[i].style.display = "block";
+					mealPrice3Cont[i].style.display = "block";
+					sCheck[i].value = (Number(sCheck[i].value) - Number(mealPrice2[i].textContent));
+					mealPrice3[i].textContent = sCheck[i].value;
+				}
+			})
+		}
 
 		let tp = [];
 

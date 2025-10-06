@@ -16,9 +16,11 @@
                                 <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
                                 <div class="one">
                                     <div>
-                                    	<div class="amnt"><div>+</div><div>-</div><div id="amntCount">1</div></div>
+                                    	<div class="amnt"><div>+</div><div>-</div><div class="amntCount">1</div></div>
                                         <div class="name">{{ meal.name }}</div>
                                         <div class="price">$<span>{{ meal.price }}</span></div>
+                                        <div class="price2">$<span><s>{{ meal.price }}</s></span></div>
+                                        <div class="price3">$<span>{{ meal.price }}</span></div>
                                     </div>
                                     <form class="rmvFrm" action="/remove" method="post">
                                         <input name="meal_id" type="hidden" value="{{ meal.id }}">
@@ -32,7 +34,7 @@
                     <div class="eCart"><img src="{{ url_for('static', filename='images/emptyCart.png') }}" alt="empty_cart"></div>
                 </main>
                 <footer>
-                    <form action="/checkout">
+                    <form action="/checkout" method="post">
                         <input name="items" id="checkoutT" type="hidden">
                         <div class="checkout">
                         	<div class="sAll"><input type="checkbox" id="sAll"><div>All</div></div>
