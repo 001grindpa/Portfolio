@@ -248,6 +248,10 @@ def cart():
         user_id = user.get("id")
     if request.method == "POST":
         item_id = request.form.get("item_id")
+        cart_data = db.execute("SELECT * FROM cart WHERE user_id = ?", user_id)
+        for item in cart_data:
+            if item.get("item_id") == item_id:
+                return jsonify({"msg": "This item is already in your cart"})
         db.execute("INSERT INTO cart(user_id, item_id) VALUES(?, ?)", user_id, item_id)
         resp = {"msg": "Successfully added to cart"}
         return jsonify(resp)
@@ -266,6 +270,12 @@ def remove():
         db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
         promise = {"msg": "removing this dish from your cart..."}
         return jsonify(promise)
+
+@app.route("/checkout", methods=["GET", "POST"])
+def checkout():
+    if request.method == "POST":
+        items = request.form.get("items")
+        return render_template("checkout.html")
 
 
 if __name__ == '__main__':

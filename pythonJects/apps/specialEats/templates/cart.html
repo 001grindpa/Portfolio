@@ -16,6 +16,7 @@
                                 <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
                                 <div class="one">
                                     <div>
+                                    	<div class="amnt"><div>+</div><div>-</div><div id="amntCount">1</div></div>
                                         <div class="name">{{ meal.name }}</div>
                                         <div class="price">$<span>{{ meal.price }}</span></div>
                                     </div>
@@ -31,8 +32,8 @@
                     <div class="eCart"><img src="{{ url_for('static', filename='images/emptyCart.png') }}" alt="empty_cart"></div>
                 </main>
                 <footer>
-                    <form action="#">
-                        <input id="checkoutT" type="hidden">
+                    <form action="/checkout">
+                        <input name="items" id="checkoutT" type="hidden">
                         <div class="checkout">
                         	<div class="sAll"><input type="checkbox" id="sAll"><div>All</div></div>
                         	<div>

@@ -455,11 +455,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				load[i].style.display = "block";
 				btn.disabled = true;
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i]);
 					let response = await fetch("/cart", {method: "POST", body: formContent});
 					let data = await response.json();
@@ -472,6 +467,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 2000);
 					setTimeout(removeClasses, 2500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count);
+					c2.setAttribute("data-cartCount", d.count);
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -551,12 +551,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i]);
 					let response = await fetch("/cart", {method: "POST", body: formContent});
 					let data = await response.json();
@@ -569,6 +563,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 3000);
 					setTimeout(removeClasses, 3500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count);
+					c2.setAttribute("data-cartCount", d.count);
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -648,11 +647,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -665,6 +659,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 3000);
 					setTimeout(removeClasses, 3500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count);
+					c2.setAttribute("data-cartCount", d.count);
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -744,11 +743,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -761,6 +755,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 3000);
 					setTimeout(removeClasses, 3500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count);
+					c2.setAttribute("data-cartCount", d.count);
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -839,11 +838,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -856,6 +850,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 3000);
 					setTimeout(removeClasses, 3500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count);
+					c2.setAttribute("data-cartCount", d.count);
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -934,11 +933,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -951,12 +945,17 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 3000);
 					setTimeout(removeClasses, 3500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count);
+					c2.setAttribute("data-cartCount", d.count);
 				}
 				setTimeout(retrieve, 2000);
 			});
 		}
 	}
-	// js for desserts and pudding page
+	// js for desserts and pudding page 
 	else if (document.body.id === "dandp") {
 		let addForm = document.querySelectorAll(".cartFrm");
 		let addNot = document.querySelector(".addNot");
@@ -1029,11 +1028,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -1046,6 +1040,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 3000);
 					setTimeout(removeClasses, 3500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", d.count);
+					c2.setAttribute("data-cartCount", d.count);
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -1123,11 +1122,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
-					let resp = await fetch("/cartCount");
-					let d = await resp.json();
-					c1.setAttribute("data-cartCount", d.count + 1);
-					c2.setAttribute("data-cartCount", d.count + 1);
-
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -1140,6 +1134,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					setTimeout(slideOut, 3000);
 					setTimeout(removeClasses, 3500);
 					btn.disabled = false;
+
+					let resp = await fetch("/cartCount");
+					let d = await resp.json();
+					c1.setAttribute("data-cartCount", parseInt(d.count));
+					c2.setAttribute("data-cartCount", parseInt(d.count));
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -1178,9 +1177,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				if (sAll.checked === true) {
 					sCheck[i].checked = true;
 					payFor[i].style.background = "green";
-					price.textContent = (Number(price.textContent) + Number(sCheck[i].value));
+					price.textContent = (parseFloat(price.textContent) + parseFloat(sCheck[i].value)).toFixed(2);
 					tp.push(sCheck[i].dataset.x);
 					quantity.textContent = tp.length;
+					totalCheckout.value = tp;
 				} 
 				else if (sAll.checked === false) {
 					payFor[i].style.background = "none";
@@ -1196,14 +1196,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		for (let i = 0; i < payFor.length; i++) {
 			sCheck[i].addEventListener("change", (e) => {
 				let x = e.target;
-				p = Number(x.value);
+				p = parseFloat(x.value);
 				if (x.checked === true) {
 					payFor[i].style.background = "green";
-					price.textContent = (Number(price.textContent) + p);
+					price.textContent = (parseFloat(price.textContent) + p).toFixed(2);
 					tp.push(sCheck[i].dataset.x);
 				} else {
 					payFor[i].style.background = "none";
-					price.textContent = (Number(price.textContent) - p);
+					price.textContent = (parseFloat(price.textContent) - p).toFixed(2);
 					tp.pop();
 				}
 				quantity.textContent = tp.length;

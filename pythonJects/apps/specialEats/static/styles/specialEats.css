@@ -1802,3 +1802,33 @@ form span {
 	align-items: center;	
 	gap: 10px;
 }
+.amnt {
+	display: flex;
+	align-items: center;
+	font-size: larger;
+	width: fit-content;
+}
+.amnt div:nth-child(1), .amnt div:nth-child(2) {
+	padding: 7px;
+	padding-left: 20px;
+	padding-right: 20px;
+	opacity: 0.6;
+	cursor: pointer;
+}
+.amnt div:nth-child(3) {
+	margin-left: 10px;
+	background-color: green;
+	color: white;
+	padding: 5px;
+}
+.amnt div:nth-child(1) {
+	background-color: lightgreen;
+	font-weight: bolder;
+}
+.amnt div:nth-child(2) {
+	background-color: lightblue;
+	font-weight: bolder;
+}
+.amnt div:nth-child(1):hover, .amnt div:nth-child(2):hover {
+	opacity: 1;
+}
