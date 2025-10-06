@@ -1186,10 +1186,13 @@ document.addEventListener('DOMContentLoaded', function(){
 			})
 
 			less[i].addEventListener("click", () => {
-				if (Number(amnt[i].textContent) === 1) {
+				if (Number(amnt[i].textContent) === 2) {
 					mealPriceCont[i].style.display = "block";
 					mealPrice2Cont[i].style.display = "none";
 					mealPrice3Cont[i].style.display = "none";
+					amnt[i].textContent = (Number(amnt[i].textContent) - 1);
+					sCheck[i].value = (Number(sCheck[i].value) - Number(mealPrice2[i].textContent));
+					mealPrice3[i].textContent = sCheck[i].value;
 				}
 				else if (Number(amnt[i].textContent) >= 2) {
 					amnt[i].textContent = (Number(amnt[i].textContent) - 1);
