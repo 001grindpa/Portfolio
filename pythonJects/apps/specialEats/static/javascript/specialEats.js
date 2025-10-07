@@ -1173,16 +1173,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		for (let i = 0; i < more.length; i++) {
 			more[i].addEventListener("click", () => {
-				// if (sCheck[i].checked === true) {
-					sCheck[i].value = 0;
-					amnt[i].textContent = (Number(amnt[i].textContent) + 1);
-					mealPriceCont[i].style.display = "none";
-					mealPrice2Cont[i].style.display = "block";
-					mealPrice3Cont[i].style.display = "block";
-					sCheck[i].value = (Number(mealPrice2[i].textContent) * Number(amnt[i].textContent));
-					mealPrice3[i].textContent = sCheck[i].value;
-					
-				// }
+				sCheck[i].value = 0;
+				amnt[i].textContent = (Number(amnt[i].textContent) + 1);
+				mealPriceCont[i].style.display = "none";
+				mealPrice2Cont[i].style.display = "block";
+				mealPrice3Cont[i].style.display = "block";
+				sCheck[i].value = (Number(mealPrice2[i].textContent) * Number(amnt[i].textContent)).toFixed(2);
+				mealPrice3[i].textContent = sCheck[i].value;
+				if (sCheck[i].checked === true) {
+					let oldmealPrice = (sCheck[i].value) - Number(mealPrice2[i].textContent);
+					price.textContent = parseFloat(price.textContent) - oldmealPrice
+					price.textContent = (parseFloat(price.textContent) + parseFloat(sCheck[i].value)).toFixed(2);
+				}
 			})
 
 			less[i].addEventListener("click", () => {
@@ -1191,16 +1193,20 @@ document.addEventListener('DOMContentLoaded', function(){
 					mealPrice2Cont[i].style.display = "none";
 					mealPrice3Cont[i].style.display = "none";
 					amnt[i].textContent = (Number(amnt[i].textContent) - 1);
-					sCheck[i].value = (Number(sCheck[i].value) - Number(mealPrice2[i].textContent));
+					sCheck[i].value = (parseFloat(sCheck[i].value) - parseFloat(mealPrice2[i].textContent));
 					mealPrice3[i].textContent = sCheck[i].value;
+					price.textContent = (parseFloat(price.textContent) - parseFloat(mealPrice2[i].textContent)).toFixed(2);
 				}
 				else if (Number(amnt[i].textContent) >= 2) {
 					amnt[i].textContent = (Number(amnt[i].textContent) - 1);
 					mealPriceCont[i].style.display = "none";
 					mealPrice2Cont[i].style.display = "block";
 					mealPrice3Cont[i].style.display = "block";
-					sCheck[i].value = (Number(sCheck[i].value) - Number(mealPrice2[i].textContent));
+					sCheck[i].value = (parseFloat(sCheck[i].value) - parseFloat(mealPrice2[i].textContent)).toFixed(2);
 					mealPrice3[i].textContent = sCheck[i].value;
+					if (sCheck[i].checked === true) {
+						price.textContent = (parseFloat(price.textContent) - parseFloat(mealPrice2[i].textContent)).toFixed(2);
+					}
 				}
 			})
 		}
