@@ -274,7 +274,10 @@ def remove():
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
     if request.method == "POST":
+        # items request is a dictionary, containes item_id as key and item_amount as value
+        # tPrice request contains total price
         items = request.form.get("items")
+        tPrice = request.form.get("totalPrice")
         return render_template("checkout.html")
 
 

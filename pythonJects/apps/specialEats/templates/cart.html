@@ -36,11 +36,12 @@
                 <footer>
                     <form action="/checkout" method="post">
                         <input name="items" id="checkoutT" type="hidden">
+                        <input name="totalPrice" type="hidden" id="priceT">
                         <div class="checkout">
                         	<div class="sAll"><input type="checkbox" id="sAll"><div>All</div></div>
                         	<div>
                         		<div class="price">$<span id="tPrice">0</span></div>
-                        		<button type="submit" class="quantity">Checkout (<span>0</span> )</button>
+                        		<button name="itemCount" type="submit" class="quantity">Checkout (<span>0</span> )</button>
                         	</div>
                         </div>
                     </form>

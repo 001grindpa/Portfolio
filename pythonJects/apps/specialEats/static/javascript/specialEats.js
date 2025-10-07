@@ -1160,6 +1160,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		let payFor = document.querySelectorAll(".payFor label");
 		let price = document.querySelector("#tPrice");
 		let quantity = document.querySelector(".quantity span");
+		let checkoutBtn = document.querySelector(".quantity");
 		let totalCheckout = document.querySelector("#checkoutT");
 		let sAll = document.querySelector("#sAll");
 		let more = document.querySelectorAll(".amnt div:nth-child(1)");
@@ -1170,7 +1171,9 @@ document.addEventListener('DOMContentLoaded', function(){
 		let mealPrice2 = document.querySelectorAll(".price2 span");
 		let mealPrice3Cont = document.querySelectorAll(".price3");
 		let mealPrice3 = document.querySelectorAll(".price3 span");
+		let tprice = document.querySelector("#priceT");
 
+		let tp = {};
 		for (let i = 0; i < more.length; i++) {
 			more[i].addEventListener("click", () => {
 				sCheck[i].value = 0;
@@ -1184,8 +1187,12 @@ document.addEventListener('DOMContentLoaded', function(){
 					let oldmealPrice = (sCheck[i].value) - Number(mealPrice2[i].textContent);
 					price.textContent = parseFloat(price.textContent) - oldmealPrice
 					price.textContent = (parseFloat(price.textContent) + parseFloat(sCheck[i].value)).toFixed(2);
+					tprice.value = parseFloat(price.textContent);
+					tp[sCheck[i].dataset.x] = Number(amnt[i].textContent);
+					totalCheckout.value = JSON.stringify(tp);
+					console.log(JSON.stringify(tp));
 				}
-			})
+			});
 
 			less[i].addEventListener("click", () => {
 				if (Number(amnt[i].textContent) === 2) {
@@ -1196,6 +1203,10 @@ document.addEventListener('DOMContentLoaded', function(){
 					sCheck[i].value = (parseFloat(sCheck[i].value) - parseFloat(mealPrice2[i].textContent));
 					mealPrice3[i].textContent = sCheck[i].value;
 					price.textContent = (parseFloat(price.textContent) - parseFloat(mealPrice2[i].textContent)).toFixed(2);
+					tprice.value = parseFloat(price.textContent);
+					tp[sCheck[i].dataset.x] = Number(amnt[i].textContent);
+					totalCheckout.value = JSON.stringify(tp);
+					console.log(JSON.stringify(tp));
 				}
 				else if (Number(amnt[i].textContent) >= 2) {
 					amnt[i].textContent = (Number(amnt[i].textContent) - 1);
@@ -1206,18 +1217,21 @@ document.addEventListener('DOMContentLoaded', function(){
 					mealPrice3[i].textContent = sCheck[i].value;
 					if (sCheck[i].checked === true) {
 						price.textContent = (parseFloat(price.textContent) - parseFloat(mealPrice2[i].textContent)).toFixed(2);
+						tprice.value = parseFloat(price.textContent);
+						tp[sCheck[i].dataset.x] = Number(amnt[i].textContent);
+						totalCheckout.value = JSON.stringify(tp);
 					}
+					console.log(JSON.stringify(tp));
 				}
 			})
 		}
-
-		let tp = [];
 
 		function selectAll() {
 			for (let j = 0; j < sCheck.length; j++) {
 				if (sAll.checked === true) {
 					price.textContent = 0;
-					tp = [];
+					tprice.value = parseFloat(price.textContent);
+					tp = {};
 					sCheck[j].checked = false;
 				}
 			}
@@ -1226,16 +1240,27 @@ document.addEventListener('DOMContentLoaded', function(){
 					sCheck[i].checked = true;
 					payFor[i].style.background = "green";
 					price.textContent = (parseFloat(price.textContent) + parseFloat(sCheck[i].value)).toFixed(2);
-					tp.push(sCheck[i].dataset.x);
-					quantity.textContent = tp.length;
-					totalCheckout.value = tp;
+					tprice.value = parseFloat(price.textContent);
+					tp[sCheck[i].dataset.x] = Number(amnt[i].textContent);
+					quantity.textContent = Object.keys(tp).length;
+					checkoutBtn.value = Object.keys(tp).length;
+					totalCheckout.value = JSON.stringify(tp);
+					console.log(JSON.stringify(tp));
+					console.log(checkoutBtn.value);
+					console.log(totalCheckout.value);
 				} 
 				else if (sAll.checked === false) {
 					payFor[i].style.background = "none";
 					price.textContent = 0;
-					tp = [];
-					quantity.textContent = tp.length;
+					tprice.value = parseFloat(price.textContent);
+					tp = {};
+					totalCheckout.value = JSON.stringify(tp);
+					quantity.textContent = Object.keys(tp).length;
+					checkoutBtn.value = Object.keys(tp).length;
 					sCheck[i].checked = false;
+					console.log(JSON.stringify(tp));
+					console.log(checkoutBtn.value);
+					console.log(totalCheckout.value);
 				}
 			}
 		}
@@ -1248,21 +1273,26 @@ document.addEventListener('DOMContentLoaded', function(){
 				if (x.checked === true) {
 					payFor[i].style.background = "green";
 					price.textContent = (parseFloat(price.textContent) + p).toFixed(2);
-					tp.push(sCheck[i].dataset.x);
+					tprice.value = parseFloat(price.textContent);
+					tp[sCheck[i].dataset.x] = Number(amnt[i].textContent);
 				} else {
 					payFor[i].style.background = "none";
 					price.textContent = (parseFloat(price.textContent) - p).toFixed(2);
-					tp.pop();
+					tprice.value = parseFloat(price.textContent);
+					delete tp[sCheck[i].dataset.x];
 				}
-				quantity.textContent = tp.length;
-				totalCheckout.value = tp;
-				if (tp.length === sCheck.length) {
+				quantity.textContent = Object.keys(tp).length;
+				checkoutBtn.value = Object.keys(tp).length;
+				totalCheckout.value = JSON.stringify(tp);
+				if (Object.keys(tp).length === sCheck.length) {
 					sAll.checked = true;
 				}
 				else {
 					sAll.checked = false;
 				}
 				console.log(totalCheckout.value);
+				console.log(JSON.stringify(tp));
+				console.log(checkoutBtn.value);
 			});
 		}
 
@@ -1279,11 +1309,11 @@ document.addEventListener('DOMContentLoaded', function(){
 		function slideOut() {
 			addNot.classList.add("slideOut");
 		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
+		// function removeClasses() {
+		// 	addNot.classList.remove("slide");
+		// 	addNot.classList.remove("showNot");
+		// 	addNot.classList.remove("slideOut");
+		// }
 		for (let i = 0; i < rmvForm.length; i++) {
 			rmvForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
