@@ -1852,6 +1852,10 @@ form span {
 }
 
 /* styling for cart page  */
+.checkoutMain {
+    background-color: rgba(211, 211, 211, 0.212);
+    height: 100vh;
+}
 .cArea {
 	display: flex;
 	align-items: center;
