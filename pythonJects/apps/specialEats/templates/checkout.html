@@ -2,11 +2,27 @@
 
 {% block body %}
 
-    <header>
-        <div class="cArea">Checkout Area</div><img src="{{ url_for('static', filename='images/specialEats_white.png') }}" alt="sp_logo">
+    <header class="cArea">
+        <div>Checkout Area</div><img src="{{ url_for('static', filename='images/specialEats_white.png') }}" alt="sp_logo">
     </header>
     <main>
-        
+	    <div class="addyBG">
+			<div>add an address</div>
+			<div>{{ user_address }}</div>
+			<img src="{{ url_for('static', filename='images/') }}" alt="right_arrow">
+	    </div>
+		<div>
+			<div>Shipping method</div>
+			<div>
+				<div>Shipping: Free shipping</div>
+				<div>Delivery: mm-dd-yyy</div>
+			<div>
+		</div>
+		<div class="inCheckout">
+			{% for meal in inCheckout %}
+				<img src="{{ url_for('static', filename=meal.url) }}" alt="meal.name">
+			{% endfor %}
+		</div>
     </main>
 
 {% endblock %}

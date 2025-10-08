@@ -1159,6 +1159,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		let sCheck = document.querySelectorAll(".sCheck");
 		let payFor = document.querySelectorAll(".payFor label");
 		let price = document.querySelector("#tPrice");
+		let checkout = document.querySelector("#checkoutForm");
 		let quantity = document.querySelector(".quantity span");
 		let checkoutBtn = document.querySelector(".quantity");
 		let totalCheckout = document.querySelector("#checkoutT");
@@ -1174,6 +1175,13 @@ document.addEventListener('DOMContentLoaded', function(){
 		let tprice = document.querySelector("#priceT");
 
 		let tp = {};
+
+		checkout.addEventListener("submit", (e) => {
+			if (totalCheckout.value.includes("{}") || !totalCheckout.value.trim()) {
+				e.preventDefault();
+			}
+		});
+		
 		for (let i = 0; i < more.length; i++) {
 			more[i].addEventListener("click", () => {
 				sCheck[i].value = 0;
@@ -1339,6 +1347,11 @@ document.addEventListener('DOMContentLoaded', function(){
 				setTimeout(retrieve, 2000);
 			});
 		}
+	}
+
+	// js for checkout page
+	else if (document.body.id === "checkout") {
+		
 	}
 	
 })

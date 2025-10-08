@@ -1850,3 +1850,21 @@ form span {
 .amnt div:nth-child(1):hover, .amnt div:nth-child(2):hover {
 	opacity: 1;
 }
+
+/* styling for cart page  */
+.cArea {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	padding-left: 50px;
+	color: white;
+	font-weight: bolder;
+	font-size: large;
+}
+.cArea img {
+	width: 60px;
+}
+.inCheckout img {
+	width: 100px;
+}

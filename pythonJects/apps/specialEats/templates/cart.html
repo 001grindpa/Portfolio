@@ -34,7 +34,7 @@
                     <div class="eCart"><img src="{{ url_for('static', filename='images/emptyCart.png') }}" alt="empty_cart"></div>
                 </main>
                 <footer>
-                    <form action="/checkout" method="post">
+                    <form id="checkoutForm" action="/checkout" method="post">
                         <input name="items" id="checkoutT" type="hidden">
                         <input name="totalPrice" type="hidden" id="priceT">
                         <div class="checkout">

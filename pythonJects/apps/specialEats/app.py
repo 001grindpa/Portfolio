@@ -276,10 +276,14 @@ def checkout():
     if request.method == "POST":
         # items request is a dictionary, containes item_id as key and item_amount as value
         # tPrice request contains total price
+        x = [];
+        items_count = request.form.get(".itemCount")
         items = request.form.get("items")
         tPrice = request.form.get("totalPrice")
-        return render_template("checkout.html")
-
+        for i in items:
+            x.append(i)
+        inCheckout = db.execute("SELECT * FROM meals WHERE id IN (?)", x)
+        return render_template("checkout.html", page_id = "checkout", inCheckout = inCheckout)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')
