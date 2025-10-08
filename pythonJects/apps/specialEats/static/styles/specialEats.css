@@ -1866,5 +1866,87 @@ form span {
 	width: 60px;
 }
 .inCheckout img {
-	width: 100px;
+	width: 70px;
+    margin: 5px;
+    position: relative;
+}
+.inCheckout {
+    margin: 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.checkoutItemCont {
+    position: relative;
+    flex: 1 0 auto;
+}
+.count {
+    position: absolute;
+    width: fit-content;
+    padding: 5px;
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    top: 10px;
+    left: 10px;
+}
+.addyBG img {
+    width: 10px;
+    height: 10px;
+}
+.shipping {
+    margin-left: 5px;
+}
+.shipping + div {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.shipping .x {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.paymentM {
+    margin-left: 5px;
+}
+.paymentM .x {
+    font-weight: bold;
+}
+.paymentM .y a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.paymentM .y img {
+    width: 10px;
+    height: 10px;
+}
+.summary {
+    margin: 5px;
+}
+.summary .x {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.summary .y {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.summary .y .two {
+    color: green;
+    font-weight: bold;
+    margin: 3px;
+}
+.summary .y .one.two {
+    color: black;
+    font-weight: bold;
+}
+@media(min-width: 517px) {
+    .checkoutMain {
+        width: 510px;
+        height: 100vh;
+        margin: auto;
+    }
 }

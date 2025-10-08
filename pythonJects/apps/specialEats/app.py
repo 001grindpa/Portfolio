@@ -2,6 +2,7 @@ from flask import Flask, session, render_template, redirect, url_for, request, j
 from flask_session import Session
 from randomModules import password_sys, password_gen
 from cs50 import SQL
+import json
 db = SQL("sqlite:///specialEats.db")
 
 app = Flask(__name__)
@@ -274,16 +275,20 @@ def remove():
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
     if request.method == "POST":
-        # items request is a dictionary, containes item_id as key and item_amount as value
+        # items request is a dictionary, containes item_id as key and item_count as value
         # tPrice request contains total price
-        x = [];
+        x = []
+        y = {}
         items_count = request.form.get(".itemCount")
-        items = request.form.get("items")
+        items = json.loads(request.form.get("items"))
         tPrice = request.form.get("totalPrice")
         for i in items:
             x.append(i)
-        inCheckout = db.execute("SELECT * FROM meals WHERE id IN (?)", x)
-        return render_template("checkout.html", page_id = "checkout", inCheckout = inCheckout)
+        inCheckout = db.execute("SELECT url FROM meals WHERE id IN (?)", x)
+        for meal, count in zip(inCheckout, items):
+            y[meal.get("url")] = items[count]
+        return render_template("checkout.html", page_id = "checkout", co = y, tPrice = tPrice)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')

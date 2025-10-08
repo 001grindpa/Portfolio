@@ -5,24 +5,52 @@
     <header class="cArea">
         <div>Checkout Area</div><img src="{{ url_for('static', filename='images/specialEats_white.png') }}" alt="sp_logo">
     </header>
-    <main>
-	    <div class="addyBG">
-			<div>add an address</div>
-			<div>{{ user_address }}</div>
-			<img src="{{ url_for('static', filename='images/') }}" alt="right_arrow">
-	    </div>
-		<div>
-			<div>Shipping method</div>
+    <main class="checkoutMain">
+	    <a href="/profile">
+            <div class="addyBG">
+                <div id="addy-ph">add an address</div>
+                <div id="addy">{{ user_address }}</div>
+                <img src="{{ url_for('static', filename='images/right-arrow.png') }}" alt="right_arrow">
+	        </div>
+        </a>
+		<div class="shipping">
+			<div class="x">Shipping method</div>
 			<div>
 				<div>Shipping: Free shipping</div>
-				<div>Delivery: mm-dd-yyy</div>
-			<div>
+				<div>Delivery: mm-dd-yyyy</div>
+            </div>
 		</div>
+        <div>Item details</div>
 		<div class="inCheckout">
-			{% for meal in inCheckout %}
-				<img src="{{ url_for('static', filename=meal.url) }}" alt="meal.name">
+			{% for meal in co %}
+                <div class="checkoutItemCont">
+                    <img src="{{ url_for('static', filename=meal) }}" alt="{{ meal }}">
+                    <div class="count">
+                        <div>{{ co[meal] }}</div>
+                    </div>
+                </div>
 			{% endfor %}
 		</div>
+        <div class="paymentM">
+            <div class="x">Payment method</div>
+            <div class="y">
+                <a href="/profile">
+                    <div>Add payment method</div>
+                    <img src="{{ url_for('static', filename='images/right-arrow.png') }}" alt="right_arrow">
+                </a>
+            </div>
+        </div>
+        <div class="summary">
+            <div class="x">Summary</div>
+            <div class="y">
+                <div>Subtotal</div>
+                <div class="one two">${{ tPrice }}</div>
+            </div>
+            <div class="y">
+                <div>Shipping fee</div>
+                <div class="two">free</div>
+            </div>
+        </div>
     </main>
 
 {% endblock %}
