@@ -1291,6 +1291,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				}
 				quantity.textContent = Object.keys(tp).length;
 				checkoutBtn.value = Object.keys(tp).length;
+				console.log(checkoutBtn.value)
 				totalCheckout.value = JSON.stringify(tp);
 				if (Object.keys(tp).length === sCheck.length) {
 					sAll.checked = true;
@@ -1351,7 +1352,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	// js for checkout page
 	else if (document.body.id === "checkout") {
-		
+		let paidPrice = document.querySelector("#paidPrice");
+		let paidPrices = document.querySelectorAll(".paidPrice");
+		let freePrices = document.querySelectorAll(".freeShip");
+		let total = document.querySelector("#total");
+		let tPrice = document.querySelector("#tPrice");
+
+		if (paidPrice.textContent) {
+			for (let i = 0; i < paidPrices.length; i++) {
+				paidPrices[i].style.display = "block";
+				freePrices[i].style.display = "none";
+			}
+
+			total.textContent = (Number(tPrice.textContent) + Number(paidPrice.textContent)).toFixed(2);
+		}
+		else {
+			total.textContent = parseFloat(tPrice.textContent);
+		}
 	}
-	
 })

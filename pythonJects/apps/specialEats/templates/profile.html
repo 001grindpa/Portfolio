@@ -8,7 +8,6 @@
             <div class="banner">
                 <img src="{{ url_for('static', filename='pfp_images/colorful-banner.png') }}" alt="pfp_banner">
                 <div class="pfpLogo"><img src="{{ url_for('static', filename='pfp_images/specialEats_white.png') }}" alt="special_eats_logo"></div>
-                <div><a href="/"><img src="{{ url_for('static', filename='pfp_images/left-arrow.png') }}" alt="left_arrow"></a></div>
                 <div class="editPfp"><img src="{{ url_for('static', filename='pfp_images/edit-tool-w.png') }}" alt="edit_pen"></div>
                 <div class="pfp">
                     <div><img src="{{ url_for('static', filename='pfp_images/unknown_user_2.png') }}" alt="pfp"></div>
@@ -47,7 +46,6 @@
             </div>
             <div class="notice"><a href="#"><img src="{{ url_for('static', filename='pfp_images/notice.png') }}" alt="notice"></a></div>
         </div>
-        
         <main class="profile">
             <div class="forMail">
                 <div class="pfp2">
@@ -71,21 +69,38 @@
             <div class="orderDetails">
                 <div class="myOrder" id="order">
                     <div class="myOrderH">My Orders</div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/pending.png') }}" alt="pending_payment"><a href="#">To Pay</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/parcel2.png') }}" alt="pending_shipment"><a href="#">To Ship</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/delivery.png') }}" alt="shipped"><a href="#">Shipped</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/review.png') }}" alt="user_review"><a href="#">To Review</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/returned.png') }}" alt="returned"><a href="#">Returns</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/cart.png') }}" alt="cart"><a href="/cart"><span class="orderN">{{ n }}</span> Orders</a></div><a href="cart"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/pending.png') }}" alt="pending_payment">To Pay</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></div>
+                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/parcel2.png') }}" alt="pending_shipment">To Ship</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></div>
+                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/delivery.png') }}" alt="shipped">Shipped</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></div>
+                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/review.png') }}" alt="user_review">To Review</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></div>
+                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/returned.png') }}" alt="returned">Returns</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></div>
+                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/cart.png') }}" alt="cart"><span class="orderN">{{ n }}</span>Orders</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></div>
                 </div>
                 <div class="myOrder" id="settings">
                     <div class="myOrderH">Account Settings</div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/payment.png') }}" alt="payment"><a href="#">Payment Methods</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
-                    <div class="orderInfo"><div><img src="{{ url_for('static', filename='pfp_images/locate.png') }}" alt="address"><a href="#">Address</a></div><a href="#"><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></a></div>
+                    <input type="checkbox" id="forPayment">
+                    <div class="orderInfo" id="payment"><label for="forPayment"><div><img src="{{ url_for('static', filename='pfp_images/payment.png') }}" alt="payment"> Payment Methods</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></label></div>
+                    <div>
+                        <form class="payVia" action="#">
+                            <div>Card Details</div>
+                            <div>Note: <span>This is a prototype app, do not enter real card details.</span></div>
+                            <input class="card" type="text" placeholder="0000 0000 0000 0000" autocomplete="off">
+                            <input type="submit" value="Done">
+                        </form>
+                    </div>
+                    <input type="checkbox" id="forAddress">
+                    <div class="orderInfo" id="address"><label for="forAddress"><div><img src="{{ url_for('static', filename='pfp_images/locate.png') }}" alt="address"> Address</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></label></div>
+                    <div>
+                        <form class="to" action="#">
+                            <div>Delivery Address</div>
+                            <div>Address</div>
+                            <textarea name="address" id="addy" autocomplete="off" autofocus placeholder="enter your full address starting with state"></textarea>
+                            <input type="submit" value="Done">
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
-
         <footer>
             <div class="footer-h">
                 <div>

@@ -3,6 +3,7 @@ from flask_session import Session
 from randomModules import password_sys, password_gen
 from cs50 import SQL
 import json
+from random import randint
 db = SQL("sqlite:///specialEats.db")
 
 app = Flask(__name__)
@@ -279,7 +280,11 @@ def checkout():
         # tPrice request contains total price
         x = []
         y = {}
-        items_count = request.form.get(".itemCount")
+        items_count = request.form.get("itemCount")
+        if int(items_count) >= 3:
+            n = randint(1, 20)
+        else:
+            n=""
         items = json.loads(request.form.get("items"))
         tPrice = request.form.get("totalPrice")
         for i in items:
@@ -287,7 +292,7 @@ def checkout():
         inCheckout = db.execute("SELECT url FROM meals WHERE id IN (?)", x)
         for meal, count in zip(inCheckout, items):
             y[meal.get("url")] = items[count]
-        return render_template("checkout.html", page_id = "checkout", co = y, tPrice = tPrice)
+        return render_template("checkout.html", paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
     
 
 if __name__ == '__main__':

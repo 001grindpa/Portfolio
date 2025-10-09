@@ -1276,18 +1276,14 @@ h2 {
  .pfpLogo + div:hover {
     background: rgba(211, 211, 211, 0.753);
  }
- .pfpLogo + div img {
-    width: 35px;
-    height: 35px;
- }
- .pfp {
+.pfp {
     position: relative;
     margin-top: -70px;
     margin-left: 50%;
     transform: translateX(-50%);
     padding: 7px;
     font-family: "Poppins";
- }
+}
 .pfp .editPfp {
     top: 30px;
     left: 50%;
@@ -1451,11 +1447,12 @@ form span {
 .orderInfo img {
     height: 30px;
     width: 30px;
+    margin-right: 5px;
 }
 .orderInfo .rightArrow {
-    height: 20px;
-    width: 20px;
-    padding: 5px;
+    height: 10px;
+    width: 10px;
+    padding: 10px;
     border-radius: 20px;
     transition: 0.3s;
 }
@@ -1468,21 +1465,156 @@ form span {
     justify-content: space-between;
     gap: 5px;
     width: 97%;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 5px;
     padding: 5px;
     border-radius: 15px;
     transition: 0.3s;
+    cursor: pointer;
 }
 .orderInfo .orderN {
     background-color: red;
     color: white;
     padding: 3px;
+    margin-right: 5px;
 }
 .orderInfo div {
     width: fit-content;
     display: flex;
     align-items: center;
+}
+#forPayment {
+    display: none;
+}
+#forPayment:checked ~ .orderInfo#payment + div {
+    display: block;
+}
+.orderInfo#payment label {
+    display: flex;
+    justify-content: space-between;
+    width: 102%;
+    border-radius: 15px;
+    margin: -5px;
+    cursor: pointer;
+}
+.orderInfo#payment + div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.349);
+    backdrop-filter: blur(2px);
+    z-index: 500;
+    display: none;
+}
+.payVia {
+    width: fit-content;
+    margin-top: 300px;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: orange;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    box-shadow: 2px 5px 9px 3px rgba(0, 0, 0, 0.842);
+}
+.payVia div:nth-child(1) {
+    font-weight: bold;
+    text-align: center;
+    color: green;
+    background-color: rgba(255, 255, 255, 0.603);
+    width: 80%;
+    margin: auto;
+}
+.payVia div:nth-child(2) span {
+    display: inline-block;
+    color: red;
+    font-weight: bolder;
+}
+.payVia .card, .payVia .card + input {
+    padding: 6px;
+}
+.payVia .card + input {
+    align-self: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    margin-left: auto;
+    background-color: black;
+    color: white;
+}
+.orderInfo#address label {
+    display: flex;
+    justify-content: space-between;
+    width: 102%;
+    border-radius: 15px;
+    margin: -5px;
+    cursor: pointer;
+}
+.orderInfo#address + div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.349);
+    backdrop-filter: blur(2px);
+    z-index: 500;
+    display: none;
+}
+.to {
+    margin-top: 300px;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: orange;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 5px 9px 3px rgba(0, 0, 0, 0.842);
+}
+.to #addy {
+    resize: none;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+.to div:nth-child(1) {
+    font-weight: bold;
+    text-align: center;
+    color: green;
+    background-color: rgba(255, 255, 255, 0.623);
+    width: 50%;
+    margin: auto;
+}
+.to div:nth-child(2) {
+    font-size: small;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.to #addy + input {
+    align-self: center;
+    margin-top: 10px;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+#forAddress {
+    display: none;
+}
+#forAddress:checked ~ .orderInfo#address + div {
+    display: block;
 }
 .myOrderH {
     font-size: large;
@@ -1496,7 +1628,6 @@ form span {
     margin: 10px;
     margin-left: auto;
     transition: 0.3s;
-    /* position: relative; */
     position: absolute;
     right: 0;
     top: 200px;
@@ -1539,8 +1670,6 @@ form span {
         grid-template-areas: 
         "pfp-one pfp-two";
         margin-top: 70px;
-        margin-left: 50px;
-        margin-right: 100px;
     }
     .pfp2 {
         display: grid;
@@ -1583,6 +1712,11 @@ form span {
     }
 }
 @media (min-width: 1000px) {
+    .profile {
+        width: 80%;
+        margin: auto;
+        margin-top: 70px;
+    }
     .forMail {
         margin: 2px;
     }
@@ -1855,6 +1989,7 @@ form span {
 .checkoutMain {
     background-color: rgba(211, 211, 211, 0.212);
     height: 100vh;
+    position: relative;
 }
 .cArea {
 	display: flex;
@@ -1877,6 +2012,7 @@ form span {
 .inCheckout {
     margin: 10px;
     display: flex;
+    justify-content: none;
     flex-flow: row wrap;
 }
 .checkoutItemCont {
@@ -1909,6 +2045,10 @@ form span {
 .shipping .x {
     font-weight: bold;
     margin-bottom: 10px;
+}
+.shipping .y {
+    display: flex;
+    gap: 5px;
 }
 .paymentM {
     margin-left: 5px;
@@ -1946,6 +2086,40 @@ form span {
 .summary .y .one.two {
     color: black;
     font-weight: bold;
+}
+.paidPrice {
+    display: none;
+    font-weight: bold;
+}
+.paynow {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 465px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(211, 211, 211, 0.37);
+    margin-left: 12px;
+    bottom: 100px;
+}
+.paynow span {
+    font-weight: bolder;
+}
+.paynow button {
+    padding: 7px;
+    font-size: small;
+    background-color: rgb(255, 0, 0);
+    opacity: 0.7;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+.paynow button:hover {
+    opacity: 1;
 }
 @media(min-width: 517px) {
     .checkoutMain {
