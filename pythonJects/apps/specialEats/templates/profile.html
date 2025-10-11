@@ -81,20 +81,20 @@
                     <input type="checkbox" id="forPayment">
                     <div class="orderInfo" id="payment"><label for="forPayment"><div><img src="{{ url_for('static', filename='pfp_images/payment.png') }}" alt="payment"> Payment Methods</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></label></div>
                     <div>
-                        <form class="payVia" action="#">
+                        <form class="payVia" action="/profile" method="post">
                             <div>Card Details</div>
                             <div>Note: <span>This is a prototype app, do not enter real card details.</span></div>
-                            <input class="card" type="text" placeholder="0000 0000 0000 0000" autocomplete="off">
+                            <input name="card" value="{{ card }}" class="card" type="number" placeholder="0000 0000 0000 0000" autocomplete="off">
                             <input type="submit" value="Done">
                         </form>
                     </div>
                     <input type="checkbox" id="forAddress">
                     <div class="orderInfo" id="address"><label for="forAddress"><div><img src="{{ url_for('static', filename='pfp_images/locate.png') }}" alt="address"> Address</div><img class="rightArrow" src="{{ url_for('static', filename='pfp_images/right-arrow.png') }}" alt="right-arrow"></label></div>
                     <div>
-                        <form class="to" action="#">
+                        <form class="to" action="profile">
                             <div>Delivery Address</div>
                             <div>Address</div>
-                            <textarea name="address" id="addy" autocomplete="off" autofocus placeholder="enter your full address starting with state"></textarea>
+                            <textarea name="address" id="addy" autocomplete="off" autofocus placeholder="enter your full address starting with state">{{ address }}</textarea>
                             <input type="submit" value="Done">
                         </form>
                     </div>

@@ -318,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	// js for profile page
 	else if (document.body.id === "profile") {
-
 		let editDetailsC = document.querySelector(".editInfo-bg");
 		let editDetails = document.querySelector(".editInfo");
 		let pfpCheck = document.querySelector("#pfpChange");
@@ -328,6 +327,79 @@ document.addEventListener('DOMContentLoaded', function(){
 		let addNot = document.querySelector(".addNot");
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
+		let payCheck = document.querySelector("#forPayment");
+		let paymentCont = document.querySelector(".orderInfo#payment + div");
+		let payment = document.querySelector(".payVia");
+		let addressCheck = document.querySelector("#forAddress");
+		let addressCont = document.querySelector(".orderInfo#address + div");
+		let address = document.querySelector(".to");
+
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+		addressCont.addEventListener("click", () => {
+			if (addressCheck.checked === true) {
+				addressCheck.checked = false;
+			}
+		});
+		address.addEventListener("click", (e) => {
+			e.stopPropagation();
+		});
+
+		address.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			let form = new FormData(address)
+			try {
+				let response = await fetch("/profile", {
+					method:"post",
+					body:form
+				});
+				let data = await response.json();
+				console.log(JSON.stringify(data));
+				addressCont.click();
+				addNot.textContent = data.msg;
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 3000);
+				setTimeout(removeClasses, 3500);
+			}
+			catch(error) {
+				console.log({msg: error});
+			}
+		});
+
+		paymentCont.addEventListener("click", () => {
+			if (payCheck.checked === true) {
+				payCheck.checked = false;
+			}
+		});
+		payment.addEventListener("click", (e) => {
+			e.stopPropagation();
+		});
+
+		payment.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			let form = new FormData(payment)
+			try {
+				let response = await fetch("/profile", {
+					method:"post",
+					body:form
+				})
+				let data = await response.json();
+				console.log(JSON.stringify(data));
+				paymentCont.click();
+				addNot.textContent = data.msg;
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 3000);
+				setTimeout(removeClasses, 3500);
+			}
+			catch(error) {
+				console.log({msg: error});
+			}
+		});
 
 		function afterLoad() {
 			page.style.opacity = "1";
@@ -337,11 +409,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		function slideOut() {
 			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
 		}
 
 		editpfp.addEventListener("submit", async (e) => {
@@ -357,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			addNot.classList.add("slide");
 			setTimeout(slideOut, 3000);
 			setTimeout(removeClasses, 3500);
-			setTimeout(() => this.location.reload(), 3500)
+			setTimeout(() => this.location.reload(), 3500);
 		});
 
 		editBtn.addEventListener("click", (event) => {
@@ -371,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 		editDetails.addEventListener("click", (event) => {
 			event.stopPropagation();
-		})
+		});
 		pfpCheck.addEventListener("change", () => {
 			if (pfpCheck.checked === true) {
 				body.style.overflow = "hidden";
@@ -379,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			// else if (pfpCheck.checked === false) {
 			// 	body.style.overflow = "auto";
 			// }
-		})
+		});
 	}
 
 	// js for south Nigerian cuisine dishes page
@@ -1318,11 +1385,11 @@ document.addEventListener('DOMContentLoaded', function(){
 		function slideOut() {
 			addNot.classList.add("slideOut");
 		}
-		// function removeClasses() {
-		// 	addNot.classList.remove("slide");
-		// 	addNot.classList.remove("showNot");
-		// 	addNot.classList.remove("slideOut");
-		// }
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
 		for (let i = 0; i < rmvForm.length; i++) {
 			rmvForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -1357,6 +1424,43 @@ document.addEventListener('DOMContentLoaded', function(){
 		let freePrices = document.querySelectorAll(".freeShip");
 		let total = document.querySelector("#total");
 		let tPrice = document.querySelector("#tPrice");
+		let addy = document.querySelector("#addy");
+		let addyPholder = document.querySelector("#addy-ph");
+		let cardPholder = document.querySelector("#card-ph");
+		let card = document.querySelector("#card");
+		let btn = document.querySelector(".paynow label");
+		let addNot = document.querySelector(".addNot");
+		addNot.style.backgroundColor = "red";
+
+		function slideOut() {
+			addNot.classList.add("slideOut");
+		}
+		function removeClasses() {
+			addNot.classList.remove("slide");
+			addNot.classList.remove("showNot");
+			addNot.classList.remove("slideOut");
+		}
+
+		btn.addEventListener("click", (e) => {
+			if (addy.textContent.trim() && card.textContent.trim()) {
+				console.log("you've successfully placed your order");
+			}
+			else {
+				e.preventDefault();
+				addNot.textContent = "Check address or payment method or both";
+				addNot.classList.add("showNot");
+				addNot.classList.add("slide");
+				setTimeout(slideOut, 4000);
+				setTimeout(removeClasses, 4500);
+			}
+		})
+
+		if (addy.textContent) {
+			addyPholder.style.display = "none";
+		}
+		if (card.textContent) {
+			cardPholder.style.display = "none";
+		}
 
 		if (paidPrice.textContent) {
 			for (let i = 0; i < paidPrices.length; i++) {

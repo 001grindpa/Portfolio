@@ -1472,6 +1472,9 @@ form span {
     transition: 0.3s;
     cursor: pointer;
 }
+.orderInfo:hover {
+    background-color: rgba(255, 166, 0, 0.192);
+}
 .orderInfo .orderN {
     background-color: red;
     color: white;
@@ -1546,6 +1549,7 @@ form span {
     margin-left: auto;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 .orderInfo#address label {
     display: flex;
@@ -2096,7 +2100,7 @@ form span {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 465px;
+    width: 450px;
     padding: 10px;
     border-radius: 15px;
     background-color: rgba(211, 211, 211, 0.37);
@@ -2106,7 +2110,8 @@ form span {
 .paynow span {
     font-weight: bolder;
 }
-.paynow button {
+.paynow label {
+    display: block;
     padding: 7px;
     font-size: small;
     background-color: rgb(255, 0, 0);
@@ -2118,9 +2123,58 @@ form span {
     border: none;
     cursor: pointer;
 }
-.paynow button:hover {
+.paynow label:hover {
     opacity: 1;
 }
+#success {
+    display: none;
+}
+#success:checked ~ .success {
+    display: block;
+}
+.success {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.349);
+    backdrop-filter: blur(2px);
+    z-index: 500;
+    display: none;
+}
+.innerSuccess {
+    width: fit-content;
+    margin-top: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: orange;
+    padding: 15px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 5px 9px 3px rgba(0, 0, 0, 0.842);
+    color: white;
+    font-weight: bolder;
+}
+.innerSuccess button {
+    display: block;
+    padding: 15px;
+    font-size: small;
+    background-color: green;
+    opacity: 0.7;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 30px;
+}
+.innerSuccess button:hover {
+    opacity: 1;
+}
+
 @media(min-width: 517px) {
     .checkoutMain {
         width: 510px;

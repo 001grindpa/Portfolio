@@ -138,21 +138,41 @@ def profile():
         last_name_new = request.form.get("last_name")
         gender_new = request.form.get("gender")
         e_mail_new = request.form.get("e_mail")
+        card = request.form.get("card")
+        address = request.form.get("address")
+
         userData_1 = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
         for data_1 in userData_1:
             user_id = data_1["id"]
+
+        if card:
+            db.execute("UPDATE userData SET card = ? WHERE id = ?", card, user_id)
+            msg = {"msg": "Payment details updated"}
+            return jsonify(msg)
+        if address:
+            db.execute("UPDATE userData SET address = ? WHERE id = ?", address, user_id)
+            msg2 = {"msg": "Shipping address updated"}
+            return jsonify(msg2)
         if username_new:
             db.execute("UPDATE userData SET username = ? WHERE id = ?", username_new, user_id)
+            response = {"msg": "Updating profile..."}
+            return jsonify(response)
         if first_name_new:
             db.execute("UPDATE userData SET first_name = ? WHERE id = ?", first_name_new, user_id)
+            response = {"msg": "Updating profile..."}
+            return jsonify(response)
         if last_name_new:
             db.execute("UPDATE userData SET last_name = ? WHERE id = ?", last_name_new, user_id)
+            response = {"msg": "Updating profile..."}
+            return jsonify(response)
         if gender_new:
             db.execute("UPDATE userData SET gender = ? WHERE id = ?", gender_new, user_id)
+            response = {"msg": "Updating profile..."}
+            return jsonify(response)
         if e_mail_new:
             db.execute("UPDATE userData SET e_mail = ? WHERE id = ?", e_mail_new, user_id)
-        response = {"msg": "Updating profile..."}
-        return jsonify(response)
+            response = {"msg": "Updating profile..."}
+            return jsonify(response)
     
     userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
     for data in userData:
@@ -161,7 +181,9 @@ def profile():
         username = data["username"]
         e_mail = data["e_mail"]
         gender = data["gender"]
-    return render_template("profile.html", first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
+        card = data["card"]
+        address = data["address"]
+    return render_template("profile.html", card = card, address = address, first_name = first_name, last_name = last_name, username = username, e_mail = e_mail, genders = genders, gender = gender, page_id = "profile")
 
 @app.route("/sCuisines")
 def sCuisines():
@@ -292,8 +314,11 @@ def checkout():
         inCheckout = db.execute("SELECT url FROM meals WHERE id IN (?)", x)
         for meal, count in zip(inCheckout, items):
             y[meal.get("url")] = items[count]
-        return render_template("checkout.html", paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
-    
+        details = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
+        for data in details:
+            address = data["address"]
+            card = data["card"]
+        return render_template("checkout.html", address = address, card = card, paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')

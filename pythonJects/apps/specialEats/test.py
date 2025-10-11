@@ -1,6 +1,6 @@
-from cs50 import SQL
+import csv
 
-db = SQL("sqlite:///specialEats.db")
-
-userData = db.execute("SELECT * FROM userData WHERE username = ?", "0xgrindpa")
-
+with open("meals.csv", "r") as file:
+    reader = csv.reader(file)
+    for meal in reader:
+        print(meal)

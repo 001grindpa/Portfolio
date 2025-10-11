@@ -6,13 +6,14 @@
         <div>Checkout Area</div><img src="{{ url_for('static', filename='images/specialEats_white.png') }}" alt="sp_logo">
     </header>
     <main class="checkoutMain">
-	    <a href="/profile">
-            <div class="addyBG">
+        <div class="addNot"></div>
+        <div class="addyBG">
+            <a href="/profile">
                 <div id="addy-ph">add an address</div>
-                <div id="addy">{{ user_address }}</div>
-                <img src="{{ url_for('static', filename='images/right-arrow.png') }}" alt="right_arrow">
-	        </div>
-        </a>
+                <div id="addy">{{ address }}</div>
+            </a>
+            <img src="{{ url_for('static', filename='images/right-arrow.png') }}" alt="right_arrow">
+        </div>
 		<div class="shipping">
 			<div class="x">Shipping method</div>
 			<div>
@@ -35,7 +36,8 @@
             <div class="x">Payment method</div>
             <div class="y">
                 <a href="/profile">
-                    <div>Add payment method</div>
+                    <div id="card-ph">Add payment method</div>
+                    <div id="card">{{ card }}</div>
                     <img src="{{ url_for('static', filename='images/right-arrow.png') }}" alt="right_arrow">
                 </a>
             </div>
@@ -52,7 +54,14 @@
                 <div class="paidPrice">$<span id="paidPrice">{{ paidShip }}</span></div>
             </div>
         </div>
-        <div class="paynow"><div>Total: <span>US $</span><span id="total"></span></div><button>Pay now</button></div>
+        <div class="paynow">
+            <div>Total: <span>US $</span><span id="total"></span></div>
+            <input type="checkbox" id="success">
+            <label for="success">Pay now</label>
+            <div class="success">
+                <div class="innerSuccess"><div>You've successfully placed your order</div><a href="/"><button>Done</button></a></div>
+            </div>
+        </div>
     </main>
 
 {% endblock %}
