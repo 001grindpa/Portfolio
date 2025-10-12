@@ -3,6 +3,7 @@ from flask_session import Session
 from randomModules import password_sys, password_gen
 from cs50 import SQL
 import json
+import ast
 from random import randint
 db = SQL("sqlite:///specialEats.db")
 
@@ -291,9 +292,19 @@ def cart():
 def remove():
     if request.method == "POST":
         meal_id = request.form.get("meal_id")
-        db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
-        promise = {"msg": "removing this dish from your cart..."}
-        return jsonify(promise)
+        in_cart = request.form.get("in_cart")
+        if in_cart is not None:
+            new_in_cart = ast.literal_eval(in_cart)
+        else:
+            new_in_cart = False
+        if meal_id:
+            db.execute("DELETE FROM cart WHERE item_id = ?", meal_id)
+            promise = {"msg": "removing this dish from your cart..."}
+            return jsonify(promise)
+        if in_cart:
+            db.execute("DELETE FROM cart WHERE item_id IN (?)", new_in_cart)
+            msg = {"msg": "Ordered items are removed from cart"}
+            return jsonify(msg)
 
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
@@ -318,7 +329,7 @@ def checkout():
         for data in details:
             address = data["address"]
             card = data["card"]
-        return render_template("checkout.html", address = address, card = card, paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
+        return render_template("checkout.html", x = x, address = address, card = card, paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')

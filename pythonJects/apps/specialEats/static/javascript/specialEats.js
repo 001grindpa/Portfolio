@@ -452,9 +452,9 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for south Nigerian cuisine dishes page
 	else if (document.body.id === "sCuisine") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
+		let addNotCont = document.querySelector(".addNotCont");
 		let uk_flag = document.querySelector('#flag_1');
 		let languages = document.querySelector('#languages');
 		let uk_flag_2 = document.querySelector('#flag_2');
@@ -507,14 +507,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	    });	
 
 		// slideIn slideOut
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
+		
 		for (let i = 0; i < addForm.length; i++) { 
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -522,6 +515,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				load[i].style.display = "block";
 				btn.disabled = true;
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i]);
 					let response = await fetch("/cart", {method: "POST", body: formContent});
 					let data = await response.json();
@@ -539,6 +536,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", d.count);
 					c2.setAttribute("data-cartCount", d.count);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -548,7 +554,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for North Nigerian cuisine dishes page
 	else if (document.body.id === "nCuisine") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
 		let uk_flag = document.querySelector('#flag_1');
@@ -602,14 +608,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -618,6 +616,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i]);
 					let response = await fetch("/cart", {method: "POST", body: formContent});
 					let data = await response.json();
@@ -635,6 +637,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", d.count);
 					c2.setAttribute("data-cartCount", d.count);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -644,7 +655,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for west Nigerian cuisine dishes page
 	else if (document.body.id === "wCuisine") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
 		let uk_flag = document.querySelector('#flag_1');
@@ -698,14 +709,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -714,6 +717,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -731,6 +738,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", d.count);
 					c2.setAttribute("data-cartCount", d.count);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -740,7 +756,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for east Nigerian cuisine dishes page
 	else if (document.body.id === "eCuisine") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
 		let uk_flag = document.querySelector('#flag_1');
@@ -794,14 +810,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -810,6 +818,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -827,6 +839,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", d.count);
 					c2.setAttribute("data-cartCount", d.count);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -835,7 +856,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for veggies page
 	else if (document.body.id === "veggie") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
 		let uk_flag = document.querySelector('#flag_1');
@@ -889,14 +910,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -905,6 +918,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -922,6 +939,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", d.count);
 					c2.setAttribute("data-cartCount", d.count);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -930,7 +956,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for snacks page
 	else if (document.body.id === "snacks") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
 		let uk_flag = document.querySelector('#flag_1');
@@ -984,14 +1010,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -1000,6 +1018,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -1017,6 +1039,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", d.count);
 					c2.setAttribute("data-cartCount", d.count);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -1025,7 +1056,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for desserts and pudding page 
 	else if (document.body.id === "dandp") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
 		let uk_flag = document.querySelector('#flag_1');
@@ -1079,14 +1110,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -1095,6 +1118,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -1112,6 +1139,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", d.count);
 					c2.setAttribute("data-cartCount", d.count);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -1119,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 	else if (document.body.id === "cereal") {
 		let addForm = document.querySelectorAll(".cartFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let hambugger = document.querySelector('#menuCheck');
 		let main = document.querySelector('main');
 		let uk_flag = document.querySelector('#flag_1');
@@ -1173,14 +1209,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 	    });	
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
 		for (let i = 0; i < addForm.length; i++) {
 			addForm[i].addEventListener("submit", (e) => {
 				e.preventDefault();
@@ -1189,6 +1217,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(addForm[i])
 					let response = await fetch("/cart", {method: "POST", body: formContent})
 					let data = await response.json()
@@ -1206,6 +1238,15 @@ document.addEventListener('DOMContentLoaded', function(){
 					let d = await resp.json();
 					c1.setAttribute("data-cartCount", parseInt(d.count));
 					c2.setAttribute("data-cartCount", parseInt(d.count));
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+					function removeClasses() {
+						addNot.classList.remove("slide");
+						addNot.classList.remove("showNot");
+						addNot.classList.remove("slideOut");
+					}
 				}
 				setTimeout(retrieve, 2000);
 			});
@@ -1215,7 +1256,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	// js for cart page
 	else if (document.body.id === "cart") {
 		let rmvForm = document.querySelectorAll(".rmvFrm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let load = document.querySelectorAll(".b1");
 		let loadText = document.querySelectorAll(".b2");
 		let btn = document.querySelector(".b");
@@ -1392,6 +1433,10 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 		for (let i = 0; i < rmvForm.length; i++) {
 			rmvForm[i].addEventListener("submit", (e) => {
+				let addNot = document.createElement("div");
+				addNot.classList.add("addNot");
+				addNotCont.prepend(addNot);
+
 				e.preventDefault();
 				addNot.textContent = "Removing this dish from your cart...";
 				addNot.classList.add("showNot");
@@ -1401,8 +1446,12 @@ document.addEventListener('DOMContentLoaded', function(){
 				btn.disabled = true;
 
 				async function retrieve() {
+					let addNot = document.createElement("div");
+					addNot.classList.add("addNot");
+					addNotCont.prepend(addNot);
+
 					let formContent = new FormData(rmvForm[i])
-					let response = await fetch("/remove", {method: "POST", body: formContent})
+					let response = await fetch("/remove", {method: "post", body: formContent})
 					let data = await response.json()
 					console.log(JSON.stringify(data))
 					
@@ -1429,6 +1478,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		let cardPholder = document.querySelector("#card-ph");
 		let card = document.querySelector("#card");
 		let btn = document.querySelector(".paynow label");
+		let form = document.querySelector("#form");
 		let addNot = document.querySelector(".addNot");
 		addNot.style.backgroundColor = "red";
 
@@ -1441,8 +1491,15 @@ document.addEventListener('DOMContentLoaded', function(){
 			addNot.classList.remove("slideOut");
 		}
 
-		btn.addEventListener("click", (e) => {
+		btn.addEventListener("click", async (e) => {
 			if (addy.textContent.trim() && card.textContent.trim()) {
+				let frm = new FormData(form)
+				let response = await fetch("/remove", {
+					method: "post",
+					body: frm
+				})
+				let data = await response.json();
+				console.log(JSON.stringify(data));
 				console.log("you've successfully placed your order");
 			}
 			else {

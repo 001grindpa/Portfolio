@@ -1,6 +1,5 @@
-import csv
+import json
 
-with open("meals.csv", "r") as file:
-    reader = csv.reader(file)
-    for meal in reader:
-        print(meal)
+data = json.loads('["4", "88", "4"]')
+
+print(data)

@@ -55,6 +55,9 @@
             </div>
         </div>
         <div class="paynow">
+            <form id="form" action="#">
+                <input name="in_cart" type="hidden" value="{{ x }}">
+            </form>
             <div>Total: <span>US $</span><span id="total"></span></div>
             <input type="checkbox" id="success">
             <label for="success">Pay now</label>

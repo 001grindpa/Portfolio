@@ -1754,17 +1754,23 @@ form span {
 }
 
 /* styling for south nigeria cuisine page */
-.addNot {
+.addNotCont {
     position: fixed;
     top: 120px;
     right: 5px;
     width: fit-content;
     padding: 7px;
-    border-radius: 5px;
+    background: transparent;
+    color: white;
+}
+.addNot {
+    width: fit-content;
+    padding: 7px;
     background: rgba(0, 128, 0, 0.562);
     color: white;
     display: none;
-    opacity: 0;
+    margin: 5px;
+    border-radius: 5px;
 }
 .showNot {
     display: block;
