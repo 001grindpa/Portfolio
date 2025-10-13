@@ -145,7 +145,7 @@ def profile():
         userData_1 = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
         for data_1 in userData_1:
             user_id = data_1["id"]
-
+        #account change
         if card:
             db.execute("UPDATE userData SET card = ? WHERE id = ?", card, user_id)
             msg = {"msg": "Payment details updated"}
@@ -154,26 +154,20 @@ def profile():
             db.execute("UPDATE userData SET address = ? WHERE id = ?", address, user_id)
             msg2 = {"msg": "Shipping address updated"}
             return jsonify(msg2)
+        
+        #bio change
         if username_new:
             db.execute("UPDATE userData SET username = ? WHERE id = ?", username_new, user_id)
-            response = {"msg": "Updating profile..."}
-            return jsonify(response)
         if first_name_new:
             db.execute("UPDATE userData SET first_name = ? WHERE id = ?", first_name_new, user_id)
-            response = {"msg": "Updating profile..."}
-            return jsonify(response)
         if last_name_new:
             db.execute("UPDATE userData SET last_name = ? WHERE id = ?", last_name_new, user_id)
-            response = {"msg": "Updating profile..."}
-            return jsonify(response)
         if gender_new:
             db.execute("UPDATE userData SET gender = ? WHERE id = ?", gender_new, user_id)
-            response = {"msg": "Updating profile..."}
-            return jsonify(response)
         if e_mail_new:
             db.execute("UPDATE userData SET e_mail = ? WHERE id = ?", e_mail_new, user_id)
-            response = {"msg": "Updating profile..."}
-            return jsonify(response)
+        response = {"msg": "Updating profile..."}
+        return jsonify(response)
     
     userData = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
     for data in userData:

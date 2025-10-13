@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		let editBtn = document.querySelector(".a");
 		let body = document.querySelector("body");
 		let editpfp = document.querySelector("#editpfpForm");
-		let addNot = document.querySelector(".addNot");
+		let addNotCont = document.querySelector(".addNotCont");
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
 		let payCheck = document.querySelector("#forPayment");
@@ -350,6 +350,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		address.addEventListener("submit", async (e) => {
 			e.preventDefault();
+			let addNot = document.createElement("div");
+			addNot.classList.add("addNot");
+			addNotCont.prepend(addNot);
+
 			let form = new FormData(address)
 			try {
 				let response = await fetch("/profile", {
@@ -364,6 +368,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				addNot.classList.add("slide");
 				setTimeout(slideOut, 3000);
 				setTimeout(removeClasses, 3500);
+
+				function slideOut() {
+					addNot.classList.add("slideOut");
+				}
 			}
 			catch(error) {
 				console.log({msg: error});
@@ -381,6 +389,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		payment.addEventListener("submit", async (e) => {
 			e.preventDefault();
+			let addNot = document.createElement("div");
+			addNot.classList.add("addNot");
+			addNotCont.prepend(addNot);
+
 			let form = new FormData(payment)
 			try {
 				let response = await fetch("/profile", {
@@ -395,6 +407,9 @@ document.addEventListener('DOMContentLoaded', function(){
 				addNot.classList.add("slide");
 				setTimeout(slideOut, 3000);
 				setTimeout(removeClasses, 3500);
+				function slideOut() {
+					addNot.classList.add("slideOut");
+				}
 			}
 			catch(error) {
 				console.log({msg: error});
@@ -407,13 +422,13 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 		window.addEventListener("load", afterLoad);
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-
 		editpfp.addEventListener("submit", async (e) => {
 			e.preventDefault();
 			pfpCheck.checked = false;
+			let addNot = document.createElement("div");
+			addNot.classList.add("addNot");
+			addNotCont.prepend(addNot);
+
 			let formDetails = new FormData(editpfp);
 			let response = await fetch("/profile", {method: "POST", body: formDetails});
 			let data = await response.json();
@@ -425,6 +440,10 @@ document.addEventListener('DOMContentLoaded', function(){
 			setTimeout(slideOut, 3000);
 			setTimeout(removeClasses, 3500);
 			setTimeout(() => this.location.reload(), 3500);
+
+			function slideOut() {
+				addNot.classList.add("slideOut");
+			}
 		});
 
 		editBtn.addEventListener("click", (event) => {
@@ -1262,7 +1281,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		let btn = document.querySelector(".b");
 		let page = document.querySelector(".z");
 		let caroLoad = document.querySelector("#z");
-		let cuisines = document.querySelectorAll(".sCuisine");
+		let cuisines = document.querySelectorAll(".cartItemCont");
 		let eCart = document.querySelector(".eCart");
 		let sCheck = document.querySelectorAll(".sCheck");
 		let payFor = document.querySelectorAll(".payFor label");
@@ -1477,45 +1496,61 @@ document.addEventListener('DOMContentLoaded', function(){
 		let addyPholder = document.querySelector("#addy-ph");
 		let cardPholder = document.querySelector("#card-ph");
 		let card = document.querySelector("#card");
-		let btn = document.querySelector(".paynow label");
+		let btn = document.querySelector("#success");
 		let form = document.querySelector("#form");
-		let addNot = document.querySelector(".addNot");
-		addNot.style.backgroundColor = "red";
+		let addNotCont = document.querySelector(".addNotCont");
+		let confetti = document.querySelector(".confetti");
+		let loading = document.querySelector("#success + label span img");
 
-		function slideOut() {
-			addNot.classList.add("slideOut");
-		}
-		function removeClasses() {
-			addNot.classList.remove("slide");
-			addNot.classList.remove("showNot");
-			addNot.classList.remove("slideOut");
-		}
-
-		btn.addEventListener("click", async (e) => {
+		btn.addEventListener("click", (e) => {
 			if (addy.textContent.trim() && card.textContent.trim()) {
-				let frm = new FormData(form)
-				let response = await fetch("/remove", {
-					method: "post",
-					body: frm
-				})
-				let data = await response.json();
-				console.log(JSON.stringify(data));
-				console.log("you've successfully placed your order");
+				e.preventDefault();
+				loading.style.display = "block";
+
+				setTimeout(async () => {
+					let frm = new FormData(form)
+					let response = await fetch("/remove", {
+						method: "post",
+						body: frm
+					})
+					let data = await response.json();
+					console.log(JSON.stringify(data));
+					btn.checked = true;
+					loading.style.display = "none";
+
+					confetti.style.display = "block";
+					setTimeout(() => confetti.style.display = "none", 4000);
+					console.log("you've successfully placed your order");
+				}, 2000);
 			}
 			else {
 				e.preventDefault();
+				let addNot = document.createElement("div");
+				addNot.classList.add("addNot");
+				addNotCont.prepend(addNot);
+				addNot.style.backgroundColor = "red";
+				
 				addNot.textContent = "Check address or payment method or both";
 				addNot.classList.add("showNot");
 				addNot.classList.add("slide");
 				setTimeout(slideOut, 4000);
 				setTimeout(removeClasses, 4500);
+
+				function slideOut() {
+					addNot.classList.add("slideOut");
+				}
+				function removeClasses() {
+					addNot.classList.remove("slide");
+					addNot.classList.remove("showNot");
+					addNot.classList.remove("slideOut");
+				}
 			}
 		})
 
-		if (addy.textContent) {
+		if (addy.textContent.trim()) {
 			addyPholder.style.display = "none";
 		}
-		if (card.textContent) {
+		if (card.textContent.trim()) {
 			cardPholder.style.display = "none";
 		}
 

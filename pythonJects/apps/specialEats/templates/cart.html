@@ -8,11 +8,12 @@
                 <header><div>Cart Area</div><img src="{{ url_for('static', filename='images/specialEats_white.png') }}" alt="sp_logo"></header>
                 <main>
                     <div class="addNotCont"></div>
-                    <div class="sCuisine-cont">
+                    <div class="cartMainCont">
                         {% for meal in cart_meals %}
-                        <div class="pands">
+                        <div class="cartItemCont">
+                            <div class="itemLine"></div>
                             <div class="payFor"><input class="sCheck" id="sCheck{{ meal.id }}" type="checkbox" data-x="{{ meal.id }}" value="{{ meal.price }}"><label for="sCheck{{ meal.id }}"></label></div>
-                            <div class="sCuisine">
+                            <div class="innerCartCont">
                                 <img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
                                 <div class="one">
                                     <div>

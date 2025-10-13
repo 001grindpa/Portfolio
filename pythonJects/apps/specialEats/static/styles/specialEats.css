@@ -1884,6 +1884,7 @@ form span {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
 /* styling for cart page */
 
 .cartCont {
@@ -1913,10 +1914,28 @@ form span {
     opacity: 0.3;
     flex: 1 0 auto;
 }
-.pands {
-	display: flex;
-	align-items: center;
-	justify-content: center;	
+.itemLine {
+    height: 200px;
+    width: 2px;
+    background-color: orange;
+    margin-left: 20px;
+}
+.cartMainCont {
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.cartItemCont {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    width: fit-content;
+    height: 22rem;
+}
+.innerCartCont img {
+    width: 200px;
 }
 .sCheck {
 	display: none;
@@ -1927,7 +1946,7 @@ form span {
 	width: 15px;
 	border-radius: 20px;
 	border: 2px solid black;
-	margin-left: 20px;
+    margin-top: 100px;
 	cursor: pointer;
 }
 .payFor label:hover {
@@ -1995,7 +2014,21 @@ form span {
 	opacity: 1;
 }
 
-/* styling for cart page  */
+/* styling for checkout page  */
+.confetti {
+    position: fixed;
+    text-align: center;
+    padding-top: 180px;
+    top: 70px;
+    bottom: 0;
+    z-index: 10;
+    width: 510px;
+    margin: auto;
+    display: none;
+}
+.confetti img {
+    width: 350px;
+}
 .checkoutMain {
     background-color: rgba(211, 211, 211, 0.212);
     height: 100vh;
@@ -2038,6 +2071,10 @@ form span {
     font-weight: bolder;
     top: 10px;
     left: 10px;
+}
+a .addyBG {
+    display: flex;
+    justify-content: space-between;
 }
 .addyBG img {
     width: 10px;
@@ -2149,6 +2186,16 @@ form span {
     z-index: 500;
     display: none;
 }
+#success + label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#success + label span img {
+    display: none;
+    margin: -10px;
+    width: 30px;
+}
 .innerSuccess {
     width: fit-content;
     margin-top: 300px;
@@ -2166,6 +2213,7 @@ form span {
     display: block;
     padding: 15px;
     font-size: small;
+    font-weight: bold;
     background-color: green;
     opacity: 0.7;
     padding-left: 60px;
@@ -2180,7 +2228,11 @@ form span {
 .innerSuccess button:hover {
     opacity: 1;
 }
-
+.innerSuccess .b {
+    margin-top: 3px;
+    background-color: white;
+    color: green;
+}
 @media(min-width: 517px) {
     .checkoutMain {
         width: 510px;
