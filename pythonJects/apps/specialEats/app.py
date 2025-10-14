@@ -73,7 +73,7 @@ def signup():
             session["first_name"] = first_name
             session["last_name"] = last_name
             session["d_o_b"] = d_o_b
-            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender) VALUES(?, ?, ?, ?, ?, ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("d_o_b"), "example@email.com", "null")
+            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender, card, address) VALUES(?, ?, ?, ?, ?, ?, ?. ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("d_o_b"), "example@email.com", "null", "", "")
             return redirect("/")
         else:
             return render_template("pWordError.html")
