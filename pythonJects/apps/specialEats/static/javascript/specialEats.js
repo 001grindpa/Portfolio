@@ -1497,10 +1497,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		let cardPholder = document.querySelector("#card-ph");
 		let card = document.querySelector("#card");
 		let btn = document.querySelector("#success");
-		let form = document.querySelector("#form");
 		let addNotCont = document.querySelector(".addNotCont");
 		let confetti = document.querySelector(".confetti");
 		let loading = document.querySelector("#success + label span img");
+		let orderTotal = document.querySelector("#orderTotal");
+		let form = document.querySelector("#orders");
+		let form2 = document.querySelector("#form");
+		// let x = document.querySelector("#item_info");
+		// console.log(x.value)
 
 		btn.addEventListener("click", (e) => {
 			if (addy.textContent.trim() && card.textContent.trim()) {
@@ -1508,13 +1512,21 @@ document.addEventListener('DOMContentLoaded', function(){
 				loading.style.display = "block";
 
 				setTimeout(async () => {
-					let frm = new FormData(form)
-					let response = await fetch("/remove", {
+					let frm = new FormData(form);
+					let response = await fetch("/orders", {
 						method: "post",
 						body: frm
-					})
+					});
 					let data = await response.json();
-					console.log(JSON.stringify(data));
+					console.log(JSON.stringify(data.msg));
+
+					let frm2 = new FormData(form2)
+					let response2 = await fetch("/remove", {
+						method: "post",
+						body: frm2
+					});
+					let data2 = await response2.json();
+					console.log(JSON.stringify(data2));
 					btn.checked = true;
 					loading.style.display = "none";
 
@@ -1561,9 +1573,13 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 
 			total.textContent = (Number(tPrice.textContent) + Number(paidPrice.textContent)).toFixed(2);
+			orderTotal.value = total.textContent;
+			console.log(orderTotal.value)
 		}
 		else {
 			total.textContent = parseFloat(tPrice.textContent);
+			orderTotal.value = total.textContent;
+			console.log(orderTotal.value)
 		}
 	}
 })

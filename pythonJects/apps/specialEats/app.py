@@ -73,7 +73,7 @@ def signup():
             session["first_name"] = first_name
             session["last_name"] = last_name
             session["d_o_b"] = d_o_b
-            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender, card, address) VALUES(?, ?, ?, ?, ?, ?, ?. ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("d_o_b"), "example@email.com", "null", "", "")
+            db.execute("INSERT INTO userData(username, password, first_name, last_name, d_o_b, e_mail, gender, card, address) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", session.get("username"), session.get("password"), session.get("first_name"), session.get("last_name"), session.get("d_o_b"), "example@email.com", "null", " ", " ")
             return redirect("/")
         else:
             return render_template("pWordError.html")
@@ -323,7 +323,41 @@ def checkout():
         for data in details:
             address = data["address"]
             card = data["card"]
-        return render_template("checkout.html", x = x, address = address, card = card, paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
+        return render_template("checkout.html", items = items, x = x, address = address, card = card, paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
 
+@app.route("/orders", methods=["GET", "POST"])
+def orders():
+    if request.method == "POST":
+        buggy_item_info_json = request.form.get("item_info")
+        #to fix the json object we need to replace every single quoted property key with double quote
+        fixed_item_info_json = buggy_item_info_json.replace("'", '"')
+        item_info = json.loads(fixed_item_info_json)
+        orderTotal = request.form.get("orderTotal", " ")
+        user_data = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+        for data in user_data:
+            user_id = data.get("id")
+
+        db.execute("INSERT INTO orderIDs(username) VALUES(?)", session.get("username"))
+        data = db.execute("SELECT COUNT(*) AS order_id FROM orderIDs")
+
+        #filling up the orders table with neccesary details
+        for id in item_info:
+            #assigning an order id
+            for x in data:
+                order_id = x.get("order_id")
+                db.execute("INSERT INTO orders(order_id) VALUES(?)", order_id)
+
+            db.execute("UPDATE orders SET user_id = ? WHERE order_id = ? AND user_id IS NULL", user_id, order_id)
+
+            db.execute("UPDATE orders SET quantity = ? WHERE order_id = ? AND quantity IS NULL", item_info[id], order_id)
+            db.execute("UPDATE orders SET order_total_price = ? WHERE order_id = ? AND order_total_price IS NULL", orderTotal, order_id)
+            name_price = db.execute("SELECT name, price FROM meals WHERE id = ?", id)
+            for info in name_price:
+                name = info.get("name")
+                price = info.get("price")
+            db.execute("UPDATE orders SET meal = ? WHERE order_id = ? AND meal IS NULL", name, order_id)
+            db.execute("UPDATE orders SET price = ? WHERE order_id = ? AND price IS NULL", price, order_id)
+        return jsonify({"msg": "user order updated"})
+        
 if __name__ == '__main__':
     app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')

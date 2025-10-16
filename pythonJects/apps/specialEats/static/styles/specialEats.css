@@ -1486,6 +1486,10 @@ form span {
     display: flex;
     align-items: center;
 }
+a .orderInfo {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
 #forPayment {
     display: none;
 }
@@ -1497,7 +1501,6 @@ form span {
     justify-content: space-between;
     width: 102%;
     border-radius: 15px;
-    margin: -5px;
     cursor: pointer;
 }
 .orderInfo#payment + div {
@@ -1556,7 +1559,6 @@ form span {
     justify-content: space-between;
     width: 102%;
     border-radius: 15px;
-    margin: -5px;
     cursor: pointer;
 }
 .orderInfo#address + div {
@@ -1762,6 +1764,7 @@ form span {
     padding: 7px;
     background: transparent;
     color: white;
+    z-index: 200;
 }
 .addNot {
     width: fit-content;

@@ -56,8 +56,14 @@
             </div>
         </div>
         <div class="paynow">
-            <form id="form" action="#">
+            <form id="form" action="/remove">
                 <input name="in_cart" type="hidden" value="{{ x }}">
+            </form>
+            <!--The form below contains, meal_id-quantity (in items), order total-->
+            <form id="orders" action="/orders" method="post">
+                <input id="item_info" name="item_info" type="hidden" value="{{ items }}">
+                <input name="orderTotal" id="orderTotal" type="hidden">
+                <!--js assigns the value of the orderTotal tag above dynamically based on shipping fee-->
             </form>
             <div>Total: <span>US $</span><span id="total"></span></div>
             <input type="checkbox" id="success">
