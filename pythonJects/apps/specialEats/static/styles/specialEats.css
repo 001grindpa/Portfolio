@@ -2243,3 +2243,22 @@ a .addyBG {
         margin: auto;
     }
 }
+
+/*error page*/
+.errorImg {
+    text-align: center;
+    outline: 1px solid red;
+    margin-top: 10px;
+}
+.errorImg img {
+    width: 450px;
+    margin-top: 200px;
+}
+.errorImg div:nth-child(1) {
+    outline: 1px solid black;
+    width: fit-content;
+    padding: 5px;
+    font-weight: bolder;
+    font-size: large;
+    margin: auto;
+}

@@ -358,6 +358,14 @@ def orders():
             db.execute("UPDATE orders SET meal = ? WHERE order_id = ? AND meal IS NULL", name, order_id)
             db.execute("UPDATE orders SET price = ? WHERE order_id = ? AND price IS NULL", price, order_id)
         return jsonify({"msg": "user order updated"})
-        
+
+@app.route("/redirected")
+def redirected_page():
+    return render_template("redirect.html")
+
+@app.errorhandler(404)
+def error(e):
+    return redirect(url_for("redirected"))
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <main>
+        <div class="errorImg">
+            <div>Error 404</div>
+            <img src="{{ url_for('static', filename='images/page_not_found_w.png') }}" alt="trash">
+            <div>Oops... Looks like this page got tossed out with last night's leftovers.</div>
+        </div>
+    </main>
+
+{% endblock %}
