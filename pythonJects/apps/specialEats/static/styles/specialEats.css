@@ -2245,20 +2245,35 @@ a .addyBG {
 }
 
 /*error page*/
-.errorImg {
+.error {
     text-align: center;
-    outline: 1px solid red;
-    margin-top: 10px;
-}
-.errorImg img {
-    width: 450px;
-    margin-top: 200px;
-}
-.errorImg div:nth-child(1) {
-    outline: 1px solid black;
-    width: fit-content;
-    padding: 5px;
-    font-weight: bolder;
-    font-size: large;
+    /* margin-top: 10px; */
     margin: auto;
+}
+.errorH {
+    font-weight: bolder;
+    background-color: lightgreen;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+.error img {
+    width: 450px;
+    margin-top: 20px;
+}
+.error div {
+    background-color: orange;
+    padding: 10px;
+    width: fit-content;
+    margin: auto;
+    color: white;
+}
+
+/* Order page styling */
+
+.orderH {
+    color: white;
+    padding: 10px;
+    font-size: large;
+    font-weight: bold;
 }

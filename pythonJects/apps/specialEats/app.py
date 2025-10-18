@@ -358,6 +358,25 @@ def orders():
             db.execute("UPDATE orders SET meal = ? WHERE order_id = ? AND meal IS NULL", name, order_id)
             db.execute("UPDATE orders SET price = ? WHERE order_id = ? AND price IS NULL", price, order_id)
         return jsonify({"msg": "user order updated"})
+    meals = []
+    counts = []
+    order_ids = []
+    user = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
+    for id in user:
+        user_identity = id.get("id")
+
+    order_details = db.execute("SELECT * FROM orders WHERE user_id = ?", user_identity)
+    for details in order_details:
+        order_identity = details.get("order_id")
+        order_ids.append(order_identity)
+        quantity = details.get("quantity")
+        counts.append(quantity)
+        meal_name = details.get("meal")
+        meals.append(meal_name)
+    name_and_price = db.execute("SELECT * FROM meals WHERE name IN (?)", meals)
+
+    return render_template("orders.html", page_id = "orders", counts = counts, order_ids = order_ids, name_and_price = name_and_price)
+
 
 @app.route("/redirected")
 def redirected_page():
@@ -365,7 +384,7 @@ def redirected_page():
 
 @app.errorhandler(404)
 def error(e):
-    return redirect(url_for("redirected"))
+    return redirect("/redirected")
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000, use_reloader=True, reloader_type='watchdog')
