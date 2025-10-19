@@ -5,5 +5,26 @@
     <header class="orderH">
         <div>Orders Area</div>
     </header>
+    <main>
+        {% for count, order_id, npi in zip(counts, order_ids, name_price_img) %}
+        <div class="orderCont">
+            <div class="orderId">Order ID: {{ order_id }}</div>
+            <div class="status"><div>In transit</div><div class="date">Oct 20, 2025</div></div>
+            <div class="orderDiv"></div>
+            <div class="size">
+                <div>
+                    <img src="{{ url_for('static', filename=npi['url']) }}" alt="meal_images">
+                    <div>
+                        <div class="orderName">{{ npi["name"] }}</div>
+                        <div class="orderPrice">${{ npi["price"] }}</div>
+                    </div>
+                </div>
+                <div>x <span class="orderCount">{{ count }}</span></div>
+            </div>
+            <div class="orderDiv"></div>
+            <div class="orderTotalCont">Total for {{ count }} items: $ <span class="orderTotal"></span></div>
+        </div>
+        {% endfor %}
+    </main>
 
 {% endblock %}

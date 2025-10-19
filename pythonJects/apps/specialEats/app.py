@@ -373,9 +373,9 @@ def orders():
         counts.append(quantity)
         meal_name = details.get("meal")
         meals.append(meal_name)
-    name_and_price = db.execute("SELECT * FROM meals WHERE name IN (?)", meals)
+    name_price_img = db.execute("SELECT * FROM meals WHERE name IN (?)", meals)
 
-    return render_template("orders.html", page_id = "orders", counts = counts, order_ids = order_ids, name_and_price = name_and_price)
+    return render_template("orders.html", page_id = "orders", zip = zip, counts = counts, order_ids = order_ids, name_price_img = name_price_img)
 
 
 @app.route("/redirected")

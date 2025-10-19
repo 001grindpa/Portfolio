@@ -2277,3 +2277,74 @@ a .addyBG {
     font-size: large;
     font-weight: bold;
 }
+.orderH + main {
+    flex-flow: row wrap;
+}
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.status div:nth-child(1) {
+    font-weight: bold;
+    font-size: large;
+}
+.status div:nth-child(2) {
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.452);
+}
+.orderCont {
+    outline: 1px dashed orange;
+    background-color: rgba(255, 255, 255, 0.264);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.orderCont img {
+    width: 100px;
+}
+.orderCont .size {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.orderCont .size div:nth-child(1) {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.orderDiv {
+    height: 1px;
+    width: 95%;
+    margin: auto;
+    background-color: lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.orderTotalCont {
+    text-align: right;
+    padding: 5px;
+    font-size: large;
+    font-weight: bolder;
+}
+.orderName {
+    font-weight: bold;
+    font-size: small;
+    margin-bottom: 20px;
+}
+.orderPrice {
+    font-size: larger;
+    font-weight: bold;
+}
+.orderId {
+    font-weight: bold;
+    font-size: small;
+    color: rgba(0, 0, 0, 0.541);
+}
+
+@media(min-width: 860px) {
+    .orderH + main {
+        display: flex;
+    }
+}
