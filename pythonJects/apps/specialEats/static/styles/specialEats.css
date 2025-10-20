@@ -1032,7 +1032,7 @@ h2 {
 .choices {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50.6%);
     top: 545px;
     padding: 10px;
     display: grid;
@@ -1064,6 +1064,7 @@ h2 {
     padding: 15px;
     padding-left: 30px;
     padding-right: 30px;
+    text-align: center;
 }
 .choiceC h2 {
     text-align: left;
@@ -1073,14 +1074,15 @@ h2 {
 .choice-1 {
     display: grid;
     justify-content: center;
-    width: 400px;
+    width: 300px;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
     background-color: white;
-    gap: 20px;
+    font-weight: bold;
+    gap: 10px;
 }
 .choice-1 img {
-    width: 200px;
+    width: 130px;
 }
 
 /* congiguring the cuisines from different regions */
@@ -1098,12 +1100,11 @@ h2 {
     grid-area: choice-4;
 }
 .adContainer {
-    margin: 3px;
-    margin-right: 27px;
-    margin-left: 27px;
     padding: 3px;
-    margin-top: 2170px;
+    margin: auto;
+    margin-top: 1545px;
     background-color: white;
+    width: 350px;
 }
 .adContainer h2 {
     text-align: left;
@@ -1173,12 +1174,20 @@ h2 {
     background: rgb(18, 34, 70);
     color: white;
 }
-@media(min-width: 765px) {
-    .heroSlider img {
-        height: 700px;
-    }
+@media(min-width: 745px) {
     .choices {
-        top: 720px;
+        grid-template-areas: 
+        "choice-2 choice-1"
+        "choice-4 choice-3";
+    }
+    .choices2 {
+        grid-template-areas: 
+        "choice-2 choice-1"
+        "choice-4 choice-3";
+    }
+    .adContainer {
+        margin-top: 730px;
+        width: 730px;
     }
 }
 @media(min-width: 1060px) {
@@ -1186,26 +1195,25 @@ h2 {
         height: 900px;
     }
     .choices {
-        top: 920px;
+        top: 900px;
     }
-
+    .adContainer {
+        margin-top: 680px;
+    }
 }
-@media(min-width: 870px) {
+@media(min-width: 1200px) {
     .choices {
         grid-template-areas: 
-        "choice-2 choice-1"
-        "choice-4 choice-3";
+        "choice-2 choice-1 choice-4"
+        "choice-3";
     }
     .choices2 {
         grid-template-areas: 
-        "choice-2 choice-1"
-        "choice-4 choice-3";
-    }
-    .adContainer {
-        margin-top: 1020px;
+        "choice-2 choice-1 choice-4"
+        "choice-3";
     }
 }
-@media(min-width: 1700px) {
+@media(min-width: 1510px) {
     .choices {
         grid-template-areas: 
         "choice-2 choice-1 choice-4 choice-3";
@@ -1213,10 +1221,10 @@ h2 {
     .choices2 {
         grid-template-areas: 
         "choice-2 choice-1 choice-4 choice-3";
-        margin-left: -15px;
     }
     .adContainer {
-        margin-top: 470px;
+        margin-top: 300px;
+        width: 1495px;
     }
     .move {
         display: none;
@@ -2279,6 +2287,7 @@ a .addyBG {
 }
 .orderH + main {
     flex-flow: row wrap;
+    margin: auto;
 }
 .status {
     display: flex;
@@ -2323,10 +2332,13 @@ a .addyBG {
     margin-bottom: 10px;
 }
 .orderTotalCont {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 5px;
     font-size: large;
     font-weight: bolder;
+    gap: 10px;
 }
 .orderName {
     font-weight: bold;
@@ -2342,9 +2354,40 @@ a .addyBG {
     font-size: small;
     color: rgba(0, 0, 0, 0.541);
 }
+.removeOrder button {
+    padding: 7px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 5px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgba(255, 166, 0, 0.692);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.removeOrder button:hover {
+    background-color: orange;
+}
+.removeOrder button img {
+    width: 40px;
+    margin: -13px;
+    display: none;
+}
 
 @media(min-width: 860px) {
     .orderH + main {
         display: flex;
     }
+}
+
+.cerealMain {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+.sCuisine img {
+    scroll-snap-align: start;
 }

@@ -109,7 +109,7 @@
 			<div class="sCuisine-cont">
 				{% for meal in meals %}
 				<div class="sCuisine">
-					<img src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
+					<img id="{{ meal.id }}" src="{{ url_for('static', filename=meal.url or 'food_images/food-placeholder.jpeg') }}" alt="{{ meal.name }}">
 					<div class="one">
 						<div>
 							<div class="name">{{ meal.name }}</div>

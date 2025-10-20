@@ -62,6 +62,7 @@
             <!--The form below contains, meal_id-quantity (in items), order total-->
             <form id="orders" action="/orders" method="post">
                 <input id="item_info" name="item_info" type="hidden" value="{{ items }}">
+                <input name="urls" type="hidden" value="{{ urls }}">
                 <input name="orderTotal" id="orderTotal" type="hidden">
                 <!--js assigns the value of the orderTotal tag above dynamically based on shipping fee-->
             </form>
@@ -69,7 +70,7 @@
             <input type="checkbox" id="success">
             <label for="success">Pay now<span><img src="{{ url_for('static', filename='animated_icons/trailLoading.gif') }}" alt="loader"></span></label>
             <div class="success">
-                <div class="innerSuccess"><div>You've successfully placed an order</div><a href="/"><button>Home</button></a><a href="/profile"><button class="b">Orders</button></a></div>
+                <div class="innerSuccess"><div>You've successfully placed an order</div><a href="/"><button>Home</button></a><a href="/orders"><button class="b">Orders</button></a></div>
             </div>
         </div>
     </main>

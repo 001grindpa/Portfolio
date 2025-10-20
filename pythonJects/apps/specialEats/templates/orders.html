@@ -6,23 +6,30 @@
         <div>Orders Area</div>
     </header>
     <main>
-        {% for count, order_id, npi in zip(counts, order_ids, name_price_img) %}
+        <div class="addNotCont"></div>
+        {% for detail in order_details %}
         <div class="orderCont">
-            <div class="orderId">Order ID: {{ order_id }}</div>
+            <div class="orderId">Order ID: {{ detail['order_id'] }}</div>
             <div class="status"><div>In transit</div><div class="date">Oct 20, 2025</div></div>
             <div class="orderDiv"></div>
             <div class="size">
                 <div>
-                    <img src="{{ url_for('static', filename=npi['url']) }}" alt="meal_images">
+                    <img src="{{ url_for('static', filename=detail['url']) }}" alt="meal_images">
                     <div>
-                        <div class="orderName">{{ npi["name"] }}</div>
-                        <div class="orderPrice">${{ npi["price"] }}</div>
+                        <div class="orderName">{{ detail['meal'] }}</div>
+                        <div>$<span class="orderPrice">{{ detail['price'] }}</span></div>
                     </div>
                 </div>
-                <div>x <span class="orderCount">{{ count }}</span></div>
+                <div>x <span class="orderCount">{{ detail['quantity'] }}</span></div>
             </div>
             <div class="orderDiv"></div>
-            <div class="orderTotalCont">Total for {{ count }} items: $ <span class="orderTotal"></span></div>
+            <div class="orderTotalCont">
+                <form class="removeOrder" action="/remove" method="post">
+                    <input name="removeOrder" type="hidden" value="{{ detail['id'] }}">
+                    <button type="submit">Cancel order <img src="{{ url_for('static', filename='animated_icons/trailLoading.gif') }}" alt="loader"></button>
+                </form>
+                <div>Total for {{ detail['quantity'] }} items: $<span class="orderTotal"></span></div>
+            </div>
         </div>
         {% endfor %}
     </main>

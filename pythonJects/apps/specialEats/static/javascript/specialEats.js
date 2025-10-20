@@ -1582,4 +1582,54 @@ document.addEventListener('DOMContentLoaded', function(){
 			console.log(orderTotal.value)
 		}
 	}
+
+	// js for order page
+	else if (document.body.id === "orders") {
+		let removeOrder = document.querySelectorAll(".removeOrder");
+		let loader = document.querySelectorAll(".removeOrder button img");
+		let addNotCont = document.querySelector(".addNotCont");
+		let price = document.querySelectorAll(".orderPrice");
+		let quantity = document.querySelectorAll(".orderCount");
+		let total = document.querySelectorAll(".orderTotal");
+
+		for (let i = 0; i < removeOrder.length; i++) {
+			// logic for the total price per order
+			total[i].textContent = (quantity[i].textContent * price[i].textContent).toFixed(2);
+			console.log(quantity[i].textContent);
+
+			removeOrder[i].addEventListener("submit", async (e) => {
+				e.preventDefault();
+				loader[i].style.display = "block";
+				let addNot = document.createElement("div");
+				addNot.classList.add("addNot");
+				addNotCont.prepend(addNot);
+
+				let form = new FormData(removeOrder[i]);
+				try {
+					let response = await fetch("/remove", {
+						method: "POST",
+						body: form
+					});
+					let data = await response.json();
+					console.log(JSON.stringify(data));
+					setTimeout(() => loader[i].style.display = "none", 2000);
+					setTimeout(() => {
+						addNot.textContent = data.msg;
+						addNot.classList.add("showNot");
+						addNot.classList.add("slide");
+					}, 2100);
+
+					setTimeout(slideOut, 3800);
+
+					function slideOut() {
+						addNot.classList.add("slideOut");
+					}
+				}
+				catch (error) {
+					console.log(error)
+				}
+				setTimeout(() => location.reload(), 4200);
+			})
+		}
+	}
 })

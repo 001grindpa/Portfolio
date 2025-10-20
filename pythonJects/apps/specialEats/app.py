@@ -285,6 +285,7 @@ def cart():
 @app.route("/remove", methods=["GET", "POST"])
 def remove():
     if request.method == "POST":
+        i_d = request.form.get("removeOrder")
         meal_id = request.form.get("meal_id")
         in_cart = request.form.get("in_cart")
         if in_cart is not None:
@@ -299,6 +300,9 @@ def remove():
             db.execute("DELETE FROM cart WHERE item_id IN (?)", new_in_cart)
             msg = {"msg": "Ordered items are removed from cart"}
             return jsonify(msg)
+        if i_d:
+            db.execute("DELETE FROM orders WHERE id = ?", i_d)
+            return jsonify({"msg": "Order successfully cancelled"})
 
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
@@ -307,6 +311,7 @@ def checkout():
         # tPrice request contains total price
         x = []
         y = {}
+        urls = []
         items_count = request.form.get("itemCount")
         if int(items_count) >= 3:
             n = randint(1, 20)
@@ -319,11 +324,12 @@ def checkout():
         inCheckout = db.execute("SELECT url FROM meals WHERE id IN (?)", x)
         for meal, count in zip(inCheckout, items):
             y[meal.get("url")] = items[count]
+            urls.append(meal.get("url"))
         details = db.execute("SELECT * FROM userData WHERE username = ?", session.get("username"))
         for data in details:
             address = data["address"]
             card = data["card"]
-        return render_template("checkout.html", items = items, x = x, address = address, card = card, paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
+        return render_template("checkout.html", urls = urls, items = items, x = x, address = address, card = card, paidShip = n, page_id = "checkout", co = y, tPrice = tPrice)
 
 @app.route("/orders", methods=["GET", "POST"])
 def orders():
@@ -333,6 +339,7 @@ def orders():
         fixed_item_info_json = buggy_item_info_json.replace("'", '"')
         item_info = json.loads(fixed_item_info_json)
         orderTotal = request.form.get("orderTotal", " ")
+        urls = ast.literal_eval(request.form.get("urls"))
         user_data = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
         for data in user_data:
             user_id = data.get("id")
@@ -341,13 +348,14 @@ def orders():
         data = db.execute("SELECT COUNT(*) AS order_id FROM orderIDs")
 
         #filling up the orders table with neccesary details
-        for id in item_info:
+        for id, url in zip(item_info, urls):
             #assigning an order id
             for x in data:
                 order_id = x.get("order_id")
                 db.execute("INSERT INTO orders(order_id) VALUES(?)", order_id)
 
             db.execute("UPDATE orders SET user_id = ? WHERE order_id = ? AND user_id IS NULL", user_id, order_id)
+            db.execute("UPDATE orders SET url = ? WHERE order_id = ? AND url IS NULL", url, order_id)
 
             db.execute("UPDATE orders SET quantity = ? WHERE order_id = ? AND quantity IS NULL", item_info[id], order_id)
             db.execute("UPDATE orders SET order_total_price = ? WHERE order_id = ? AND order_total_price IS NULL", orderTotal, order_id)
@@ -358,24 +366,13 @@ def orders():
             db.execute("UPDATE orders SET meal = ? WHERE order_id = ? AND meal IS NULL", name, order_id)
             db.execute("UPDATE orders SET price = ? WHERE order_id = ? AND price IS NULL", price, order_id)
         return jsonify({"msg": "user order updated"})
-    meals = []
-    counts = []
-    order_ids = []
+   
     user = db.execute("SELECT id FROM userData WHERE username = ?", session.get("username"))
     for id in user:
         user_identity = id.get("id")
 
     order_details = db.execute("SELECT * FROM orders WHERE user_id = ?", user_identity)
-    for details in order_details:
-        order_identity = details.get("order_id")
-        order_ids.append(order_identity)
-        quantity = details.get("quantity")
-        counts.append(quantity)
-        meal_name = details.get("meal")
-        meals.append(meal_name)
-    name_price_img = db.execute("SELECT * FROM meals WHERE name IN (?)", meals)
-
-    return render_template("orders.html", page_id = "orders", zip = zip, counts = counts, order_ids = order_ids, name_price_img = name_price_img)
+    return render_template("orders.html", page_id = "orders", order_details = order_details)
 
 
 @app.route("/redirected")
