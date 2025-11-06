@@ -2276,6 +2276,19 @@ a .addyBG {
     margin: auto;
     color: white;
 }
+.error .home {
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    background-color: rgb(204, 203, 203);
+    color: green;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.error .home:hover {
+    background-color: white;
+}
 
 /* Order page styling */
 
