@@ -11,6 +11,7 @@
     --bg-color1: rgb(243, 243, 243);
     --padding: 0.7rem;
     --line-height: 1.3;
+    --shadow-fade: rgba(0, 0, 0, 0.22);
 }
 header {
     position: fixed;
@@ -35,9 +36,9 @@ header .menu {
 }
 .bg-1 {
     background-color: var(--bg-color1);
-    padding-top: 45px;
 }
 .section-1 {
+    padding-top: 45px;
     display: grid;
     gap: 10px;
     grid-template-areas:
@@ -115,6 +116,7 @@ header .menu {
     margin-left: 5%;
     margin-right: 5%;
     padding-top: 20px;
+    padding-bottom: 20px;
     line-height: var(--line-height);
 }
 main .section-2 .subSection {
@@ -148,10 +150,249 @@ main .section-2 .skills div {
     padding: 3px 13px;
 }
 
-/* change viewport layout */
+/* section-3 styling */
+.section-3 {
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+    "one"
+    "two";
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: var(--line-height);
+}
+main .section-3 .subSection {
+    margin: auto;
+    margin-bottom: 15px;
+    grid-area: one;
+}
+main .section-3 .experience h6 {
+    color: var(--lightBlue);
+}
+main .section-3 .experience h4 {
+    padding-bottom: var(--padding);
+}
+main .section-3 .experience h5 {
+    font-weight: bolder;
+    color: var(--lightBlue);
+}
+main .section-3 .experience .chain {
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+    "one two three"
+    "four five six";
+}
+main .section-3 .experience .years {
+    font-size: small;
+}
+main .section-3 .experience .years.one {
+    grid-area: one;
+}
+main .section-3 .experience .chain .line {
+    grid-area: two;
+}
+main .section-3 .experience .ball {
+    height: 10px;
+    width: 10px;
+    border-radius: 20px;
+    background-color: var(--lightBlue);
+    margin: auto;
+    margin-bottom: 2px;
+}
+main .section-3 .experience .h-line {
+    height: 100%;
+    width: 1px;
+    background-color: var(--lightBlue);
+    margin: auto;
+}
+main .section-3 .experience .info.one {
+    grid-area: three;
+}
+main .section-3 .experience .years.two {
+    grid-area: four;
+}
+main .section-3 .experience .line2 {
+    grid-area: five;
+    opacity: 0.5;
+}
+main .section-3 .experience .info.two {
+    grid-area: six;
+}
+
+/* subsection2 of section3 styling */
+main .section-3 .subSection-2 {
+    grid-area: two;
+}
+main .section-3 .subSection-2 .resume {
+    font-weight: bold;
+    color: var(--lightBlue);
+}
+main .section-3 .subSection-2 .resume:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* section-4 styling */
+.section-4 {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.section-4 .projects h6 {
+    color: var(--lightBlue);
+}
+.section-4 .projects h4 {
+    padding-bottom: var(--padding);
+}
+.section-4 .projects .more {
+    text-align: right;
+}
+.section-4 .projects .h-flex {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+}
+.section-4 .projects .h-flex .more a {
+    font-weight: bold;
+    color: var(--lightBlue);
+    font-size: small;
+    text-decoration: none;
+}
+.section-4 .projects .h-flex .more a:hover {
+    text-decoration: underline;
+}
+.section-4 .projects .jectsCont {
+    display: grid;
+    grid-template-areas: 
+    "one"
+    "two"
+    "three";
+    justify-content: center;
+    gap: 1rem;
+}
+.section-4 .projects .jectsCont .ject {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0.7rem;
+    line-height: 1.25;
+    box-shadow: 0 3px 5px 1px var(--shadow-fade);
+    margin-bottom: 5px;
+}
+.section-4 .projects .jectsCont .ject.one {
+    grid-area: one;
+}
+.section-4 .projects .jectsCont .ject.two {
+    grid-area: two;
+}
+.section-4 .projects .jectsCont .ject.three {
+    grid-area: three;
+}
+.section-4 .projects .jectsCont .ject .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.section-4 .projects .jectsCont .ject .title .h {
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 5px;
+}
+.section-4 .projects .jectsCont .ject .title .stack {
+    width: fit-content;
+    color: var(--lightBlue);
+    background-color: var(--lightBlueLowOpacity);
+    border-radius: 20px;
+    padding: 3px 13px;
+    font-size: small;
+}
+.section-4 .projects .jectsCont .ject .brief {
+    margin-bottom: 5px;
+}
+.section-4 .projects .jectsCont .ject .brief + div a {
+    font-weight: bold;
+    color: var(--lightBlue);
+    font-size: small;
+    text-decoration: none;
+}
+.section-4 .projects .jectsCont .ject .brief + div a:hover {
+    text-decoration: underline;
+}
+
+/* prefooter styling */
+main .preFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: 1px solid green;
+    border-radius: 7px;
+    margin: auto;
+    margin-right: 5%;
+    margin-left: 5%;
+    padding: 10px 25px;
+    background-color: var(--darkBlue);
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 60px;
+}
+main .preFooter h3 + div {
+    font-size: small;
+}
+main .preFooter button {
+    outline: none;
+    border: none;
+    width: 150px;
+    height: 35px;
+    border-radius: 7px;
+    background-color: var(--lightBlue);
+    color: white;
+    transition: 0.25s;
+}
+main .preFooter button:hover {
+    opacity: 0.8;
+}
+/* footer styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--darkBlue);
+    color: white;
+    font-size: small;
+}
+footer div + div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+footer div + div img {
+    width: 20px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 25px;
+    transition: 0.25s;
+}
+footer div + div img:hover {
+    background-color: lightgray;
+}
+
+
+/* change view layout */
 @media(min-width: 350px) {
     .section-1 .subSection button {
         width: auto;
+    }
+    .section-4 .projects .jectsCont .ject {
+        width: 19rem;
     }
 }
 @media(min-width: 550px) {
@@ -164,10 +405,21 @@ main .section-2 .skills div {
     .section-2 {
         grid-template-areas: "one two";
     }
+    .section-3 {
+        grid-template-areas: "one two";
+    }
+    .section-3 .subSection-2 {
+        text-align: center;
+    }
 }
 @media(min-width: 800px) {
     .section-1 .subSection {
         width: 500px;
+    }
+    .section-4 .projects .jectsCont {
+        grid-template-areas: 
+        "one two"
+        "three three";
     }
 }
 @media(min-width: 900px) {
@@ -176,5 +428,24 @@ main .section-2 .skills div {
     }
     .section-2 .subSection2 {
         width: 25rem;
+    }
+    .section-3 .experience .chain {
+        width: 40rem;
+    }
+    .section-4 .projects .h-flex  {
+        width: 51rem;
+        margin: auto;
+    }
+    main .preFooter {
+        width: 51rem;
+        margin: auto;
+        margin-bottom: 5px;
+        margin-bottom: 60px;
+    }
+}
+@media(min-width: 1100px) {
+    .section-4 .projects .jectsCont {
+        grid-template-areas: 
+        "one two three";
     }
 }
