@@ -61,6 +61,65 @@ header .menu {
     padding-bottom: var(--padding);
     padding-top: var(--padding);
 }
+.section-1 .subSection #res {
+    display: none;
+}
+.section-1 .subSection #res:checked ~ .resumeCont {
+    display: block;
+}
+.section-1 .subSection .resumeCont {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.418);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+    display: none;
+}
+.section-1 .subSection .resume {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--darkBlue);
+    width: fit-content;
+    margin: auto;
+    margin-top: 15rem;
+}
+.section-1 .subSection .resume a {
+    text-decoration: none;
+}
+.section-1 .subSection .resumeCont .resume #main-resume {
+    width: 20rem;
+    display: none;
+}
+.section-1 .subSection .resumeCont .resume #teaser {
+    width: 16rem;
+}
+.section-1 .subSection .resumeCont .resume button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: auto;
+    margin-top: 10px;
+}
+.section-1 .subSection .resumeCont .resume button img {
+    width: 22px;
+}
+.section-1 .subSection label {
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    font-size: small;
+    width: 13.7rem;
+    padding: 7px 25px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background: var(--lightBlue);
+    color: white;
+    transition: 0.25s;
+}
 .section-1 .subSection button {
     font-weight: bold;
     width: 17rem;
@@ -68,11 +127,11 @@ header .menu {
     margin-bottom: 5px;
     border-radius: 5px;
     background: var(--lightBlue);
+    border: none;
     color: white;
-    border: 1px solid var(--darkBlue);
     transition: 0.25s;
 }
-.section-1 .subSection button:hover {
+.section-1 .subSection button:hover, .section-1 .subSection label:hover {
     opacity: 0.8;
 }
 .section-1 .subSection2 {
@@ -394,6 +453,9 @@ footer div + div img:hover {
     .section-4 .projects .jectsCont .ject {
         width: 19rem;
     }
+    .section-1 .subSection label {
+        width: fit-content;
+    }
 }
 @media(min-width: 550px) {
     .section-1 {
@@ -411,6 +473,15 @@ footer div + div img:hover {
     .section-3 .subSection-2 {
         text-align: center;
     }
+    .section-1 .subSection .resume {
+        margin-top: 4rem;
+    }
+    .section-1 .subSection .resumeCont .resume #teaser {
+        display: none;
+    }
+    .section-1 .subSection .resumeCont .resume #main-resume {
+        display: block;
+    }
 }
 @media(min-width: 800px) {
     .section-1 .subSection {
@@ -420,6 +491,7 @@ footer div + div img:hover {
         grid-template-areas: 
         "one two"
         "three three";
+        justify-content: center;
     }
 }
 @media(min-width: 900px) {

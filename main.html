@@ -35,8 +35,16 @@
                             <h4>Software Developer</h4>
                             <div>I build clean, efficient and user-friendly web applications. Passionate about problem-solving and creating impactful digital experiences.</div>
                         </div>
-                        <button>View Resume</button>
-                        <button>Contact Me</button>
+                        <input type="checkbox" id="res">
+                        <label for="res">View Resume</label>
+                        <div class="resumeCont">
+                            <div class="resume">
+                                <img id="teaser" src="images/pdf-placeholder.png" alt="resume_teaser">
+                                <img id="main-resume" src="images/resume.png" alt="main_resume_img">
+                                <a href="pdfs/Anyanwu_Francis_Resume.pdf" download="Anyanwu_Francis_Resume.pdf"><button><div>Download Resume</div><img src="images/download-icon.png" alt="download-icon"></button></a>
+                            </div>
+                        </div>
+                        <a href="https://x.com/0xgrindpa"><button>Contact Me</button></a>
                     </div>
                     <div class="subSection2">
                         <h5>Quick Info</h5>
@@ -60,7 +68,8 @@
                                 <img src="images/portfolio.png" alt="email">
                                 <div>
                                     <h5>Experience</h5>
-                                    <div>3+ years</div>
+                                    <!--make the year dynamic with js-->
+                                    <div><span id="exp">3</span>+ years</div>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +178,8 @@
                 <button>Get In Touch</button>
             </div>
             <footer>
-                <div>&copy; <span>2026</span> Anyanwu Francis Jnr. All Rights Reserved</div>
+                <!--make the year dynamic with js-->
+                <div>&copy; <span id="currentYear">2026</span> Anyanwu Francis Jnr. All Rights Reserved</div>
                 <div>
                     <a href="https://x.com/0xgrindpa"><img src="images/twitter.png" alt="twitter logo"></a>
                     <a href="https://github.com/001grindpa"><img src="images/github.png" alt="github logo"></a>
