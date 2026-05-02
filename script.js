@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentYear = body.querySelector("#currentYear");
     const aboutMe = body.querySelector(".section-2");
     const expSection = body.querySelector(".section-3");
+    const loader = body.querySelector(".loader");
+    const subBody = body.querySelector(".sub-body");
+    const viewResume = body.querySelector("main .section-3 .subSection-2 .resume");
 
     // dynamic years config
     // for years of experience
@@ -16,6 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
     exp.textContent = expYear;
     // for footer
     currentYear.textContent = year;
+
+    // page loading
+    window.addEventListener("load", () => {
+        loader.style.display = "none";
+        subBody.style.display = "block";
+    })
+
+    // view resume after clicking the section3 "view full resume" el
+    viewResume.addEventListener("click", () => {
+        resumeCheck.click();
+    })
 
     // view resume logic
     resumeCont.addEventListener("click", () => {
