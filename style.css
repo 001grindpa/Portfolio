@@ -15,6 +15,7 @@
 }
 header {
     position: fixed;
+    z-index: 1;
     right: 0;
     left: 0;
     display: flex;
@@ -167,6 +168,8 @@ header .menu {
 }
 /* section-2 styling */
 .section-2 {
+    transform: translateY(30%);
+    opacity: 0;
     display: grid;
     grid-template-areas: 
     "one"
@@ -177,6 +180,15 @@ header .menu {
     padding-top: 20px;
     padding-bottom: 20px;
     line-height: var(--line-height);
+}
+.section-2.slide-up {
+    animation: slide-up 2s forwards;
+}
+@keyframes slide-up {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 main .section-2 .subSection {
     margin: auto;
@@ -211,6 +223,8 @@ main .section-2 .skills div {
 
 /* section-3 styling */
 .section-3 {
+    transform: translateY(30%);
+    opacity: 0;
     display: grid;
     gap: 10px;
     grid-template-areas: 
@@ -221,6 +235,15 @@ main .section-2 .skills div {
     padding-top: 20px;
     padding-bottom: 20px;
     line-height: var(--line-height);
+}
+.section-3.slide-up {
+    animation: slide-up 2s forwards;
+}
+@keyframes slide-up {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 main .section-3 .subSection {
     margin: auto;

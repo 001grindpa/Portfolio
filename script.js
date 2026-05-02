@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const resumeCheck = body.querySelector(".section-1 .subSection #res");
     let exp = body.querySelector("#exp");
     let currentYear = body.querySelector("#currentYear");
+    const aboutMe = body.querySelector(".section-2");
+    const expSection = body.querySelector(".section-3");
 
     // dynamic years config
     // for years of experience
@@ -18,11 +20,31 @@ document.addEventListener("DOMContentLoaded", () => {
     // view resume logic
     resumeCont.addEventListener("click", () => {
         if (resumeCheck.checked == true) {
-            resumeCheck.checked = false;
+            resumeCheck.click();
         }
+    })
+    resume.addEventListener("click", (e) => {
+        e.stopPropagation();
+    })
+    // event handler for frezzing and unfreezing page
+    resumeCheck.addEventListener("change", () => {
+        if (resumeCheck.checked == true) {
+            body.style.overflowY = "hidden";
+        } else if (resumeCheck.checked == false) {
+            body.style.overflowY = "auto";
+        }
+    })
 
-        resume.addEventListener("click", (e) => {
-            e.stopImmediatePropagation();
+    // use intersection observer to add class
+    let observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            let target = entry.target;
+
+            if (entry.isIntersecting) {
+                target.classList.add("slide-up");
+            }
         })
     })
+    observer.observe(aboutMe);
+    observer.observe(expSection);
 })
