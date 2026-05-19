@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: "Poppins", "Roboto", sans-serif;
+    line-height: 1.6;
 }
 :root {
     --darkBlue: rgb(0, 0, 70);
@@ -132,7 +133,7 @@ header .menu a {
     font-weight: bold;
     font-size: small;
     width: 13.7rem;
-    padding: 8.5px 25px;
+    padding: 7.1px 25px;
     margin-bottom: 5px;
     border-radius: 5px;
     background: var(--lightBlue);
